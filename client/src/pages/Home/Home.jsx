@@ -5,6 +5,8 @@ import SellIcon from '@mui/icons-material/Sell';
 import CloseIcon from '@mui/icons-material/Close';
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import PropertyCard from '../../components/PropertyCard/PropertyCard.jsx';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 function Home() {
   return (
@@ -28,8 +30,15 @@ function Home() {
           <PropertyCard />
           <PropertyCard />
         </div>
+        <div className={styles.buttonsScrollDev}>
+          <button className={styles.scrollButton}><ArrowBackIosNewIcon fontSize="small"/></button>
+          <button className={styles.scrollButton}><ArrowForwardIosIcon fontSize="small"/></button>
+        </div>
       </div>
       
+      <div >
+
+      </div>
     </div>
   )
 }

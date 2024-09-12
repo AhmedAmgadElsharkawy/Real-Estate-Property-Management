@@ -79,6 +79,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    &:hover {
+        background-color: #ff9900;
+    }
 }
 
 .searchBarDev {
@@ -103,7 +106,7 @@
 
 .properties {
     padding-top: 50px;
-    height: 600px;
+    height: 670px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -112,9 +115,29 @@
 }
 
 .cards {
-    width: 1300px;
+    width: 1280px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+}
+
+.buttonsScrollDev {
+    position: relative;
+    left: 1171px;
+    width: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.scrollButton {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    border: 1px solid #FFB300;
+
+    &:hover {
+        background-color: #ff9900;
+    }
 }
