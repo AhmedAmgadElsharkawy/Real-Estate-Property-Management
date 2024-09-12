@@ -13,7 +13,7 @@ function PropertyCard() {
           <div className={styles.location}>Manchester city</div>
         </div>
         <div className={styles.features}>
-          <div className={styles.featureContainer}><HotelIcon color='white'/><span>3</span></div>
+          <div className={styles.featureContainer}><HotelIcon/><span>3</span></div>
           <div className={styles.featureContainer}><ShowerIcon/><span>2</span></div>
           <div className={styles.featureContainer}><WeekendIcon/><span>semi-furnished</span></div>
         </div>
