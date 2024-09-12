@@ -30,6 +30,7 @@
     align-items: center;
     padding: 0px 16px;
     margin-top: 16px;
+    width: 100%;
 }
 
 .info{
@@ -79,4 +80,36 @@
     justify-content: center;
     align-items: center;
     gap: 4px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+}
+
+@media (min-width:520px) and (max-width:960px){
+    .container{
+        width: 341px;
+    }
+}
+
+@media (max-width:520px){
+    .container{
+        width: 343px;
+        height: 380px;
+    }
+    .cardImgDiv{
+        height: 208px;
+    }
+    .infoContainer{
+        height: 140px;
+    }
+    .info{
+        height: 84px;
+    }
+    .features{
+        padding: 8px;
+    }
+    .price{
+        font-size: 20px;
+        line-height: 28px;
+    }
 }
