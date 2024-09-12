@@ -22,11 +22,11 @@ function Home() {
       <div className={styles.headerOverlay}>Discover Your Dream Home</div>
       <div className={styles.textOverlay}>Your one-stop real estate destination for buying, renting, and selling properties.</div>
       <div className={styles.searchDev}>
-        <div className={styles.searchBarDev}><SellIcon fontSize="small"/><label className={styles.searchBarLabel} htmlFor="">For Sale</label></div>
-        <div className={styles.searchBarDev}><BusinessCenterIcon fontSize="small"/><label className={styles.searchBarLabel} htmlFor="">For Rent</label></div>
+        <div className={styles.searchBarDev}><div className={styles.removedIcon}><SellIcon fontSize="small"/></div><label className={styles.searchBarLabel} htmlFor="">For Sale</label></div>
+        <div className={styles.searchBarDev}><div className={styles.removedIcon}><BusinessCenterIcon fontSize="small"/></div><label className={styles.searchBarLabel} htmlFor="">For Rent</label></div>
         <input className={styles.searchInput} type="text" placeholder="Search by city"/>
-        <button className={styles.clearInputButton}><CloseIcon fontSize="small"/></button>
-        <button className={styles.searchButton}><SearchIcon/>Search</button>
+        <button className={styles.clearInputButton}><div className={styles.removedIcon}><CloseIcon fontSize="small"/></div></button>
+        <button className={styles.searchButton}><div className={styles.removedIcon}><SearchIcon/></div>Search</button>
       </div>
 
       <div className={styles.properties}>
