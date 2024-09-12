@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700&display=swap');
+
+.container{
+    font-family: 'Exo', sans-serif;
+    width: 100%;
+    padding: 100px 100px 56px 100px;
+    background-color: black
+}
+.body{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 56px;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.buttonsWrap{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.button{
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 600;
+}
+
+.horizontalRuler{
+    border: 1px solid rgba(144,145,147,0.4);
+}
+
+.contacts{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    color: white;
+}
+
+.socialMedia{
+    padding: 10px 0px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 24px;
+    color: white;
+    width: 100%;
+}
+
+.copyright{
+    display: flex;
+    justify-content: flex-end;
+}

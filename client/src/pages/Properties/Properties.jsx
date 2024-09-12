@@ -89,6 +89,7 @@ function Properties() {
                     </select>
                 </div>
             </div>
+            <PropertyCard/>
             <SignInAlert/>
         </>
     )
