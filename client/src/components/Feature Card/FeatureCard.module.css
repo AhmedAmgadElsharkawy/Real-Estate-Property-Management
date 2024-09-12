@@ -31,3 +31,7 @@
     flex-direction: column;
     justify-content: start;
 }
+
+@media only screen and (max-width: 800px) {
+    
+}

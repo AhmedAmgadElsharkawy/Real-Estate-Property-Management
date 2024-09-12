@@ -11,6 +11,10 @@
     padding: 20px 100px 20px 100px;
 }
 
+.menuDev {
+    display: none;
+}
+
 .labelsContainer {
     width: 400px;
     display: flex;
@@ -59,4 +63,23 @@
 .img {
     width: 50px;
     height: 50px;
+}
+
+@media only screen and (max-width: 800px) {
+    .container {
+        background-color: white;
+        padding: 20px 20px 20px 20px;
+    }
+    .labelsContainer {
+        display: none;
+    }
+    .label {
+        display: none;
+    }
+    .button {
+        display: none;
+    }
+    .menuDev {
+        display: flex;
+    }
 }
