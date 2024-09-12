@@ -1,6 +1,9 @@
+import homeImg from "./homePageImage.jpg";
 function Home() {
   return (
-    <div>Home</div>
+    <div>
+      <img src={homeImg} alt="" />
+    </div>
   )
 }
 
