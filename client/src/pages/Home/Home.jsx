@@ -14,6 +14,7 @@ import GradingIcon from '@mui/icons-material/Grading';
 import SignalCellularAltIcon from '@mui/icons-material/SignalCellularAlt';
 import UsbOffIcon from '@mui/icons-material/UsbOff';
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
+import ReviewCard from "../../components/Review Card/ReviewCard.jsx";
 
 function Home() {
   return (
@@ -52,6 +53,10 @@ function Home() {
           <FeatureCard title="No Middlemen" content="Linked Bricks eliminates intermediaries, granting you more control for faster, direct real estate interactions and decisions." Component={()=> { return <UsbOffIcon fontSize="large" sx={{color: "white"}}/>}}/>
           <FeatureCard title="Dedicated Customer Support:" content="Our dedicated customer support team is ready to assist you at every step of your property search journey." Component={()=> { return <SupportAgentIcon fontSize="large" sx={{color: "white"}}/>}}/>
         </div>
+      </div>
+
+      <div className={styles.reviewsDev}>
+        <ReviewCard/>
       </div>
     </div>
   )

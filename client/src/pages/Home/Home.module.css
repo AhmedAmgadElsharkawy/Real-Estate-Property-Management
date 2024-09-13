@@ -272,5 +272,134 @@
         align-items: center;
         justify-content: center;
     }
+}
 
+@media only screen and (max-width: 550px) {
+    .homeImg {
+        width: 100%;
+        height: 300px;
+        filter: contrast(90%);
+        border-radius: 0px 0px 25px 25px;
+    }
+    .headerOverlay {
+        top: 20%;
+        left: 20px;
+        width: 300px;
+        font-size: 30px;
+    }
+    .textOverlay {
+        position: absolute;
+        top: 30%;
+        left: 20px;
+        width: 400px;
+        font-size: 20px;
+    }
+    .searchDev {
+        position: absolute;
+        top: 55%;
+        left: 20px;
+        width: 400px;
+        display: grid;     
+        grid-template-columns: repeat(6, 1fr);
+        column-gap: 5px;
+        row-gap: 5px;
+        background-color: white;
+        height: 120px;
+    }
+    .removedIcon {
+        display: none;
+    }
+    .searchInput {
+        height: 40px;
+        width: 307px;
+        border-radius: 12px;
+        border: #FFB300;
+        border: 1px solid #FFB300;
+        text-indent: 18px;
+        font-size: 15px; 
+        grid-column: span 5;
+    }
+    
+    .removedIcon {
+        display: none;
+    }
+    
+    .clearInputButton {
+        display: none;
+        position: absolute;
+        left: 490px;
+        font-size: small;
+        background-color: #FFF9E6;
+        border-radius: 50%;
+        border: none;
+        display: flex;
+        align-items: center;
+    }
+    
+    .searchButton {
+        width: 55px;
+        height: 40px;
+        &:hover {
+            background-color: #ff9900;
+        }
+    }
+    .searchBarDev {
+        width: 180px;
+        height: 40px;
+        border-radius: 12px;
+        border: 1px solid #FFB300;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        &:hover {
+            background-color: #FFF9E6;
+        }
+        grid-column:span 3;
+    }
+    .properties {
+        padding: 170px 0px 50px 0;
+        height: 730px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: absolute;
+        left: 20px;
+    }
+    
+    .cards {
+        width: 500px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .buttonsScrollDev {
+        position: relative;
+        left: 600px;
+        width: 110px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+        
+    .chooseUsDev {
+        position: absolute;
+        padding: 0px 0px 0px 0px;
+        top: 190%;
+        background-color: #EBFFFD;
+        width: 100%;
+        height: 820px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .featuresDev {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 }

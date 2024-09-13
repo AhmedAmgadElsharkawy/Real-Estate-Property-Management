@@ -1,0 +1,55 @@
+.mainDev {
+    width: 300px;
+    height: 180px;
+    background-color: white;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.clientDev {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.reviewerImg {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.reviewDate {
+    opacity: 50%;
+}
+
+.comment {
+    padding: 15px 0px 15px 0px;
+}
+
+.ratingDev {
+    padding-top: 20px;
+    width: 250px;
+    position: absolute;
+    top: 65%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ratingStars {
+    height: 20px;
+    width: 100px;
+}
+
+.showButton {
+    border-radius: 50%;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+}
