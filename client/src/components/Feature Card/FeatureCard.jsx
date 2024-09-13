@@ -9,7 +9,7 @@ function FeatureCard({title, content, Component}) {
             </div>
             <div className={styles.contentDev}>
                 <p className={styles.title}>{title}</p>
-                <p>{content}</p>
+                <p className={styles.content}>{content}</p>
             </div>
         </div>
     )
