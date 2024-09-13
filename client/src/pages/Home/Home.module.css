@@ -323,6 +323,32 @@
         align-items: center;
         justify-content: center;
     }
+    .reviewDiv {
+        position: relative;
+        top: 1650px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        height: 1000px;
+    }
+    
+    .peopleReviews {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    
+    .reviewsTitle {
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: space-evenly;
+    }
 }
 
 @media only screen and (max-width: 550px) {
