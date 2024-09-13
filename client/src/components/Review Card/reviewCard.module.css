@@ -5,6 +5,8 @@
     padding: 10px;
     display: flex;
     flex-direction: column;
+    border: 2px solid #01B8C6;
+    border-radius: 12px;
 }
 
 .clientDev {
@@ -29,10 +31,7 @@
 }
 
 .ratingDev {
-    padding-top: 20px;
-    width: 250px;
-    position: absolute;
-    top: 65%;
+    width: 270px;
     display: flex;
     flex-direction: row;
     align-items: center;

@@ -2,7 +2,7 @@
 
 .mainDev {
     background-color: whitesmoke;
-    height: 1500px;
+    height: 2000px;
 }
 
 .homeImg {
@@ -167,6 +167,57 @@
     grid-template-columns: repeat(2, 1fr);
     column-gap: 190px;
     row-gap: 20px;
+}
+
+.reviewDiv {
+    position: relative;
+    top: 1250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 400px;
+    background-color: white;
+}
+
+.goToReviewsPage {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.peopleReviews {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
+
+.reviewsTitle {
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-evenly;
+}
+
+.goToReviewsPageButton {
+    height: 50px;
+    width: 140px;
+    border-radius: 12px;
+    background-color: #01B8C6;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 @media only screen and (max-width: 800px) {

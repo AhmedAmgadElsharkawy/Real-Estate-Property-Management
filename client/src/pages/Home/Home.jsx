@@ -55,8 +55,23 @@ function Home() {
         </div>
       </div>
 
-      <div className={styles.reviewsDev}>
-        <ReviewCard/>
+
+      <div className={styles.reviewDiv}>
+        <div className={styles.goToReviewsPage}>
+          <div className={styles.reviewsTitle}>
+            <h1>Customer Reviews</h1>
+            <h5>See what our client’s are saying</h5>
+          </div>
+          <button className={styles.goToReviewsPageButton}>
+            <h4>See all reviews</h4> <ArrowForwardIosIcon fontSize="small"/>
+          </button>
+        </div>
+        <div className={styles.peopleReviews}>
+          <ReviewCard/>
+          <ReviewCard/>
+          <ReviewCard/>
+          <ReviewCard/>
+        </div>
       </div>
     </div>
   )

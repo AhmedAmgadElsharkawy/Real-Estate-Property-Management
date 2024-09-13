@@ -17,7 +17,7 @@ function ReviewCard() {
             <div className={styles.ratingDev}>
                 <img className={styles.ratingStars} src={rating} alt="" />   
                 <button className={styles.showButton}>
-                    <NorthEastIcon />
+                    <NorthEastIcon fontSize='small'/>
                 </button>
             </div>
         </div>
