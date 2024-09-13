@@ -15,7 +15,7 @@ function Footer() {
             </div>
             <hr className={styles.horizontalRuler} />
             <div className={styles.contacts}>
-                <div className={styles.socialMedia}><a href="https://github.com/AhmedAmgadElsharkawy" target="_blank" rel="noopener noreferrer"><GitHubIcon sx={{ fontSize: 20, color: 'white' }}/></a> <a href="https://www.linkedin.com/in/engineer-ahmed-amgad" target="_blank" rel="noopener noreferrer"><LinkedInIcon sx={{ fontSize: 20, color: 'white' }}/></a> <a href="https://github.com/AbdullahMahmoudHanafy" target="_blank" rel="noopener noreferrer"><GitHubIcon sx={{ fontSize: 20, color: 'white' }}/></a> <a href="https://linkedin.com/in/abdullah-mahmoud-hanafy-1a3116255" target="_blank" rel="noopener noreferrer"><LinkedInIcon sx={{ fontSize: 20, color: 'white' }}/></a></div>
+                <div className={styles.socialMedia}><a href="https://github.com/AhmedAmgadElsharkawy" target="_blank" rel="noopener noreferrer"><GitHubIcon sx={{ fontSize: 20, color: 'white' }}/></a> <a href="https://www.linkedin.com/in/engineer-ahmed-amgad" target="_blank" rel="noopener noreferrer"><LinkedInIcon sx={{ fontSize: 20, color: 'white' }}/></a> <a href="https://github.com/AbdullahMahmoudHanafy" target="_blank" rel="noopener noreferrer"><GitHubIcon sx={{ fontSize: 20, color: 'white' }}/></a> <a href="https://linkedin.com/in/abdullah-mahmoud-hanafy" target="_blank" rel="noopener noreferrer"><LinkedInIcon sx={{ fontSize: 20, color: 'white' }}/></a></div>
                 <div className={styles.copyright}>© 2024 All rights reserved.</div>
             </div>
         </div>

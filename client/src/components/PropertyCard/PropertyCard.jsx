@@ -2,13 +2,21 @@ import styles from './PropertyCard.module.css';
 import HotelIcon from '@mui/icons-material/Hotel';
 import ShowerIcon from '@mui/icons-material/Shower';
 import WeekendIcon from '@mui/icons-material/Weekend';
-function PropertyCard({src,price,beds,baths,location,type,furniture}) {
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+
+function PropertyCard({src,price,beds,baths,location,type,furniture,status}) {
   return (
     <div className={styles.container}>
-      <div className={styles.cardImgDiv}><img className={styles.cardImg} src={src} alt="real-state" /></div>
+      <div className={styles.cardImgDiv}>
+        <img className={styles.cardImg} src={src} alt="real-state" />
+        <button className={styles.favouriteButton}><FavoriteBorderIcon/></button>
+      </div>
       <div className={styles.infoContainer}>
         <div className={styles.info}>
-          <div className={styles.price}>{price}</div>
+          <div className={styles.priceAndStatusContainer}>
+            <div className={styles.price}>{price}</div> 
+            <div className={styles.status}>{status}</div>
+          </div>
           <div className={styles.type}>{type}</div>
           <div className={styles.location}>{location}</div>
         </div>

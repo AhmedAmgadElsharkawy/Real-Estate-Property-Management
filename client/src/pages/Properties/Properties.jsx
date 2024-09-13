@@ -122,6 +122,7 @@ function Properties() {
                         price={card.price}
                         beds={card.beds}
                         baths={card.baths}
+                        status={card.status}
                         />)
                     })}
                 </div>
