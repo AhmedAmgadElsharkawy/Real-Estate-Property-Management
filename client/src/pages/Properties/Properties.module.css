@@ -96,6 +96,13 @@
     background-color: #E8AE00;
 }
 
+.submitButton:hover{
+    cursor: pointer;
+    color: black;
+    background-color: white;
+    border:1px solid #E8AE00;
+}
+
 .filterButton{
     width: 117px;
     display: flex;
@@ -104,15 +111,19 @@
     background-color: white;
 }
 
+.filterButton:hover{
+    color: white;
+    background-color: #E8AE00;
+    cursor: pointer;
+}
+
 .body{
     font-family: 'Exo', sans-serif;
     position: relative;
-    width: 86%;
+    padding: 97px 100px 40px 100px;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding-top: 97px;
-    left: 7%;
 }
 
 .bodyHeader{
@@ -139,8 +150,44 @@
     line-height: 26px;
 }
 
+.cardsContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 31px;
+    flex-wrap: wrap;
+}
 
+.paginationButtonsContainer{
+    display: flex;
+    gap: 8px;
+    justify-content: end;
+    align-items: center;
+    margin-top: 20px;
+    padding-right: 50px;
+}
 
+.paginationButtons{
+    border: none;
+    color: rgb(43, 42, 42);
+    background-color: white;
+    border: 1px solid #E8AE00;
+    border-radius: 12px;
+    height: 56px;
+    width: 56px;
+}
+
+.paginationButtons:disabled{
+    color: #a5afb7;
+    border-color: #a5afb7;
+    cursor: not-allowed;
+}
+
+.paginationButtons:not(:disabled):hover{
+    background-color: #E8AE00;
+    color: white;
+    cursor: pointer;
+}
 
 
 @media(max-width:960px){
@@ -156,7 +203,14 @@
     .textInput{
         width: 100%;
     }
+    .body{
+        padding: 97px 16px 40px 16px;
+    }
+    .cardsContainer{
+        gap: 15px;
+    }
 }
+
 
 @media (max-width:520px){
     .bannerText{
@@ -193,6 +247,6 @@
         height: 36px;
     }
     .body{
-        padding-top: 70px;
+        padding-top: 70px
     }
 }

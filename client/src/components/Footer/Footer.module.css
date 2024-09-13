@@ -18,6 +18,8 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .buttonsWrap{
@@ -60,4 +62,20 @@
 .copyright{
     display: flex;
     justify-content: flex-end;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+@media (max-width:520px){
+    .button{
+        font-size: 14px;
+        line-height: 20px;
+    }
+    .copyright{
+        font-size: 9px;
+        line-height: 20px;
+    }
+    .socialMedia{
+        gap: 12px;
+    }
 }
