@@ -7,12 +7,18 @@
     border-radius: 12px;
     padding-bottom: 16px;
     border-radius: 12px ;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+    cursor: pointer;
+}
+
+.container:hover{
+    transform: scale(1.1)
 }
 
 .cardImgDiv{
     width: 100%;
     height: 292px;
+    position: relative;
 }
 
 .cardImg{
@@ -30,6 +36,7 @@
     align-items: center;
     padding: 0px 16px;
     margin-top: 16px;
+    width: 100%;
 }
 
 .info{
@@ -38,6 +45,18 @@
     gap: 4px;
     height: 88px;
     width: 100%;
+}
+
+.priceAndStatusContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.status{
+    color: tomato;
+    font-weight: 500;
+    font-size: 20px;
 }
 
 .price{
@@ -79,4 +98,56 @@
     justify-content: center;
     align-items: center;
     gap: 4px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+}
+
+.favouriteButton{
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+}
+
+.favouriteButton:hover{
+    background-color: tomato;
+    color: white;
+    cursor: pointer;
+}
+
+@media (min-width:520px) and (max-width:960px){
+    .container{
+        width: 341px;
+    }
+}
+
+@media (max-width:520px){
+    .container{
+        width: 343px;
+        height: 380px;
+    }
+    .cardImgDiv{
+        height: 208px;
+    }
+    .infoContainer{
+        height: 140px;
+    }
+    .info{
+        height: 84px;
+    }
+    .features{
+        padding: 8px;
+    }
+    .price{
+        font-size: 20px;
+        line-height: 28px;
+    }
 }
