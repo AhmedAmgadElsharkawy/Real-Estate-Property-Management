@@ -30,22 +30,29 @@
     width: 120px;
     height: 40px;
     text-align: center;
+    cursor: pointer;
     &:hover {
-        background-color: #61FFFE;
+        background-color: #E8AE00;
+        color: white;
     }
     border-radius: 12px;
 }
 
 .button {
-    background-color: #FFB300;
+    background-color: #E8AE00;
     /* padding: 0px 16px 0px 16px; */
     border-radius: 12px;
     height: 50px;
     width: 120px;
     border: none;
     font-weight: bold;
+    color: white;
+    cursor: pointer;
+    font-weight: 400;
     &:hover{
-        background-color: #ff9900;
+        background-color: white;
+        border: 1px solid #E8AE00;
+        color: black;
     }
 }
 
