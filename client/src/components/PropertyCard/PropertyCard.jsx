@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import styles from './PropertyCard.module.css';
 import HotelIcon from '@mui/icons-material/Hotel';
 import ShowerIcon from '@mui/icons-material/Shower';

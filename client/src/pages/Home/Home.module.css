@@ -120,23 +120,27 @@
     justify-content: space-between;
     position: absolute;
     left: 100px;
+    width: calc(100% - 100px);
 }
 
 .cards {
-    width: 1280px;
+    width: 100%;
+    height: 730px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: start;
+    gap: 50px;
 }
 
 .buttonsScrollDev {
     position: relative;
-    left: 1171px;
-    width: 110px;
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: end;
+    padding-right: 50px;
+    gap: 7px;
 }
 
 .scrollButton {
@@ -298,11 +302,9 @@
     
     .buttonsScrollDev {
         position: relative;
-        left: 600px;
-        width: 110px;
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        padding-right: 0px;
     }
         
     .chooseUsDev {
@@ -446,7 +448,7 @@
     }
     .properties {
         padding: 170px 0px 50px 0;
-        height: 730px;
+        height: 900px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -460,15 +462,14 @@
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
+        overflow-x: scroll;
     }
     
     .buttonsScrollDev {
         position: relative;
-        left: 600px;
-        width: 110px;
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        padding-right: 0px;
     }
         
     .chooseUsDev {

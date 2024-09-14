@@ -35,7 +35,6 @@ function Home() {
         <div className={styles.cards}>
           <PropertyCard />
           <PropertyCard />
-          <PropertyCard />
         </div>
         <div className={styles.buttonsScrollDev}>
           <button className={styles.scrollButton}><ArrowBackIosNewIcon fontSize="small"/></button>
