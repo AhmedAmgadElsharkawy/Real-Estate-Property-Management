@@ -35,6 +35,7 @@
 
 .searchBar{
     position: absolute;
+    z-index: 2;
     bottom: -41px;
     height: 82px;
     width: 90%;
