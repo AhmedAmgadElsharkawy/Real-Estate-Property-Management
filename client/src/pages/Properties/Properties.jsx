@@ -1,13 +1,10 @@
-import { PropertyCard,SignInAlert } from "../../components"
+import { SignInAlert,Pagination } from "../../components"
 import styles from "./Properties.module.css"
 import bannerImage from '../../assets/propertiesPageBanner.jpg';
 import { useState,useEffect } from "react";
 import SearchIcon from '@mui/icons-material/Search';
 import TuneIcon from '@mui/icons-material/Tune';
 import data from "./temporaryData.json"
-import NavigateNextIcon from '@mui/icons-material/NavigateNext';
-import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 function Properties() {
     const [selectElementsValues, setSelectElementsValues] = useState({
@@ -20,9 +17,6 @@ function Properties() {
     });
 
     const [headerText,setHeaderText] = useState("")
-
-    const [currentPage,setCurrentPage] = useState(1);
-    const [postsPerPage,setPostsPerPage] = useState(6);
 
     const onChangeSelect = (event) => {
         const name = event.target.name
@@ -42,19 +36,6 @@ function Properties() {
         const name = event.target.name
         const value = event.target.value
         setSelectElementsValues({ ...selectElementsValues, [name]: value })
-    }
-
-    const lastPostIndex = currentPage * postsPerPage;
-    const firstPostIndex = lastPostIndex -postsPerPage;
-    const currentPost = data.slice(firstPostIndex,lastPostIndex)
-
-    const decreasePage = ()=>{
-        setCurrentPage(currentPage-1)
-    }
-
-    const increasePage = ()=>{
-        console.log(Math.floor(data.length/postsPerPage))
-        setCurrentPage(currentPage+1)
     }
 
     return (
@@ -108,28 +89,7 @@ function Properties() {
                         <option value="last30d">Sort order: Last 30 days</option>
                     </select>
                 </div>
-
-                <div className={styles.cardsContainer}>
-                    {currentPost.map((card,index)=>{
-                        return(
-                        <PropertyCard 
-                        key = {index}
-                        id = {index}
-                        src = {card.src} 
-                        type={card.type}
-                        furniture={card.furniture}
-                        location={card.location}
-                        price={card.price}
-                        beds={card.beds}
-                        baths={card.baths}
-                        status={card.status}
-                        />)
-                    })}
-                </div>
-                <div className={styles.paginationButtonsContainer}>
-                    <button onClick={decreasePage} type="button" id="backButton" className={styles.paginationButtons} disabled={currentPage == 1 ? true : false}><NavigateBeforeIcon sx={{fontSize:40}} className={styles.navigationButton}/></button>
-                    <button onClick={increasePage} type="button" id="nextButton" className={styles.paginationButtons} disabled = {currentPage == Math.ceil(data.length / postsPerPage) ? true : false}><NavigateNextIcon sx={{fontSize:40}} className={styles.navigationButton}/></button>
-                </div>
+            <Pagination data={data}/>
             </div>
             <SignInAlert/>
         </>
