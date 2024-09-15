@@ -113,7 +113,7 @@
 
 .properties {
     padding: 50px 0px 50px 100px;
-    height: 730px;
+    gap: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -278,7 +278,7 @@
     }
     .properties {
         padding: 50px 0px 50px 0;
-        height: 730px;
+        height: auto;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -437,7 +437,6 @@
     }
     .properties {
         padding: 170px 0px 50px 20px;
-        height: 900px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;

@@ -4,8 +4,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import SellIcon from '@mui/icons-material/Sell';
 import CloseIcon from '@mui/icons-material/Close';
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
-import PropertyCard from '../../components/PropertyCard/PropertyCard.jsx';
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import { Pagination } from "../../components";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import FeatureCard from "../../components/Feature Card/FeatureCard.jsx";
 import FactCheckIcon from '@mui/icons-material/FactCheck';
@@ -15,6 +14,7 @@ import SignalCellularAltIcon from '@mui/icons-material/SignalCellularAlt';
 import UsbOffIcon from '@mui/icons-material/UsbOff';
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import ReviewCard from "../../components/Review Card/ReviewCard.jsx";
+import data from "../Properties/temporaryData.json";
 
 function Home() {
   return (
@@ -32,14 +32,7 @@ function Home() {
 
       <div className={styles.properties}>
         <h1>Featured Properties</h1>
-        <div className={styles.cards}>
-          <PropertyCard />
-          <PropertyCard />
-        </div>
-        <div className={styles.buttonsScrollDev}>
-          <button className={styles.scrollButton}><ArrowBackIosNewIcon fontSize="small"/></button>
-          <button className={styles.scrollButton}><ArrowForwardIosIcon fontSize="small"/></button>
-        </div>
+        <Pagination data={data} itemsCount={3}/>
       </div>
       
       <div className={styles.chooseUsDev}>

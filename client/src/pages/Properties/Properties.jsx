@@ -1,10 +1,10 @@
-import { SignInAlert,Pagination } from "../../components"
+import { SignInAlert,Pagination } from "../../components";
 import styles from "./Properties.module.css"
 import bannerImage from '../../assets/propertiesPageBanner.jpg';
 import { useState } from "react";
 import SearchIcon from '@mui/icons-material/Search';
 import TuneIcon from '@mui/icons-material/Tune';
-import data from "./temporaryData.json"
+import data from "./temporaryData.json";
 
 function Properties() {
     const [selectElementsValues, setSelectElementsValues] = useState({
@@ -89,7 +89,7 @@ function Properties() {
                         <option value="last30d">Sort order: Last 30 days</option>
                     </select>
                 </div>
-            <Pagination data={data}/>
+            <Pagination data={data} itemsCount={6}/>
             </div>
             <SignInAlert/>
         </>

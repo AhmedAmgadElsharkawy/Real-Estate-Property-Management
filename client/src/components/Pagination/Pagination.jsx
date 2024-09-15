@@ -4,10 +4,10 @@ import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import PropertyCard from "../PropertyCard/PropertyCard";
 import { useState } from "react";
 
-function Pagination({data}) {
+function Pagination({data, itemsCount}) {
 
     const [currentPage,setCurrentPage] = useState(1);
-    const [postsPerPage,setPostsPerPage] = useState(6);
+    const [postsPerPage,setPostsPerPage] = useState(itemsCount);
 
     const lastPostIndex = currentPage * postsPerPage;
     const firstPostIndex = lastPostIndex -postsPerPage;
