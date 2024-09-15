@@ -1,13 +1,12 @@
 import { PropertyCard,SignInAlert } from "../../components"
 import styles from "./Properties.module.css"
 import bannerImage from '../../assets/propertiesPageBanner.jpg';
-import { useState,useEffect } from "react";
+import { useState } from "react";
 import SearchIcon from '@mui/icons-material/Search';
 import TuneIcon from '@mui/icons-material/Tune';
 import data from "./temporaryData.json"
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 function Properties() {
     const [selectElementsValues, setSelectElementsValues] = useState({
