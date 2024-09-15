@@ -1,7 +1,7 @@
 import { SignInAlert,Pagination } from "../../components"
 import styles from "./Properties.module.css"
 import bannerImage from '../../assets/propertiesPageBanner.jpg';
-import { useState,useEffect } from "react";
+import { useState } from "react";
 import SearchIcon from '@mui/icons-material/Search';
 import TuneIcon from '@mui/icons-material/Tune';
 import data from "./temporaryData.json"

@@ -2,7 +2,6 @@
 
 .mainDev {
     background-color: whitesmoke;
-    height: 2000px;
 }
 
 .homeImg {
@@ -113,12 +112,11 @@
 }
 
 .properties {
-    padding: 50px 0px 50px 0;
+    padding: 50px 0px 50px 100px;
     height: 730px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    position: absolute;
     left: 100px;
     width: calc(100% - 100px);
 }
@@ -134,7 +132,6 @@
 }
 
 .buttonsScrollDev {
-    position: relative;
     width: 100%;
     display: flex;
     align-items: center;
@@ -155,9 +152,7 @@
 }
 
 .chooseUsDev {
-    position: absolute;
     padding: 0px 0px 0px 100px;
-    top: 190%;
     background-color: #EBFFFD;
     width: 100%;
     height: 450px;
@@ -174,8 +169,6 @@
 }
 
 .reviewDiv {
-    position: relative;
-    top: 1250px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -232,6 +225,7 @@
         border-radius: 0px 0px 25px 25px;
     }
     .headerOverlay {
+        position: absolute;
         top: 30%;
         left: 20px;
         width: 500px;
@@ -288,7 +282,6 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        position: absolute;
         left: 20px;
     }
     
@@ -301,16 +294,13 @@
     }
     
     .buttonsScrollDev {
-        position: relative;
         display: flex;
         align-items: center;
         padding-right: 0px;
     }
         
     .chooseUsDev {
-        position: absolute;
         padding: 0px 0px 0px 0px;
-        top: 190%;
         background-color: #EBFFFD;
         width: 100%;
         height: 820px;
@@ -327,8 +317,6 @@
         justify-content: center;
     }
     .reviewDiv {
-        position: relative;
-        top: 1650px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -372,6 +360,7 @@
         border-radius: 0px 0px 25px 25px;
     }
     .headerOverlay {
+        position: absolute;
         top: 20%;
         left: 20px;
         width: 300px;
@@ -447,13 +436,11 @@
         grid-column:span 3;
     }
     .properties {
-        padding: 170px 0px 50px 0;
+        padding: 170px 0px 50px 20px;
         height: 900px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        position: absolute;
-        left: 20px;
     }
     
     .cards {
@@ -466,16 +453,13 @@
     }
     
     .buttonsScrollDev {
-        position: relative;
         display: flex;
         align-items: center;
         padding-right: 0px;
     }
         
     .chooseUsDev {
-        position: absolute;
         padding: 0px 0px 0px 0px;
-        top: 190%;
         background-color: #EBFFFD;
         width: 100%;
         height: 820px;
@@ -493,8 +477,6 @@
     }
 
     .reviewDiv {
-        position: relative;
-        top: 1850px;
         display: flex;
         flex-direction: column;
         align-items: center;
