@@ -169,20 +169,23 @@
 }
 
 .chooseUsDev {
-    padding: 0px 0px 0px 100px;
+    padding: 20px 0px 50px 100px;
     background-color: #EBFFFD;
     width: 100%;
-    height: 450px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
 }
 
 .featuresDev {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
     column-gap: 190px;
     row-gap: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-top: 20px;
 }
 
 .reviewDiv {
@@ -191,8 +194,8 @@
     align-items: center;
     justify-content: space-evenly;
     width: 100%;
-    height: 400px;
-    background-color: white;
+    padding-bottom: 70px;
+    
 }
 
 .goToReviewsPage {
@@ -203,6 +206,8 @@
     width: 100%;
     padding-left: 100px;
     padding-right: 100px;
+    
+    padding: 20px 100px 20px 100px;
 }
 
 .peopleReviews {
@@ -212,6 +217,8 @@
     align-items: center;
     justify-content: space-between;
     padding-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .reviewsTitle {
@@ -242,6 +249,11 @@
     .clearInputButton {
         left: -10%;
     }
+
+    .peopleReviews {
+        justify-content: center;
+    }
+    
 }
 
 @media only screen and (max-width: 900px) {
@@ -306,7 +318,6 @@
     }
     .properties {
         padding: 50px 0px 50px 0;
-        height: auto;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -349,7 +360,6 @@
         flex-direction: column;
         align-items: center;
         justify-content: space-evenly;
-        height: 1000px;
     }
 
     .goToReviewsPage {
@@ -363,16 +373,10 @@
     }
     
     .peopleReviews {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-evenly;
+        justify-content: center;
     }
     
     .reviewsTitle {
-        height: 100px;
         display: flex;
         flex-direction: column;
         align-items: start;
@@ -462,7 +466,7 @@
         grid-column:span 2;
     }
     .properties {
-        padding: 170px 0px 50px 20px;
+        padding: 50px 0px 50px 20px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -506,23 +510,16 @@
         flex-direction: column;
         align-items: center;
         justify-content: space-evenly;
-        height: 1000px;
-    }
-    
-    .peopleReviews {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-evenly;
     }
     
     .reviewsTitle {
-        height: 100px;
         display: flex;
         flex-direction: column;
         align-items: start;
         justify-content: space-evenly;
+    }
+
+    .peopleReviews {
+        justify-content: center;
     }
 }
