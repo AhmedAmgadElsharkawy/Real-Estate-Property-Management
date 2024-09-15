@@ -25,8 +25,10 @@ function Home() {
       <div className={styles.searchDev}>
         <div className={styles.searchBarDev}><div className={styles.removedIcon}><SellIcon fontSize="small"/></div><label className={styles.searchBarLabel} htmlFor="">For Sale</label></div>
         <div className={styles.searchBarDev}><div className={styles.removedIcon}><BusinessCenterIcon fontSize="small"/></div><label className={styles.searchBarLabel} htmlFor="">For Rent</label></div>
-        <input className={styles.searchInput} type="text" placeholder="Search by city"/>
-        <button className={styles.clearInputButton}><div className={styles.removedIcon}><CloseIcon fontSize="small"/></div></button>
+        <div className={styles.inputAndDeleteDiv}>
+          <input className={styles.searchInput} type="text" placeholder="Search by city"/>
+          <button className={styles.clearInputButton}><div className={styles.removedIcon}><CloseIcon fontSize="small"/></div></button>
+        </div>
         <button className={styles.searchButton}><div className={styles.removedIcon}><SearchIcon/></div>Search</button>
       </div>
 

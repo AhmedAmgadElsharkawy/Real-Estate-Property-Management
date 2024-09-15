@@ -38,8 +38,9 @@
     position: absolute;
     top: 86.5%;
     left: 100px;
-    width: 700px;
+    width: 48%;
     background-color: white;
+    gap: 10px;
     height: 60px;
     display: flex;
     flex-direction: row;
@@ -49,9 +50,18 @@
     border-radius: 12px;
 }
 
+.inputAndDeleteDiv {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+}
+
 .searchInput {
     height: 40px;
-    width: 250px;
+    width: 100%;
+    margin-right: -10%;
     border-radius: 12px;
     border: #FFB300;
     border: 1px solid #FFB300;
@@ -66,18 +76,19 @@
 }
 
 .clearInputButton {
-    position: absolute;
-    left: 490px;
     font-size: small;
     background-color: #FFF9E6;
     border-radius: 50%;
+    position: relative;
+    left: -5%;
     border: none;
     display: flex;
     align-items: center;
+    z-index: 2;
 }
 
 .searchButton {
-    width: 120px;
+    width: 20%;
     height: 40px;
     background-color: #FFB300;
     border-radius: 12px;
@@ -92,7 +103,7 @@
 }
 
 .searchBarDev {
-    width: 100px;
+    width: 20%;
     height: 40px;
     border-radius: 12px;
     border: 1px solid #FFB300;
