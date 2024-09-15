@@ -5,6 +5,7 @@ import SellIcon from '@mui/icons-material/Sell';
 import CloseIcon from '@mui/icons-material/Close';
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import { Pagination } from "../../components";
+import { useState } from "react";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import FeatureCard from "../../components/Feature Card/FeatureCard.jsx";
 import FactCheckIcon from '@mui/icons-material/FactCheck';
@@ -17,6 +18,17 @@ import ReviewCard from "../../components/Review Card/ReviewCard.jsx";
 import data from "../Properties/temporaryData.json";
 
 function Home() {
+  const [cityName, setCityName] = useState(""); 
+
+  function changeCityName(event) {
+    const newCityName = event.target.value;
+    setCityName(newCityName);
+  }
+
+  function deleteCityName() {
+    setCityName("");
+  }
+
   return (
     <div className={styles.mainDev}>
       <img className={styles.homeImg} src={homeImg} alt="" />
@@ -26,8 +38,8 @@ function Home() {
         <div className={styles.searchBarDev}><div className={styles.removedIcon}><SellIcon fontSize="small"/></div><label className={styles.searchBarLabel} htmlFor="">For Sale</label></div>
         <div className={styles.searchBarDev}><div className={styles.removedIcon}><BusinessCenterIcon fontSize="small"/></div><label className={styles.searchBarLabel} htmlFor="">For Rent</label></div>
         <div className={styles.inputAndDeleteDiv}>
-          <input className={styles.searchInput} type="text" placeholder="Search by city"/>
-          <button className={styles.clearInputButton}><div className={styles.nonRemovedIcon}><CloseIcon fontSize="small"/></div></button>
+          <input className={styles.searchInput} type="text" placeholder="Search by city" value={cityName} onChange={changeCityName}/>
+          <button className={styles.clearInputButton} onClick={deleteCityName}><div className={styles.nonRemovedIcon}><CloseIcon fontSize="small"/></div></button>
         </div>
         <button className={styles.searchButton}><div className={styles.removedIcon}><SearchIcon/></div>Search</button>
       </div>
