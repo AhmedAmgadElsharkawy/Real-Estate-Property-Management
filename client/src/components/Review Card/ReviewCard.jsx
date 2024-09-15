@@ -13,7 +13,9 @@ function ReviewCard() {
                     <h5 className={styles.reviewDate}>Jun 21, 2021</h5>
                 </div>
             </div>
-            <p className={styles.comment}>Our property sale was Professionally handled by Linked Bricks throughout the entire process...</p>
+            <div className={styles.commentDiv}>
+                <p className={styles.comment}>Our property sale was Professionally handled by Linked Bricks throughout the entire process...</p>
+            </div>
             <div className={styles.ratingDev}>
                 <img className={styles.ratingStars} src={rating} alt="" />   
                 <button className={styles.showButton}>
