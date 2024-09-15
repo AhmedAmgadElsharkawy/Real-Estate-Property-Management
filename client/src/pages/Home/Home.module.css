@@ -402,29 +402,31 @@
         font-size: 20px;
     }
     .searchDev {
-        position: absolute;
-        top: 55%;
-        left: 20px;
-        width: 400px;
-        display: grid;     
-        grid-template-columns: repeat(6, 1fr);
-        column-gap: 5px;
-        row-gap: 5px;
-        background-color: white;
+        position: static;
         height: 120px;
+        width: 80%;
+        margin-left: 10%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
     }
     .removedIcon {
         display: none;
     }
     .searchInput {
         height: 40px;
-        width: 307px;
+        width: 100%;
         border-radius: 12px;
         border: #FFB300;
         border: 1px solid #FFB300;
         text-indent: 18px;
-        font-size: 15px; 
-        grid-column: span 5;
+        font-size: 15px;
+        margin-right: -7%;
+    }
+
+    .inputAndDeleteDiv {
+        width: 100%;
+        grid-column: span 3;
     }
     
     .removedIcon {
@@ -432,26 +434,22 @@
     }
     
     .clearInputButton {
-        display: none;
-        position: absolute;
-        left: 490px;
-        font-size: small;
-        background-color: #FFF9E6;
-        border-radius: 50%;
-        border: none;
+        position: relative;
+        left: -5%;
         display: flex;
         align-items: center;
+        z-index: 3;
     }
     
     .searchButton {
-        width: 55px;
         height: 40px;
+        width: 100%;
         &:hover {
             background-color: #ff9900;
         }
     }
     .searchBarDev {
-        width: 180px;
+        width: 100%;
         height: 40px;
         border-radius: 12px;
         border: 1px solid #FFB300;
@@ -461,7 +459,7 @@
         &:hover {
             background-color: #FFF9E6;
         }
-        grid-column:span 3;
+        grid-column:span 2;
     }
     .properties {
         padding: 170px 0px 50px 20px;
