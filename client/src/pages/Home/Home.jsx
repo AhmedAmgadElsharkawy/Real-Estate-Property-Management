@@ -16,6 +16,7 @@ import UsbOffIcon from '@mui/icons-material/UsbOff';
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import ReviewCard from "../../components/Review Card/ReviewCard.jsx";
 import data from "../Properties/temporaryData.json";
+import FilterSearch from "../../components/Filter Search/FilterSearch.jsx";
 
 function Home() {
   const [cityName, setCityName] = useState(""); 
@@ -79,6 +80,8 @@ function Home() {
           <ReviewCard/>
         </div>
       </div>
+
+      <FilterSearch />
     </div>
   )
 }
