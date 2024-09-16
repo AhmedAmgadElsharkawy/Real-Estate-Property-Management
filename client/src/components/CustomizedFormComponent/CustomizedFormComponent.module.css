@@ -1,0 +1,137 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1164px;
+    gap: 40px;
+    border-radius: 20px;
+}
+
+.imgDiv{
+    width: 50%;
+}
+
+.Img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+.CustomizedFormComponent{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 64px;
+    gap: 40px;
+}
+
+.header{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.headerTopDiv{
+    width: 100%;
+    font-size: 36px;
+    line-height: 44px;
+    font-weight: 600px;
+    color: #0D0E0F;
+}
+
+.headerBottomDiv{
+    width: 100%;
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+}
+
+.headerBottomDivText{
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400px;
+    color: #414141;
+}
+
+.headerBottomDivButton{
+    font-weight: 600px;
+    color: #098895;
+    border: none;
+    background-color: white;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+}
+
+.inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.inputsDivText{
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.forgotPasswordButton{
+    border: none;
+    background-color: white;
+    font-weight : 600;
+    color:#0D0E0F
+}
+
+.passwordInstructionsText{
+    font-weight : 400;
+    color:#414141
+}
+
+@media (max-width:960px){
+    .container{
+        width: 620px;
+        padding: 40px;
+    }
+    .imgDiv{
+        display: none;
+    }
+    .CustomizedFormComponent{
+        width: 100%;
+    }
+    .inputs{
+        gap: 24px;
+    }
+}
+
+@media (max-width:520px){
+    .container{
+        width: 343px;
+        gap: 32px;
+        padding: 24px 20px;
+    }
+    .CustomizedFormComponent{
+        gap: 32px;
+    }
+    .headerTopDiv{
+        font-size: 20px;
+        line-height: 28px;
+    }
+    .headerBottomDivText{
+        font-size: 14px;
+        line-height: 20px;
+    }
+    .inputs{
+        gap: 20px
+    }
+    .inputsDivText{
+        font-size: 14px;
+        line-height: 20px;
+    }
+    
+}
+

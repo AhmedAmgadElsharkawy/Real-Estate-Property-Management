@@ -1,4 +1,4 @@
-import { SignInAlert,Pagination } from "../../components"
+import { SignInAlert,Pagination,CustomizedFormComponent } from "../../components"
 import styles from "./Properties.module.css"
 import bannerImage from '../../assets/propertiesPageBanner.jpg';
 import { useState,useEffect } from "react";
@@ -92,6 +92,9 @@ function Properties() {
             <Pagination data={data}/>
             </div>
             <SignInAlert/>
+
+            <CustomizedFormComponent/>
+
         </>
     )
 }
