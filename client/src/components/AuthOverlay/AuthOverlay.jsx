@@ -1,7 +1,7 @@
-import styles from "./CustomizedFormComponent.module.css"
+import styles from "./AuthOverlay.module.css"
 import photo from "../../assets/signIn.png"
 
-function CustomizedFormComponent({ onSubmit, type, onClick }) {
+function AuthOverlay({ onSubmit, type, onClick }) {
     return (
         <div className={styles.container}>
             <div className={styles.imgDiv}><img src={photo} alt="sigin photo" className={styles.Img} /></div>
@@ -12,11 +12,6 @@ function CustomizedFormComponent({ onSubmit, type, onClick }) {
                         <div className={styles.headerBottomDivText}>{type == "Sign in" ? "No account? " : "Already registered? "}</div>
                         <button className={styles.headerBottomDivButton} type="button" onClick={onClick}></button>
                     </div>
-
-                    {/* <div className={styles.haderBottomDiv}>
-                        <div className={styles.headerBottomDivText}>{type == "Sign in" ? "No account? " : "Already registered? "}</div>
-                        <button className={styles.headerBottomDivButton} type="button" onClick={onClick}>sign in</button>
-                    </div> */}
                 </div>
                 <div className={styles.inputs}>
                     <div className={styles.inputsDivText}>
@@ -32,4 +27,4 @@ function CustomizedFormComponent({ onSubmit, type, onClick }) {
     )
 }
 
-export default CustomizedFormComponent
+export default AuthOverlay

@@ -1,4 +1,4 @@
-import { SignInAlert,Pagination,CustomizedFormComponent } from "../../components"
+import { SignInAlert,Pagination,AuthOverlay } from "../../components"
 import styles from "./Properties.module.css"
 import bannerImage from '../../assets/propertiesPageBanner.jpg';
 import { useState,useEffect } from "react";
@@ -93,7 +93,7 @@ function Properties() {
             </div>
             <SignInAlert/>
 
-            <CustomizedFormComponent/>
+            <AuthOverlay/>
 
         </>
     )
