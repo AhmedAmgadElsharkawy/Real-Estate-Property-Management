@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import styles from './FilterSearch.module.css';
 import { useState } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
 
-function FilterSearch() {
+function FilterSearch({onClose}) {
     const [filters, setFilters] = useState({
         bedrooms: "",
         bathrooms: "",
@@ -19,12 +20,13 @@ function FilterSearch() {
         setFilters({...filters, [name]: value});
         console.log(name, value)
     }
+
     return (
         <div className={styles.mainDiv}>
             <div className={styles.filterDiv}>
                 <div className={styles.titleDiv}>
                     <h2>Filter your search results</h2>
-                    <button className={styles.closeButton}><div className={styles.closeButtonSmallerDiv}><CloseIcon fontSize="small"/></div></button>
+                    <button className={styles.closeButton} onClick={onClose}><div className={styles.closeButtonSmallerDiv}><CloseIcon fontSize="small"/></div></button>
                 </div>
 
                 <div className={styles.smallChooseDiv}>

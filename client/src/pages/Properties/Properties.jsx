@@ -5,6 +5,7 @@ import { useState } from "react";
 import SearchIcon from '@mui/icons-material/Search';
 import TuneIcon from '@mui/icons-material/Tune';
 import data from "./temporaryData.json";
+import FilterSearch from "../../components/Filter Search/FilterSearch";
 
 function Properties() {
     const [selectElementsValues, setSelectElementsValues] = useState({
@@ -15,6 +16,8 @@ function Properties() {
         propertyType: "",
         sortOrder:""
     });
+
+    const [filterVisibility, setFilterVisibility] = useState(false);
 
     const [headerText,setHeaderText] = useState("")
 
@@ -36,6 +39,14 @@ function Properties() {
         const name = event.target.name
         const value = event.target.value
         setSelectElementsValues({ ...selectElementsValues, [name]: value })
+    }
+
+    function openFilter() {
+        setFilterVisibility(true);
+    }
+
+    function closeFilter() {
+        setFilterVisibility(false);
     }
 
     return (
@@ -71,7 +82,7 @@ function Properties() {
                         <select name="propertyType" id="propertyType" value={selectElementsValues.propertyType} onChange={onChangeSelect} className={`${styles.propertyType} ${styles.searchComponent} ${styles.hide}`}>
                             <option value="">Property Type</option>
                         </select>
-                        <button type="button" className={`${styles.filterButton} ${styles.searchComponent}`}><TuneIcon/><span className={styles.hideText}>Filter</span></button>
+                        <button type="button"  onClick={openFilter} className={`${styles.filterButton} ${styles.searchComponent}`}><TuneIcon/><span className={styles.hideText}>Filter</span></button>
                         <button type="submit" className={`${styles.searchComponent} ${styles.submitButton}`}><SearchIcon/><span className={styles.hideText}>Search</span></button>
                     </form>
                 </div>
@@ -92,6 +103,9 @@ function Properties() {
             <Pagination data={data} itemsCount={6}/>
             </div>
             <SignInAlert/>
+
+            {filterVisibility && <FilterSearch onClose={closeFilter}/>}
+
         </>
     )
 }
