@@ -92,9 +92,6 @@ function Properties() {
             <Pagination data={data}/>
             </div>
             <SignInAlert/>
-
-            <AuthOverlay/>
-
         </>
     )
 }

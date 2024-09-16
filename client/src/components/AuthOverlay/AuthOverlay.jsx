@@ -4,7 +4,7 @@ import photo from "../../assets/signIn.png"
 function AuthOverlay({ onSubmit, type, onClick }) {
     return (
         <div className={styles.container}>
-            <div className={styles.imgDiv}><img src={photo} alt="sigin photo" className={styles.Img} /></div>
+            <img src={photo} alt="sigin photo" className={styles.Img} />
             <form onSubmit={onSubmit} className={styles.CustomizedFormComponent}>
                 <div className={styles.header}>
                     <div className={styles.headerTopDiv}>{type} to list your properties and much more</div>
