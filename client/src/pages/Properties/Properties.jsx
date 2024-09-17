@@ -1,4 +1,4 @@
-import { SignInAlert,Pagination } from "../../components";
+import { SignInAlert,Pagination,AuthOverlay } from "../../components"
 import styles from "./Properties.module.css"
 import bannerImage from '../../assets/propertiesPageBanner.jpg';
 import { useState } from "react";

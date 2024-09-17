@@ -1,8 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700&display=swap');
 
-*{
+* {
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
     font-family: 'Exo', sans-serif;
+}
+
+/* stop show/hide default icon on Internet Explorer and older versions of Microsoft Edge (pre-Chromium)  */
+input::-ms-reveal {
+    display: none;
+}
+
+input {
+    caret-color: grey;
+    outline: none;
+}
+
+* {
+    /* Hide the blinking text cursor */
+    caret-color: transparent;
 }

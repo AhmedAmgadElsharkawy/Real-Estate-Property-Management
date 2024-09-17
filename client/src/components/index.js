@@ -3,5 +3,6 @@ import PropertyCard from "./PropertyCard/PropertyCard";
 import SignInAlert from "./SignInAlert/SignInAlert";
 import Footer from "./Footer/Footer";
 import Pagination from "./Pagination/Pagination";
+import AuthOverlay from "./AuthOverlay/AuthOverlay";
 
-export {NavBar,PropertyCard,SignInAlert,Footer,Pagination}
+export {NavBar,PropertyCard,SignInAlert,Footer,Pagination,AuthOverlay}

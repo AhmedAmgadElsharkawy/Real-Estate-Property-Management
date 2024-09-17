@@ -33,7 +33,6 @@
     cursor: pointer;
     &:hover {
         background-color: #E8AE00;
-        color: white;
     }
     border-radius: 12px;
 }
@@ -46,13 +45,12 @@
     width: 120px;
     border: none;
     font-weight: bold;
-    color: white;
+    color: black;
     cursor: pointer;
     font-weight: 400;
     &:hover{
         background-color: white;
         border: 1px solid #E8AE00;
-        color: black;
     }
 }
 

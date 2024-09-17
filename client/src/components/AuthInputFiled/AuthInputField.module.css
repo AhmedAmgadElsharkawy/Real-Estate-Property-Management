@@ -1,0 +1,44 @@
+.inputDiv{
+    max-width: 490px;
+    border: 1px solid #FFEBB0;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.inputItem{
+    color: #A6A7A8;
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 400;
+    border: none;
+    width: 100%;
+    align-items: center;
+    padding: 12px 20px 12px 20px;
+}
+
+.eyeIcon{
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    margin-right: 16px;
+    color: #A6A7A8;
+    cursor: pointer;
+}
+
+
+
+@media (max-width:520px){
+    .inputDiv{
+        max-width: 303px;
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .inputItem{
+        padding: 8px 20px;
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
