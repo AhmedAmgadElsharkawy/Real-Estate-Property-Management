@@ -4,6 +4,7 @@ import AuthInputField from "../AuthInputFiled/AuthInputField"
 
 function AuthOverlay({ onSubmit, type, onClick }) {
     return (
+        <div className={styles.wrapper}>
         <div className={styles.container}>
             <img src={photo} alt="sigin photo" className={styles.Img} />
             <div className={styles.formWrapper}>
@@ -12,13 +13,13 @@ function AuthOverlay({ onSubmit, type, onClick }) {
                     <div className={styles.headerTopDiv}>{type} to list your properties and much more</div>
                     <div className={styles.headerBottomDiv}>
                         <div className={styles.headerBottomDivText}>{type == "Sign in" ? "No account? " : "Already registered? "}</div>
-                        <button className={styles.headerBottomDivButton} type="button" onClick={onClick}></button>
+                        <button className={styles.headerBottomDivButton} type="button" onClick={onClick}>{type == "Sign up" ? "Sign in" : "Sign up"}</button>
                     </div>
                 </div>
                 <div className={styles.inputs}>
                     <AuthInputField type="email" placeholder="Email" name="email"/>
                     <AuthInputField type="password" placeholder="Password" name="password"/>
-                    <AuthInputField type="password" placeholder="Confirm Password" name="confirmPassword"/>
+                    {type == "Sign up" && <AuthInputField type="password" placeholder="Confirm Password" name="confirmPassword"/>}
                     
                     <div className={styles.inputsDivText}>
                         {type == "Sign in" ?
@@ -30,6 +31,7 @@ function AuthOverlay({ onSubmit, type, onClick }) {
                 <div className={styles.buttons}></div>
             </form>
             </div>
+        </div>
         </div>
     )
 }
