@@ -1,7 +1,7 @@
 import './App.css'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import { Home , Properties} from './pages'
-import { NavBar,PropertyCard,Footer ,AuthOverlay} from './components'
+import { NavBar,Footer} from './components'
 
 function App() {
 
@@ -13,7 +13,6 @@ function App() {
         <Route path='/properties' element={<Properties/>}/>
       </Routes>
       <Footer/>
-      <AuthOverlay/>
     </Router>
   )
 }
