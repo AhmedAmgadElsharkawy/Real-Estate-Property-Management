@@ -14,19 +14,17 @@ function NavBar() {
     setShowSignUp(false)
   }
 
-  const closeSignIn = (e)=>{
-    setShowSignIn(false)
-  }
-
   const openSignUp=(e)=>{
     setShowSignUp(true)
     setShowSignIn(false)
-    console.log("adawdawdawd")
   }
 
-  const closeSignUp = (e)=>{
+  const closeOverlay = (e)=>{
+    setShowSignIn(false)
     setShowSignUp(false)
   }
+
+
 
   return (
     <>
@@ -47,8 +45,8 @@ function NavBar() {
         <MenuIcon fontSize="large"/>
       </div>
     </div>
-    {showSignIn && <AuthOverlay type = "Sign in" onClick = {openSignUp} />}
-    {showSignUp && <AuthOverlay type = "Sign up" onClick = {openSignIn} />}
+    {showSignIn && <AuthOverlay type = "Sign in" toggleOverflow = {openSignUp} closeOverlay={closeOverlay}/>}
+    {showSignUp && <AuthOverlay type = "Sign up" toggleOverflow = {openSignIn} closeOverlay={closeOverlay}/>}
     </>
   )
 }
