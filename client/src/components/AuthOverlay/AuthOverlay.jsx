@@ -6,7 +6,7 @@ function AuthOverlay({ onSubmit, type, onClick }) {
     return (
         <div className={styles.wrapper}>
         <div className={styles.container}>
-            <img src={photo} alt="sigin photo" className={styles.Img} />
+            <img src={photo} alt="sign in photo" className={styles.Img} />
             <div className={styles.formWrapper}>
             <form onSubmit={onSubmit} className={styles.CustomizedFormComponent}>
                 <div className={styles.header}>
@@ -23,12 +23,15 @@ function AuthOverlay({ onSubmit, type, onClick }) {
                     
                     <div className={styles.inputsDivText}>
                         {type == "Sign in" ?
-                            (<button className={styles.forgotPasswordButton}>Forgot Password?</button>) :
+                            (<button type="button" className={styles.forgotPasswordButton}>Forgot Password?</button>) :
                             (<div className={styles.passwordInstructionsText}>Password must be at least 8 characters with 1 uppercase letter and 1 special character.</div>)
                         }
                     </div>
                 </div>
-                <div className={styles.buttons}></div>
+                <div className={styles.buttons}>
+                    <button type = "submit" className={styles.submitButton}>{type == "Sign in" ? "Continue" : "Sign up"}</button>
+                    <div className={styles.termsText}>By signing up, you accept our <button type="button" className={styles.termsButtons}>Terms of Use</button> and <button type="button" className={styles.termsButtons}>Privacy Policy</button>.</div>
+                </div>
             </form>
             </div>
         </div>
