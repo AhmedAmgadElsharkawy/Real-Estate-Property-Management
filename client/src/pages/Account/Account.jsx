@@ -8,8 +8,8 @@ function Account() {
     return (
         <div className={styles.mainDiv}>
             <Dashboard mine={data.length} favorite={data.length}/>
-            <div className={styles.rightDiv}>``
-                <img className={styles.accountImg} src={img} alt="" />``
+            <div className={styles.rightDiv}>
+                <img className={styles.accountImg} src={img} alt=""/>
                 <Properties data={data}/>
             </div>
         </div>
