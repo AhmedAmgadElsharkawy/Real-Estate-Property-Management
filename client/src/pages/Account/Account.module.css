@@ -1,4 +1,7 @@
 .mainDiv {
     display: flex;
     flex-direction: row;
+    background-color: aqua;
+    width: 100%;
+    height: 100%;
 }
