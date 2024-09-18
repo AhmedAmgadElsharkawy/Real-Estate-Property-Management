@@ -1,7 +1,7 @@
-import './App.css'
+import './App.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import { Home , Properties} from './pages'
-import { NavBar,Footer} from './components'
+import { Home, Account, Properties} from './pages'
+import { NavBar, Footer} from './components'
 
 function App() {
 
@@ -11,6 +11,7 @@ function App() {
       <Routes>
         <Route path='/' element = {<Home/>}/>
         <Route path='/properties' element={<Properties/>}/>
+        <Route path='/account' element={<Account/>}/>
       </Routes>
       <Footer/>
     </Router>
