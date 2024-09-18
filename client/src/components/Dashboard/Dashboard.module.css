@@ -99,3 +99,12 @@
         color: white;
     }
 }
+
+@media only screen and (max-width: 700px) {
+    .delete {
+        display: none;
+    }
+    .pageComponent {
+        justify-content: center;
+    }
+}

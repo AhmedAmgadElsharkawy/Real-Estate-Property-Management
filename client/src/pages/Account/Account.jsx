@@ -4,14 +4,20 @@ import img from './Dashboard Banner.png';
 import Properties from '../../components/Dashborad components/Properties/Properties';
 import data from '../Properties/temporaryData.json';
 import Profile from '../../components/Dashborad components/profile/Profile';
+import { useRef } from 'react';
 
 function Account() {
+    const nameRef = useRef();
+    const emailRef = useRef();
+    const phoneRef = useRef();
+    const passwordRef = useRef();
+    const refs = [nameRef, emailRef, phoneRef, passwordRef];
     return (
         <div className={styles.mainDiv}>
-            <Dashboard mine={data.length} favorite={data.length}/>
+            <Dashboard mine={data.length} favorite={data.length} refs={refs}/>
             <div className={styles.rightDiv}>
                 <img className={styles.accountImg} src={img} alt=""/>
-                <Profile email={"abdullah@Gmail.com"} password={12345678} phone={"01148770014"}/>
+                <Profile name={"Abudllah Mahmoud Hanafy"} email={"abdullah@Gmail.com"} password={12345678} phone={"01148770014"} refs={refs}/>
             </div>
         </div>
     )
