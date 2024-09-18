@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import styles from './Account.module.css';
 import Dashboard from '../../components/Dashboard/Dashboard';
 import img from './Dashboard Banner.png';
