@@ -3,6 +3,7 @@ import Dashboard from '../../components/Dashboard/Dashboard';
 import img from './Dashboard Banner.png';
 import Properties from '../../components/Dashborad components/Properties/Properties';
 import data from '../Properties/temporaryData.json';
+import Profile from '../../components/Dashborad components/profile/Profile';
 
 function Account() {
     return (
@@ -10,7 +11,7 @@ function Account() {
             <Dashboard mine={data.length} favorite={data.length}/>
             <div className={styles.rightDiv}>
                 <img className={styles.accountImg} src={img} alt=""/>
-                <Properties data={data}/>
+                <Profile email={"abdullah@Gmail.com"} password={12345678} phone={"01148770014"}/>
             </div>
         </div>
     )
