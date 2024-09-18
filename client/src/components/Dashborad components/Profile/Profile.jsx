@@ -2,7 +2,7 @@
 import styles from "./Profile.module.css";
 import img from "./profile.jpeg"
 
-function Profile({name, email, password, phone}) {
+function Profile({name, email, city, gender, phone}) {
 
     return (
         <div className={styles.mainDiv}>
@@ -34,11 +34,14 @@ function Profile({name, email, password, phone}) {
                 </div>
                 <div className={styles.inputDiv}>
                     <h3>City</h3>
-                    <input className={styles.input} type="text" name="city" id="" placeholder="Enter your city" value={phone}/>
+                    <input className={styles.input} type="text" name="city" id="" placeholder="Enter your city" value={city}/>
                 </div>
                 <div className={styles.inputDiv}>
-                    <h3>Phone </h3>
-                    <input className={styles.input} type="number" name="phone" id="" placeholder="Enter your phone number" value={phone}/>
+                    <h3>Gender</h3>
+                    <select name="gender" id="" className={styles.input} value={gender}>
+                        <option value="M">M</option>
+                        <option value="F">F</option>
+                    </select>
                 </div>
                 <div className={styles.inputDiv}>
                     <h3>Password</h3>

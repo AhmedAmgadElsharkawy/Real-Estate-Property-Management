@@ -7,15 +7,8 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import StarHalfIcon from '@mui/icons-material/StarHalf';
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
-import EmailIcon from '@mui/icons-material/Email';
-import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
-import LockIcon from '@mui/icons-material/Lock';
 
-function Dashboard({mine, favorite, refs}) {
-    function handlechange(event) {
-        const value = event.target.name;
-        console.log(value);
-    }
+function Dashboard({mine, favorite}) {
 
     return (
         <div className={styles.mainDiv}>
