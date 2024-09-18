@@ -1,0 +1,10 @@
+.contentDiv {
+    height: 500px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    overflow-y: scroll;
+}

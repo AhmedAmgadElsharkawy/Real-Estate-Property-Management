@@ -1,7 +1,21 @@
 .mainDiv {
     display: flex;
     flex-direction: row;
-    background-color: aqua;
+    background-color: white;
     width: 100%;
     height: 100%;
+}
+
+.rightDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    gap: 40px;
+    padding: 35px;
+    width: 100%;
+}
+
+.accountImg {
+    height: 200px;
 }
