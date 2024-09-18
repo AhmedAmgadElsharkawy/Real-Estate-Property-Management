@@ -5,6 +5,9 @@
     margin: 0px;
     box-sizing: border-box;
     font-family: 'Exo', sans-serif;
+    /* Hide the blinking text cursor */
+    caret-color: transparent;
+    outline: none;
 }
 
 /* stop show/hide default icon on Internet Explorer and older versions of Microsoft Edge (pre-Chromium)  */
@@ -12,12 +15,7 @@ input::-ms-reveal {
     display: none;
 }
 
-input {
+input,
+select {
     caret-color: grey;
-    outline: none;
-}
-
-* {
-    /* Hide the blinking text cursor */
-    caret-color: transparent;
 }
