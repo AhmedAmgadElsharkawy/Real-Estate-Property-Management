@@ -107,4 +107,13 @@
     .pageComponent {
         justify-content: center;
     }
+    .mainDiv {
+        height: 1030px;
+        width: 100px;
+    }
+    .specialPageComponent {
+        justify-content: center;
+        padding: 0px;
+        margin-bottom: 300px;
+    }
 }
