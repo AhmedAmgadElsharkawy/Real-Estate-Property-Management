@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
-import styles from "./Profile.module.css";
+import styles from "./EditProfile.module.css";
 import img from "./profile.jpeg"
 
-function Profile({name, email, city, gender, phone}) {
+function EditProfile({name, email, city, gender, phone}) {
 
     return (
         <div className={styles.mainDiv}>
@@ -57,4 +57,4 @@ function Profile({name, email, city, gender, phone}) {
     )
 }
 
-export default Profile
+export default EditProfile
