@@ -1,14 +1,15 @@
+/* eslint-disable react/prop-types */
 import styles from "./RateUs.module.css";
 import CloseIcon from '@mui/icons-material/Close';
 
 
-function RateUs () {
+function RateUs ({close}) {
     return (
         <div className={styles.mainDiv}>
             <div className={styles.RateUsDiv}>
                 <div className={styles.titleDiv}>
                     <h2>Rate Us</h2> 
-                    <button className={styles.closeButton}><CloseIcon fontSize="small"/></button>
+                    <button onClick={close} className={styles.closeButton}><CloseIcon fontSize="small"/></button>
                 </div>
                 <input className={styles.input} type="number" placeholder="Enter your rate out of 5"/>
                 <h4>Write any comments on our website</h4>

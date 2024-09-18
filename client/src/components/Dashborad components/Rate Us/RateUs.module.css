@@ -15,10 +15,10 @@
 
 .RateUsDiv {
     height: 500px;
-    background-color: aqua;
+    background-color: aliceblue;
     border-radius: 12px;
     width: 30%;
-    min-width: 300px;
+    min-width: 500px;
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -32,6 +32,8 @@
     text-indent: 10px;
     border-radius: 12px;
     border: 1px solid #FFB300;
+    resize: none;
+    font-size: 20px;
 }
 
 .input {

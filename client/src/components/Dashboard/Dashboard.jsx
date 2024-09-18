@@ -7,8 +7,20 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import StarHalfIcon from '@mui/icons-material/StarHalf';
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
+import { useState } from "react";
+import RateUs from "../Dashborad components/Rate Us/RateUs";
 
 function Dashboard({mine, favorite}) {
+    const [rateUsState, setRateUsState] = useState(false);
+
+    function openRateUsDiv() {
+        setRateUsState(true);
+    }
+
+    function closeRateUsDiv()
+    {
+        setRateUsState(false);
+    }
 
     return (
         <div className={styles.mainDiv}>
@@ -26,12 +38,13 @@ function Dashboard({mine, favorite}) {
                     <button className={styles.pageComponent}><div className={styles.buttonSmallerDiv}><DriveFileRenameOutlineIcon fontSize="small"/><h3 className={styles.delete}>Update your profile</h3></div></button>
                     <button className={styles.pageComponent}><div className={styles.buttonSmallerDiv}><LogoutIcon fontSize="small"/><h3 className={styles.delete}>Sign out</h3></div></button>
                 </div>
-                <button className={styles.pageComponent}><div className={styles.buttonSmallerDiv}><StarHalfIcon fontSize="small"/><h3 className={styles.delete}>Rate us</h3></div></button>
+                <button onClick={openRateUsDiv} className={styles.pageComponent}><div className={styles.buttonSmallerDiv}><StarHalfIcon fontSize="small"/><h3 className={styles.delete}>Rate us</h3></div></button>
             </div>
 
             <div className={styles.deleteAccountDiv}>
                 <button className={styles.specialPageComponent}><RemoveCircleIcon fontSize="small"/><h3 className={styles.delete}>Delete my account</h3></button>
             </div>
+            {rateUsState && <RateUs close={closeRateUsDiv}/>}
         </div>
     )
 }
