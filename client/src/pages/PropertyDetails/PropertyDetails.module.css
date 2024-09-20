@@ -280,6 +280,64 @@
     cursor: pointer;
 }
 
+.featuresDiv{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.featuresHeader{
+    font-size: 36px;
+    line-height: 44px;
+    font-weight: 600;
+    color: #0D0E0F;
+}
+
+.features{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.featuresColumn{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: 24px;
+}
+
+.featuresTopDiv{
+    color: #135966;
+    font-size: 28px;
+    line-height: 36px;
+    font-weight: 600;
+}
+
+.interiorFeatures , .exteriorFeatures{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.feature{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.featureCircle{
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #098895;
+}
+
+.featureText{
+    color: #0D0E0F;
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 400;
+}
 
 
 

@@ -108,10 +108,38 @@ function PropertyDetails({ property }) {
                 </div>
 
                 <div className={styles.featuresDiv}>
-                    <div className={styles.featuresHeader}></div>
+                    <div className={styles.featuresHeader}>Property features</div>
                     <div className={styles.features}>
-                        <div className={styles.interiorFeatures}></div>
-                        <div className={styles.exteriorFeatures}></div>
+
+
+                        <div className={styles.featuresColumn}>
+                            <div className={styles.featuresTopDiv}>Exterior Features</div>
+                            <div className={styles.exteriorFeatures}>
+                                {property.exteriorFeatures.map((exteriorFeature) => {
+                                    return (
+                                        <div className={styles.feature}>
+                                            <div className={styles.featureCircle}></div>
+                                            <div className={styles.featureText}>{exteriorFeature}</div>
+                                        </div>
+                                    )
+                                })}
+                            </div>
+                        </div>
+
+                        <div className={styles.featuresColumn}>
+                            <div className={styles.featuresTopDiv}>Interior Features</div>
+                            <div className={styles.interiorFeatures}>
+                                {property.interiorFeatures.map((interiorFeature) => {
+                                    return (
+                                        <div className={styles.feature}>
+                                            <div className={styles.featureCircle}></div>
+                                            <div className={styles.featureText}>{interiorFeature}</div>
+                                        </div>
+                                    )
+                                })}
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
