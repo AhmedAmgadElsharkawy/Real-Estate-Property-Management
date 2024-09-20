@@ -2,7 +2,7 @@ import styles from "./PropertyDetails.module.css"
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import { Pagination } from "../../components";
 import data from "../Properties/temporaryData.json"
-import { useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import { dateDiff } from "../../utils";
 import HotelIcon from '@mui/icons-material/Hotel';
@@ -12,13 +12,30 @@ import CallIcon from '@mui/icons-material/Call';
 import EmailIcon from '@mui/icons-material/Email';
 import ShareIcon from '@mui/icons-material/Share';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
+import ExpandLessOutlinedIcon from '@mui/icons-material/ExpandLessOutlined';
 
 function PropertyDetails({ property }) {
-    const [bigImg, setBigImg] = useState({index:0,url:property.images[0]});
+    const [bigImg, setBigImg] = useState({ index: 0, url: property.images[0] });
+    const [isExpanded, setIsExpanded] = useState(false)
+    const contentRef = useRef(false)
+    const [showExpand, setShowExpand] = useState(false);
 
     const displayImg = (index) => {
-        setBigImg({index,url:property.images[index]})
+        setBigImg({ index, url: property.images[index] })
     }
+
+    const expand = () => {
+        setIsExpanded(!isExpanded)
+    }
+
+    useEffect(() => {
+        if (contentRef.current) {
+            const contentHeight = contentRef.current.scrollHeight;
+            console.log(contentHeight)
+            setShowExpand(contentHeight > 78);
+        }
+    }, []);
 
     return (
         <div className={styles.container}>
@@ -40,7 +57,7 @@ function PropertyDetails({ property }) {
                                     alt="property small img"
                                     className={styles.smallImg}
                                     onClick={() => { displayImg(index) }}
-                                    style={{border:bigImg.index == index ? "#135966 6px solid" : "none"}}
+                                    style={{ border: bigImg.index == index ? "#135966 6px solid" : "none" }}
                                 />
                             )
                         })
@@ -80,8 +97,14 @@ function PropertyDetails({ property }) {
 
             <div className={styles.detailsDiv}>
                 <div className={styles.descriptionDiv}>
-                    <div className={styles.descriptionHeader}></div>
-                    <div className={styles.description}></div>
+                    <div className={styles.descriptionHeader}>Description</div>
+                    <div className={styles.description}>
+                        <div ref={contentRef} className={styles.descriptionText} style={{ maxHeight: isExpanded ? 'none' : '100px', transition: 'max-height 0.3s ease' }}>{property.description}</div>
+                        {showExpand && <button type="button" className={styles.readMoreButton} onClick={expand}>
+                            <span>{!isExpanded ? "See full description" : "See less description"}</span>
+                            {!isExpanded ? <ExpandMoreOutlinedIcon sx={{ fontSize: "30px" }} /> : <ExpandLessOutlinedIcon sx={{ fontSize: "30px" }} />}
+                        </button>}
+                    </div>
                 </div>
 
                 <div className={styles.featuresDiv}>

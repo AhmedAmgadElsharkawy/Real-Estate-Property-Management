@@ -234,3 +234,52 @@
         border: solid 1px #E8AE00;
     }
 }
+
+.detailsDiv{
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    gap: 24px;
+    width: 1240px;
+}
+
+.descriptionDiv{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.descriptionHeader{
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 44px;
+}
+
+.description{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.descriptionText{
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 400;
+    color: #0D0E0F;
+    overflow: hidden;
+}
+
+.readMoreButton{
+    color: #098895;
+    font-size: 18px;
+    line-height: 26px;
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+
+
+
+
