@@ -20,7 +20,7 @@ function PropertyDetails({ property }) {
     const [isExpanded, setIsExpanded] = useState(false)
     const contentRef = useRef(false)
     const [showExpand, setShowExpand] = useState(false);
-    const filteredData = [];
+    const [similarProperties,setSimilarProperties] = useState([]) 
 
     const displayImg = (index) => {
         setBigImg({ index, url: property.images[index] })
@@ -31,14 +31,14 @@ function PropertyDetails({ property }) {
     }
 
     const filterData = (data)=>{
-        data.filter(p => p.location == property.location && p.type == property.type)
+        const filteredData = data.filter(p => p.location == property.location && p.type == property.type)
+        setSimilarProperties(filteredData)
     }
 
     useEffect(() => {
         filterData(data);
         if (contentRef.current) {
             const contentHeight = contentRef.current.scrollHeight;
-            console.log(contentHeight)
             setShowExpand(contentHeight > 78);
         }
     }, []);
@@ -122,9 +122,9 @@ function PropertyDetails({ property }) {
                             <div className={styles.featuresColumn}>
                                 <div className={styles.featuresTopDiv}>Exterior Features</div>
                                 <div className={styles.exteriorFeatures}>
-                                    {property.exteriorFeatures.map((exteriorFeature) => {
+                                    {property.exteriorFeatures.map((exteriorFeature,index) => {
                                         return (
-                                            <div className={styles.feature}>
+                                            <div className={styles.feature} key={index}>
                                                 <div className={styles.featureCircle}></div>
                                                 <div className={styles.featureText}>{exteriorFeature}</div>
                                             </div>
@@ -136,9 +136,9 @@ function PropertyDetails({ property }) {
                             <div className={styles.featuresColumn}>
                                 <div className={styles.featuresTopDiv}>Interior Features</div>
                                 <div className={styles.interiorFeatures}>
-                                    {property.interiorFeatures.map((interiorFeature) => {
+                                    {property.interiorFeatures.map((interiorFeature,index) => {
                                         return (
-                                            <div className={styles.feature}>
+                                            <div className={styles.feature} key={index}>
                                                 <div className={styles.featureCircle}></div>
                                                 <div className={styles.featureText}>{interiorFeature}</div>
                                             </div>
@@ -164,7 +164,7 @@ function PropertyDetails({ property }) {
 
                 <div className={styles.similarPropertiesDiv}>
                     <div className={styles.similarPropertiesHeader}>Similar Properties Nearby</div>
-                    <Pagination data={filteredData} itemsCount={3} />
+                    <Pagination data={similarProperties} itemsCount={3} />
                 </div>
             </div>
         </div>

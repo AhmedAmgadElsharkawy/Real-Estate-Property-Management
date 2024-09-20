@@ -243,6 +243,7 @@
 
 .detailsDiv {
     display: flex;
+    width: 100%;
     flex-direction: column;
     padding: 24px;
     gap: 24px;
@@ -251,6 +252,7 @@
 
 .descriptionDiv {
     display: flex;
+    width: 100%;
     flex-direction: column;
     gap: 20px;
 }
@@ -263,6 +265,7 @@
 
 .description {
     display: flex;
+    width: 100%;
     flex-direction: column;
     gap: 10px;
 }
@@ -288,6 +291,7 @@
 
 .featuresDiv {
     display: flex;
+    width: 100%;
     flex-direction: column;
     gap: 20px;
 }
@@ -301,6 +305,7 @@
 
 .features {
     display: flex;
+    width: 100%;
     align-items: flex-start;
     gap: 40px;
 }
@@ -379,6 +384,7 @@
     display: flex;
     gap: 40px;
     flex-direction: column;
+    width: 100%;
 }
 
 .similarPropertiesHeader{

@@ -37,6 +37,15 @@
     cursor: pointer;
 }
 
+.messageText{
+    text-align: center;
+    color: #3c3e3f;
+    font-size: 25px;
+    line-height: 30px;
+    font-weight: 400;
+    color: tomato;
+}
+
 
 @media(max-width:960px){
     .cardsContainer{
