@@ -1,0 +1,236 @@
+.container {
+    width: 100%;
+    padding: 40px 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.topDiv {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.statusDiv{
+    display: flex;
+    align-items: center;
+    padding: 4px 8px;
+    gap: 4px;
+}
+
+.statusCircle{
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.status{
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.contentTopDivButtonsDiv {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.contentTopDivButton {
+    border-radius: 50%;
+    background-color: #F9FAFB;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    &:hover{
+        background-color: #E8AE00;
+    }
+}
+
+.BackButton {
+    border: none;
+    background-color: #212226;
+    border-radius: 12px;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 20px;
+    line-height: 28px;
+    color: white;
+    height: 48px;
+    font-weight: 400;
+    cursor: pointer;
+    box-shadow: -5px 4px #E8AE00;
+
+    &:hover {
+        background-color: #E8AE00;
+        box-shadow: -5px 4px #212226;
+        color: #212226;
+    }
+}
+
+.propertyDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+    height: 443px;
+    width: 1240px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+}
+
+.bigImg {
+    width: 600px;
+    object-fit: cover;
+    border-radius: 12px;
+    height: 403px;
+}
+
+.smallImagesDiv {
+    width: 80px;
+    height: 403px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    gap: 20px;
+
+    /* Hide scrollbar in WebKit browsers */
+    scrollbar-width: none;
+}
+
+.smallImg {
+    object-fit: cover;
+    width: 80px;
+    height: 70px;
+    border-radius: 8px;
+    flex-shrink: 0;
+    /* Prevents shrinking of images */
+}
+
+.contentDiv {
+    display: flex;
+    width: 460px;
+    height: 403px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.contentTopDiv {
+    width: 100%;
+    height: 69px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price {
+    width: 100%;
+    font-size: 36px;
+    line-height: 44px;
+    font-weight: 600px;
+    color: #0D0E0F;
+}
+
+.middleDiv {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.type {
+    font-size: 28px;
+    line-height: 36px;
+    color: #135966;
+    font-weight: 600;
+}
+
+.location {
+    font-size: 16px;
+    line-height: 24px;
+    color: #414141;
+    font-weight: 400;
+}
+
+.dateDiv {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #0D0E0F;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.featuresShortcutDiv {
+    width: 100%;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #F9FAFB;
+    border-radius: 12px;
+}
+
+.featureShortcut {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #0D0E0F;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+}
+
+.contactDiv {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+}
+
+.contactElement {
+    width: 50%;
+    font-weight: 500;
+    color: #0D0E0F;
+    font-size: 18px;
+    line-height: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    gap: 8px;
+    text-decoration: none;
+    padding: 12px 16px;
+}
+
+.callButton {
+    width: 50%;
+    border: solid 1px #E8AE00;
+
+    &:hover {
+        background-color: #E8AE00;
+    }
+}
+
+.emailButton {
+    width: 50%;
+    border: none;
+    background-color: #E8AE00;
+
+    &:hover {
+        background-color: white;
+        border: solid 1px #E8AE00;
+    }
+}
