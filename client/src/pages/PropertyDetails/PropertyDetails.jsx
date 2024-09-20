@@ -14,23 +14,34 @@ import ShareIcon from '@mui/icons-material/Share';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 
 function PropertyDetails({ property }) {
-    const [bigImg, setBigImg] = useState(property.images[0]);
-    const [selectedImg, setSelectedImg] = useState(0);
+    const [bigImg, setBigImg] = useState({index:0,url:property.images[0]});
+
+    const displayImg = (index) => {
+        setBigImg({index,url:property.images[index]})
+    }
 
     return (
         <div className={styles.container}>
 
             <div className={styles.topDiv}>
-                <button type = "button" className={styles.BackButton}><NavigateBeforeIcon /> <span>Back to properties</span></button>
+                <button type="button" className={styles.BackButton}><NavigateBeforeIcon /> <span>Back to properties</span></button>
             </div>
 
             <div className={styles.propertyDiv}>
-                <img src={bigImg} alt="property image" className={styles.bigImg} />
+                <img src={bigImg.url} alt="property image" className={styles.bigImg} />
                 <div className={styles.smallImagesDiv}>
                     {
                         property.images.map((image, index) => {
                             return (
-                                <img key={index} id={index} src={image} alt="property small img" className={styles.smallImg} />
+                                <img
+                                    key={index}
+                                    id={index}
+                                    src={image}
+                                    alt="property small img"
+                                    className={styles.smallImg}
+                                    onClick={() => { displayImg(index) }}
+                                    style={{border:bigImg.index == index ? "#135966 6px solid" : "none"}}
+                                />
                             )
                         })
                     }
@@ -38,12 +49,12 @@ function PropertyDetails({ property }) {
                 <div className={styles.contentDiv}>
                     <div className={styles.contentTopDiv}>
                         <div className={styles.statusDiv}>
-                            <div className={styles.statusCircle} style={{backgroundColor:property.status == "For sale" ? "#01B8C6": "tomato"}}></div>
+                            <div className={styles.statusCircle} style={{ backgroundColor: property.status == "For sale" ? "#01B8C6" : "tomato" }}></div>
                             <div className={styles.status}>{property.status}</div>
                         </div>
                         <div className={styles.contentTopDivButtonsDiv}>
-                            <button type = "button" className={styles.contentTopDivButton}><ShareIcon/></button>
-                            <button type = "button" className={styles.contentTopDivButton}><FavoriteBorderOutlinedIcon/></button>
+                            <button type="button" className={styles.contentTopDivButton}><ShareIcon /></button>
+                            <button type="button" className={styles.contentTopDivButton}><FavoriteBorderOutlinedIcon /></button>
                         </div>
                     </div>
                     <div className={styles.price}>{property.price}</div>

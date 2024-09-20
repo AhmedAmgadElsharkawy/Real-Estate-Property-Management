@@ -114,7 +114,7 @@
     height: 70px;
     border-radius: 8px;
     flex-shrink: 0;
-    /* Prevents shrinking of images */
+    cursor: pointer;
 }
 
 .contentDiv {
