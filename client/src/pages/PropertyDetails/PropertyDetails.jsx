@@ -64,7 +64,7 @@ function PropertyDetails({ property }) {
                                         alt="property small img"
                                         className={styles.smallImg}
                                         onClick={() => { displayImg(index) }}
-                                        style={{ border: bigImg.index == index ? "#135966 6px solid" : "none" }}
+                                        style={{ border: bigImg.index == index ? "#135966 4px solid" : "none" }}
                                     />
                                 )
                             })
