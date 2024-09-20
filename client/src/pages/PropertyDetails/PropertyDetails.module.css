@@ -1,10 +1,15 @@
+.wrapper{
+    display: flex;
+    justify-content: center;
+    padding: 40px 0px;
+}
+
 .container {
-    width: 100%;
-    padding: 40px 100px;
+    width: 1240px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 24px;
+    gap: 40px;
 }
 
 .topDiv {
@@ -14,20 +19,20 @@
     align-items: center;
 }
 
-.statusDiv{
+.statusDiv {
     display: flex;
     align-items: center;
     padding: 4px 8px;
     gap: 4px;
 }
 
-.statusCircle{
+.statusCircle {
     width: 8px;
     height: 8px;
     border-radius: 50%;
 }
 
-.status{
+.status {
     font-size: 12px;
     font-weight: 400;
 }
@@ -47,7 +52,8 @@
     justify-content: center;
     align-items: center;
     padding: 8px;
-    &:hover{
+
+    &:hover {
         background-color: #E8AE00;
     }
 }
@@ -235,7 +241,7 @@
     }
 }
 
-.detailsDiv{
+.detailsDiv {
     display: flex;
     flex-direction: column;
     padding: 24px;
@@ -243,25 +249,25 @@
     width: 1240px;
 }
 
-.descriptionDiv{
+.descriptionDiv {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.descriptionHeader{
+.descriptionHeader {
     font-size: 36px;
     font-weight: 600;
     line-height: 44px;
 }
 
-.description{
+.description {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.descriptionText{
+.descriptionText {
     font-size: 18px;
     line-height: 26px;
     font-weight: 400;
@@ -269,7 +275,7 @@
     overflow: hidden;
 }
 
-.readMoreButton{
+.readMoreButton {
     color: #098895;
     font-size: 18px;
     line-height: 26px;
@@ -280,64 +286,104 @@
     cursor: pointer;
 }
 
-.featuresDiv{
+.featuresDiv {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.featuresHeader{
+.featuresHeader {
     font-size: 36px;
     line-height: 44px;
     font-weight: 600;
     color: #0D0E0F;
 }
 
-.features{
+.features {
     display: flex;
-    justify-content: space-between;
     align-items: flex-start;
+    gap: 40px;
 }
 
-.featuresColumn{
+.featuresColumn {
     display: flex;
     flex-direction: column;
     width: 50%;
     gap: 24px;
 }
 
-.featuresTopDiv{
+.featuresTopDiv {
     color: #135966;
     font-size: 28px;
     line-height: 36px;
     font-weight: 600;
 }
 
-.interiorFeatures , .exteriorFeatures{
+.interiorFeatures,
+.exteriorFeatures {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.feature{
+.feature {
     display: flex;
     gap: 8px;
     align-items: center;
 }
 
-.featureCircle{
+.featureCircle {
     width: 8px;
     height: 8px;
     border-radius: 50%;
     background-color: #098895;
 }
 
-.featureText{
+.featureText {
     color: #0D0E0F;
     font-size: 18px;
     line-height: 26px;
     font-weight: 400;
 }
 
+.graphsDiv {
+    display: flex;
+    gap: 30px;
+}
 
+.graphConatiner {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 24px;
+    width: 50%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+}
 
+.graph {
+    width: 100%;
+    height: 444px;
+    object-fit: fill;
+    border-radius: 20px;
+}
+
+.graphHeader {
+    color: #0D0E0F;
+    font-size: 36px;
+    line-height: 44px;
+    font-weight: 600;
+}
+
+.similarPropertiesDiv{
+    display: flex;
+    gap: 40px;
+    flex-direction: column;
+}
+
+.similarPropertiesHeader{
+    color: #0D0E0F;
+    font-size: 36px;
+    line-height: 44px;
+    font-weight: 600;
+}
