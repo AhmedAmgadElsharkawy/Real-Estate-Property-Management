@@ -1,30 +1,29 @@
 import styles from "./slider.module.css"
-import data from "../../pages/Properties/temporaryData.json"
 import { PropertyCard } from ".."
-import { useEffect, useRef } from "react"
+import { useRef, useState } from "react"
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 
-function Slider() {
+function Slider({ data }) {
   const cardsRefs = useRef([])
   const sliderContainerRef = useRef();
-  var targetCardIndex = 0;
+  const [targetCardIndex, setTargetCardIndex] = useState(0)
+  const length = data.length
 
   const increase = () => {
-    targetCardIndex = Math.min(targetCardIndex + 1, data.length - 1);
-    const targetCard = cardsRefs.current[targetCardIndex];
+    const targetCard = cardsRefs.current[targetCardIndex + 1];
     const container = sliderContainerRef.current
     if (targetCard) {
       const targetPosition = targetCard.getBoundingClientRect().left;
       const containerPosition = container.getBoundingClientRect().left;
       const scrollAmount = targetPosition - containerPosition + container.scrollLeft;
       container.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+      setTargetCardIndex(targetCardIndex + 1)
     }
   }
 
   const decrease = () => {
-    targetCardIndex = Math.max(targetCardIndex - 1, 0);
-    const targetCard = cardsRefs.current[targetCardIndex];
+    const targetCard = cardsRefs.current[targetCardIndex - 1];
     const container = sliderContainerRef.current;
 
     if (targetCard) {
@@ -32,12 +31,13 @@ function Slider() {
       const containerPosition = container.getBoundingClientRect().left;
       const scrollAmount = targetPosition - containerPosition + container.scrollLeft;
       container.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+      setTargetCardIndex(targetCardIndex - 1)
     }
   }
 
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.container}>
+    <div className={styles.container}>
+      {length ?
         <div className={styles.cardsContainer} ref={sliderContainerRef}>
           {data.map((card, index) => {
             return (
@@ -56,14 +56,17 @@ function Slider() {
               </div>
             )
           })}
+          <div className={styles.invisible}></div>
         </div>
-        <div className={styles.paginationButtonsContainer}>
-          <button onClick={decrease} type="button" id="backButton" className={styles.paginationButtons} ><NavigateBeforeIcon sx={{ fontSize: 40 }} className={styles.navigationButton} /></button>
-          <button onClick={increase} type="button" id="nextButton" className={styles.paginationButtons} ><NavigateNextIcon sx={{ fontSize: 40 }} className={styles.navigationButton} /></button>
-        </div>
+        :
+        <div className={styles.messageText}>No matching properties</div>
+      }
+      <div className={styles.paginationButtonsContainer}>
+        <button onClick={decrease} type="button" id="backButton" className={styles.paginationButtons} disabled={targetCardIndex == 0}><NavigateBeforeIcon sx={{ fontSize: 40 }} className={styles.navigationButton} /></button>
+        <button onClick={increase} type="button" id="nextButton" className={styles.paginationButtons} disabled={targetCardIndex >= length - 1} ><NavigateNextIcon sx={{ fontSize: 40 }} className={styles.navigationButton} /></button>
       </div>
     </div>
   )
 }
 
-export default Slider
+export default Slider;

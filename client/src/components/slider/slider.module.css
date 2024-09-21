@@ -1,21 +1,17 @@
-.wrapper{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 .container{
-    width: 1300px;
+    width: 100%;
     min-width: 0px;
     display: flex;
     flex-direction: column;
     gap: 30px;
+    padding: 20px;
 }
 
 .cardsContainer{
     display: flex;
     gap: 20px;
     overflow: hidden;
+    padding-bottom: 20px;
 }
 
 .paginationButtonsContainer{
@@ -58,3 +54,16 @@
     color: tomato;
 }
 
+
+.invisible{
+    min-width: 1000px;
+}
+
+.messageText{
+    text-align: center;
+    color: #3c3e3f;
+    font-size: 25px;
+    line-height: 30px;
+    font-weight: 400;
+    color: tomato;
+}
