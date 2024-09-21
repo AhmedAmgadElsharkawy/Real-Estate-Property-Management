@@ -116,13 +116,20 @@
     cursor: pointer;
 }
 
+.bodyWrapper{
+    width: 100%;
+    padding: 97px 0px 40px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .body{
-    font-family: 'Exo', sans-serif;
     position: relative;
-    padding: 97px 100px 40px 100px;
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 1240px;
 }
 
 .bodyHeader{

@@ -133,14 +133,21 @@
     justify-content: space-between;
 }
 
+
+.propertiesWrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 16px;
+}
+
 .properties {
-    padding: 50px 0px 50px 100px;
     gap: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    left: 100px;
-    width: calc(100% - 100px);
+    width: 1240px;
+    min-width: 0px;
 }
 
 .cards {
@@ -473,12 +480,6 @@
             background-color: #FFF9E6;
         }
         grid-column:span 2;
-    }
-    .properties {
-        padding: 50px 0px 50px 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
     }
     
     .cards {

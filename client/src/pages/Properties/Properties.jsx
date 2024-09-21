@@ -1,4 +1,4 @@
-import { SignInAlert,Pagination,AuthOverlay } from "../../components"
+import { SignInAlert, Pagination, AuthOverlay } from "../../components"
 import styles from "./Properties.module.css"
 import bannerImage from '../../assets/propertiesPageBanner.jpg';
 import { useState } from "react";
@@ -14,12 +14,12 @@ function Properties() {
         beds: "",
         baths: "",
         propertyType: "",
-        sortOrder:""
+        sortOrder: ""
     });
 
     const [filterVisibility, setFilterVisibility] = useState(false);
 
-    const [headerText,setHeaderText] = useState("")
+    const [headerText, setHeaderText] = useState("")
 
     const onChangeSelect = (event) => {
         const name = event.target.name
@@ -27,15 +27,15 @@ function Properties() {
         setSelectElementsValues({ ...selectElementsValues, [name]: value })
     }
 
-    const preventSubmmision = (event)=>{
+    const preventSubmmision = (event) => {
         event.preventDefault();
-        if(selectElementsValues.text != "")
+        if (selectElementsValues.text != "")
             setHeaderText(` in ${selectElementsValues.text}`)
         else
             setHeaderText("")
     }
 
-    const onChangeSort = (event)=>{
+    const onChangeSort = (event) => {
         const name = event.target.name
         const value = event.target.value
         setSelectElementsValues({ ...selectElementsValues, [name]: value })
@@ -59,7 +59,7 @@ function Properties() {
                 </div>
                 <div className={styles.searchBar}>
                     <form className={styles.searchBarForm} onSubmit={preventSubmmision}>
-                        <input type="text" placeholder = "Enter City" value={selectElementsValues.text} name="text" onChange={onChangeSelect} className={`${styles.textInput} ${styles.searchComponent}`}/>
+                        <input type="text" placeholder="Enter City" value={selectElementsValues.text} name="text" onChange={onChangeSelect} className={`${styles.textInput} ${styles.searchComponent}`} />
                         <select name="price" id="price" value={selectElementsValues.price} onChange={onChangeSelect} className={`${styles.price} ${styles.searchComponent} ${styles.hide}`}>
                             <option value="">Price</option>
                             <option value="low">Low</option>
@@ -82,29 +82,32 @@ function Properties() {
                         <select name="propertyType" id="propertyType" value={selectElementsValues.propertyType} onChange={onChangeSelect} className={`${styles.propertyType} ${styles.searchComponent} ${styles.hide}`}>
                             <option value="">Property Type</option>
                         </select>
-                        <button type="button"  onClick={openFilter} className={`${styles.filterButton} ${styles.searchComponent}`}><TuneIcon/><span className={styles.hideText}>Filter</span></button>
-                        <button type="submit" className={`${styles.searchComponent} ${styles.submitButton}`}><SearchIcon/><span className={styles.hideText}>Search</span></button>
+                        <button type="button" onClick={openFilter} className={`${styles.filterButton} ${styles.searchComponent}`}><TuneIcon /><span className={styles.hideText}>Filter</span></button>
+                        <button type="submit" className={`${styles.searchComponent} ${styles.submitButton}`}><SearchIcon /><span className={styles.hideText}>Search</span></button>
                     </form>
                 </div>
             </div>
-            
-            <div className={styles.body}>
-                <div className={styles.bodyHeader}>
-                    <span className={styles.bodyHeaderText}>Properties{headerText}</span>
-                    <select name="sortOrder" id="sortOrder" className={`${styles.sortElement} ${styles.hide}`} value={selectElementsValues.sortOrder} onChange={onChangeSort}>
-                        <option value="">Sort order: Anytime</option>
-                        <option value="last24h">Sort order: Last 24 hours</option>
-                        <option value="last3d">Sort order: Last 3 days</option>
-                        <option value="last7d">Sort order: Last 7 days</option>
-                        <option value="last14d">Sort order: Last 14 days</option>
-                        <option value="last30d">Sort order: Last 30 days</option>
-                    </select>
-                </div>
-            <Pagination data={data} itemsCount={6}/>
-            </div>
-            <SignInAlert/>
 
-            {filterVisibility && <FilterSearch onClose={closeFilter}/>}
+            <div className={styles.bodyWrapper}>
+                <div className={styles.body}>
+                    <div className={styles.bodyHeader}>
+                        <span className={styles.bodyHeaderText}>Properties{headerText}</span>
+                        <select name="sortOrder" id="sortOrder" className={`${styles.sortElement} ${styles.hide}`} value={selectElementsValues.sortOrder} onChange={onChangeSort}>
+                            <option value="">Sort order: Anytime</option>
+                            <option value="last24h">Sort order: Last 24 hours</option>
+                            <option value="last3d">Sort order: Last 3 days</option>
+                            <option value="last7d">Sort order: Last 7 days</option>
+                            <option value="last14d">Sort order: Last 14 days</option>
+                            <option value="last30d">Sort order: Last 30 days</option>
+                        </select>
+                    </div>
+                    <Pagination data={data} itemsCount={6} />
+                </div>
+            </div>
+
+            <SignInAlert />
+
+            {filterVisibility && <FilterSearch onClose={closeFilter} />}
 
         </>
     )
