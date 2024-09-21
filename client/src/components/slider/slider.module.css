@@ -18,3 +18,43 @@
     overflow: hidden;
 }
 
+.paginationButtonsContainer{
+    display: flex;
+    gap: 8px;
+    justify-content: end;
+    align-items: center;
+    margin-top: 20px;
+    padding-right: 50px;
+}
+
+.paginationButtons{
+    border: none;
+    color: rgb(43, 42, 42);
+    background-color: white;
+    border: 1px solid #E8AE00;
+    border-radius: 12px;
+    height: 56px;
+    width: 56px;
+}
+
+.paginationButtons:disabled{
+    color: #a5afb7;
+    border-color: #a5afb7;
+    cursor: not-allowed;
+}
+
+.paginationButtons:not(:disabled):hover{
+    background-color: #E8AE00;
+    color: white;
+    cursor: pointer;
+}
+
+.messageText{
+    text-align: center;
+    color: #3c3e3f;
+    font-size: 25px;
+    line-height: 30px;
+    font-weight: 400;
+    color: tomato;
+}
+
