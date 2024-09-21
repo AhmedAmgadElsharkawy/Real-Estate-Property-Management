@@ -1,4 +1,4 @@
-import styles from "./slider.module.css"
+import styles from "./HorizontalSlider.module.css"
 import { PropertyCard } from ".."
 import { useRef, useState } from "react"
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
