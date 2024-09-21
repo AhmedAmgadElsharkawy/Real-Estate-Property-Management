@@ -21,8 +21,6 @@ function Pagination({ data, itemsCount }) {
         setCurrentPage(currentPage + 1)
     }
 
-    console.log(data)
-
     return (
         <>
             {data.length ? (<div className={styles.cardsContainer}>

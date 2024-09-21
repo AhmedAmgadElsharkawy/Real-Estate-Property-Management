@@ -1,0 +1,20 @@
+.wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    width: 1300px;
+    min-width: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.cardsContainer{
+    display: flex;
+    gap: 20px;
+    overflow: hidden;
+}
+

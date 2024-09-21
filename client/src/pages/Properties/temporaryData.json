@@ -1,7 +1,7 @@
 [
     {
         "src":"https://www.adobe.com/content/dam/cc/us/en/creativecloud/photography/discover/real-estate-photography/real-estate-photography_P1_900x420.jpg.img.jpg",
-        "price":"$100,200",
+        "price":"$1",
         "beds":3,
         "baths":2,
         "furniture":"semi-furnitured",
@@ -22,7 +22,7 @@
     },
     {
         "src":"https://www.adobe.com/content/dam/cc/us/en/creativecloud/photography/discover/real-estate-photography/real-estate-photography_P1_900x420.jpg.img.jpg",
-        "price":"$100,200",
+        "price":"$2",
         "beds":3,
         "baths":2,
         "furniture":"semi-furnitured",
@@ -42,7 +42,7 @@
         "floorPlan":"https://cubicasa-wordpress-uploads.s3.amazonaws.com/uploads/2019/07/simple-stylish-1024x991.png"
     },{
         "src":"https://www.adobe.com/content/dam/cc/us/en/creativecloud/photography/discover/real-estate-photography/real-estate-photography_P1_900x420.jpg.img.jpg",
-        "price":"$100,200",
+        "price":"$3",
         "beds":3,
         "baths":2,
         "furniture":"semi-furnitured",
@@ -62,7 +62,7 @@
         "floorPlan":"https://cubicasa-wordpress-uploads.s3.amazonaws.com/uploads/2019/07/simple-stylish-1024x991.png"
     },{
         "src":"https://www.adobe.com/content/dam/cc/us/en/creativecloud/photography/discover/real-estate-photography/real-estate-photography_P1_900x420.jpg.img.jpg",
-        "price":"$100,200",
+        "price":"$4",
         "beds":3,
         "baths":2,
         "furniture":"semi-furnitured",
@@ -82,7 +82,7 @@
         "floorPlan":"https://cubicasa-wordpress-uploads.s3.amazonaws.com/uploads/2019/07/simple-stylish-1024x991.png"
     },{
         "src":"https://www.adobe.com/content/dam/cc/us/en/creativecloud/photography/discover/real-estate-photography/real-estate-photography_P1_900x420.jpg.img.jpg",
-        "price":"$100,200",
+        "price":"$5",
         "beds":3,
         "baths":2,
         "furniture":"semi-furnitured",
@@ -102,7 +102,7 @@
         "floorPlan":"https://cubicasa-wordpress-uploads.s3.amazonaws.com/uploads/2019/07/simple-stylish-1024x991.png"
     },{
         "src":"https://www.adobe.com/content/dam/cc/us/en/creativecloud/photography/discover/real-estate-photography/real-estate-photography_P1_900x420.jpg.img.jpg",
-        "price":"$100,200",
+        "price":"$6",
         "beds":3,
         "baths":2,
         "furniture":"semi-furnitured",
