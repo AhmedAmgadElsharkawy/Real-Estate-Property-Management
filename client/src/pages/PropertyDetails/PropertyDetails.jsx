@@ -1,6 +1,6 @@
 import styles from "./PropertyDetails.module.css"
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
-import { Pagination } from "../../components";
+import { HorizontalSlider } from "../../components";
 import data from "../Properties/temporaryData.json"
 import { useRef, useState, useEffect } from "react";
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
@@ -164,7 +164,7 @@ function PropertyDetails({ property }) {
 
                 <div className={styles.similarPropertiesDiv}>
                     <div className={styles.similarPropertiesHeader}>Similar Properties Nearby</div>
-                    <Pagination data={similarProperties} itemsCount={3} />
+                    <HorizontalSlider data={similarProperties} />
                 </div>
             </div>
         </div>
