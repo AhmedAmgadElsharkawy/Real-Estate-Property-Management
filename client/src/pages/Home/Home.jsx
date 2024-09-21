@@ -4,7 +4,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import SellIcon from '@mui/icons-material/Sell';
 import CloseIcon from '@mui/icons-material/Close';
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
-import { Pagination } from "../../components";
+import { Pagination,HorizontalSlider } from "../../components";
 import { useState } from "react";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import FeatureCard from "../../components/Feature Card/FeatureCard.jsx";
@@ -47,7 +47,7 @@ function Home() {
       <div className={styles.propertiesWrapper}>
         <div className={styles.properties}>
           <h1>Featured Properties</h1>
-          <Pagination data={data} itemsCount={3} />
+          <HorizontalSlider data={data}/>
         </div>
       </div>
 

@@ -4,7 +4,7 @@ import { useRef, useState } from "react"
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 
-function Slider({ data }) {
+function HorizontalSlider({ data }) {
   const cardsRefs = useRef([])
   const sliderContainerRef = useRef();
   const [targetCardIndex, setTargetCardIndex] = useState(0)
@@ -69,4 +69,4 @@ function Slider({ data }) {
   )
 }
 
-export default Slider;
+export default HorizontalSlider;
