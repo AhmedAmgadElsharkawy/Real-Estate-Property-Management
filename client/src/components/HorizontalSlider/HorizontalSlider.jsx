@@ -49,7 +49,7 @@ function HorizontalSlider({ data }) {
               <div ref={el => cardsRefs.current[index] = el} key={index}>
                 <PropertyCard
                   id={index}
-                  src={card.src}
+                  images={card.images}
                   type={card.type}
                   furniture={card.furniture}
                   location={card.location}

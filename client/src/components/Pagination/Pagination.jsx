@@ -29,7 +29,7 @@ function Pagination({ data, itemsCount }) {
                         <PropertyCard
                             key={index}
                             id={index}
-                            src={card.src}
+                            images={card.images}
                             type={card.type}
                             furniture={card.furniture}
                             location={card.location}
