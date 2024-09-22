@@ -27,8 +27,13 @@ function HorizontalSlider({ data }) {
     const container = sliderContainerRef.current;
 
     if (targetCard) {
+      //The Element.getBoundingClientRect() method returns a DOMRect object {top,bottom,left,right,x,y}
+      //providing information about the size of an element and its position relative to the viewport.
+      //target position is the positon with respect to viewport
       const targetPosition = targetCard.getBoundingClientRect().left;
+      //container position is the positon with respect to viewport
       const containerPosition = container.getBoundingClientRect().left;
+      //scrollLeft -> number of pixels by which the element's content is scrolled from its left edge.
       const scrollAmount = targetPosition - containerPosition + container.scrollLeft;
       container.scrollTo({ left: scrollAmount, behavior: 'smooth' });
       setTargetCardIndex(targetCardIndex - 1)
