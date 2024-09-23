@@ -22,34 +22,42 @@ function AddProperty({onClose}) {
         setPropertyImages([...propertyImages])
     }
 
-    const [filters, setFilters] = useState({
+    const [details, setdetails] = useState({
         bedrooms: "",
         bathrooms: "",
         price: "",
         propertyType: "show all",
         furnishOptions: "show all",
-        
+        description: "",
+        status: "",
+        floorPlan: "",
+        location: "",
+        locationOnMap: "",
+        images: propertyImages,
     })
 
-    function selectChagne(event) {
+    function handleChange(event) {
         const name = event.target.name;
-        const value = event.target.value;
-        setFilters({...filters, [name]: value});
-        console.log(filters)
+        let value = event.target.value;
+        if (event.target.type == "file")
+            value = event.target.files[0].name;
+        setdetails({...details, [name]: value});
     }
 
-    function resetFilters() {
-        setFilters({
+    function resetdetails() {
+        setdetails({
             bedrooms: "",
             bathrooms: "",
-            minPrice: "",
-            maxPrice: "",
+            price: "",
             propertyType: "show all",
             furnishOptions: "show all",
-            sortBy: "Anytime",
+            description: "",
+            status: "",
+            floorPlan: "",
+            location: "",
+            locationOnMap: "",
+            images: propertyImages,
         })
-
-        console.log(filters)
     }
 
     return (
@@ -63,7 +71,7 @@ function AddProperty({onClose}) {
                 <div className={styles.smallChooseDiv}>
                     <div className={styles.smallerChoosediv}>
                         <h4>Bedrooms</h4>
-                        <select className={styles.smallSelect} name="bedrooms" id="bedrooms" onChange={selectChagne} value={filters.bedrooms}>
+                        <select className={styles.smallSelect} name="bedrooms" id="bedrooms" onChange={handleChange} value={details.bedrooms}>
                             <option value="">Any</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -74,7 +82,7 @@ function AddProperty({onClose}) {
                     </div>
                     <div className={styles.smallerChoosediv}>
                         <h4>Bathrooms</h4>
-                        <select className={styles.smallSelect} name="bathrooms" id="bathrooms" onChange={selectChagne} value={filters.bathrooms}>
+                        <select className={styles.smallSelect} name="bathrooms" id="bathrooms" onChange={handleChange} value={details.bathrooms}>
                             <option value="">Any</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -86,11 +94,11 @@ function AddProperty({onClose}) {
                 <div className={styles.smallChooseDiv}>
                     <div className={styles.smallerChoosediv}>
                         <h4>Price</h4>
-                        <input className={styles.smallSelect} type="number" placeholder='Enter the price' name='price' onChange={selectChagne} value={filters.price}/>
+                        <input className={styles.smallSelect} type="number" placeholder='Enter the price' name='price' onChange={handleChange} value={details.price}/>
                     </div>
                     <div className={styles.smallerChoosediv}>
                         <h4>Status</h4>
-                        <select className={styles.smallSelect} name="saleType" id="">
+                        <select className={styles.smallSelect} name="saleType" id="" value={details.status}>
                             <option value="ForSale">For sale</option>
                             <option value="ForRent">For rent</option>
                         </select>
@@ -100,20 +108,20 @@ function AddProperty({onClose}) {
                 <div className={styles.smallChooseDiv}>
                     <div className={styles.smallerChoosediv}>
                         <h4>Location</h4>
-                        <input className={styles.smallSelect} type="text" placeholder='Enter the location' name='location' onChange={selectChagne} value={filters.location}/>
+                        <input className={styles.smallSelect} type="text" placeholder='Enter the location' name='location' onChange={handleChange} value={details.location}/>
                     </div>
                     <div className={styles.smallerChoosediv}>
                         <h4>Location in map</h4>
-                        <label htmlFor="formId" className={styles.smallSelect}>
-                            <input className={styles.imageInput} type="file" id="formId" hidden />
-                            Choose an image
+                        <label htmlFor="locationImage" className={styles.smallSelect}>
+                            <input name='locationOnMap' onChange={handleChange} className={styles.imageInput} type="file" id="locationImage" hidden />
+                            {details.locationOnMap != "" ? details.locationOnMap : "Choose an image"}
                         </label>
                     </div>
                 </div>
 
                 <div className={styles.bigChooseDiv}>
                     <h4>Property Type</h4>
-                    <select className={styles.bigSelect} name="propertyType" id="propertyType"  onChange={selectChagne} value={filters.propertyType}>
+                    <select className={styles.bigSelect} name="propertyType" id="propertyType"  onChange={handleChange} value={details.propertyType}>
                         <option value="Show all">Show all</option>
                         <option value="Saona">Saona</option>
                         <option value="Jacozy">Jacozy</option>
@@ -122,7 +130,7 @@ function AddProperty({onClose}) {
 
                 <div className={styles.bigChooseDiv}>
                     <h4>Furnished options</h4>
-                    <select className={styles.bigSelect} name="furnishOptions" id="furnishOptions" onChange={selectChagne} value={filters.furnishOptions}>
+                    <select className={styles.bigSelect} name="furnishOptions" id="furnishOptions" onChange={handleChange} value={details.furnishOptions}>
                         <option value="Show all">Show all</option>
                         <option value="Fully-furnished">Fully-furnished</option>
                         <option value="Semi-furnished">Semi-furnished</option>
@@ -131,17 +139,17 @@ function AddProperty({onClose}) {
                 </div>
 
                 <div className={styles.bigChooseDiv}>
-                    <h4>Floor Plan</h4>
-                    <label htmlFor="formId" className={styles.bigSelect}>
-                        <input className={styles.imageInput} type="file" id="formId" hidden />
-                        Choose an image
+                    <h4>Floor plan</h4>
+                    <label htmlFor="floorImage" className={styles.bigSelect}>
+                        <input name='floorPlan' onChange={handleChange} className={styles.imageInput} type="file" id="floorImage" hidden />
+                        {details.floorPlan != "" ? details.floorPlan : "Choose an image"}
                         <WallpaperIcon fontSize='small' />
                     </label>
                 </div>
 
                 <div className={styles.descriptionDiv}>
                     <h4>Property description</h4>
-                    <textarea name="description" className={styles.textArea} placeholder="Enter your description"></textarea>
+                    <textarea onChange={handleChange} name="description" className={styles.textArea} placeholder="Enter your description" value={details.description}></textarea>
                 </div>
 
                 <div className={styles.controlDiv}>
@@ -168,7 +176,7 @@ function AddProperty({onClose}) {
                 </div>
 
                 <div className={styles.buttonsDiv}>
-                    <button className={styles.resetButton} onClick={resetFilters}>Reset filters</button>
+                    <button className={styles.resetButton} onClick={resetdetails}>Reset details</button>
                     <button className={styles.updateButton}>Update results</button>
                 </div>
             </div>
