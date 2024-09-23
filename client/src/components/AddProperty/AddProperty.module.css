@@ -16,13 +16,15 @@
 .filterDiv {
     width: 40%;
     min-width: 400px;
-    height: 650px;
+    height: 90%;
     padding: 20px;
     background-color: white;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     border-radius: 12px;
+    gap: 20px;
+    overflow-y: scroll;
 }
 
 .titleDiv{
@@ -76,6 +78,9 @@
     border: 1px solid #FFB300;
     text-indent: 5px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
 }
 
 .bigChooseDiv {
@@ -92,7 +97,12 @@
     border-radius: 12px;
     border: 1px solid #FFB300;
     text-indent: 5px;
+    padding-right: 3px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 15px;
 }
 
 .sortMainDiv {
@@ -149,4 +159,15 @@
     &:hover{
         background-color: #ff9500;
     }
+}
+.imageInput {
+    display: none;
+}
+  
+.customFileUpload {
+border: 1px solid #ccc;
+display: inline-block;
+padding: 6px 12px;
+cursor: pointer;
+height: 40px;
 }

@@ -2,6 +2,7 @@
 import styles from './AddProperty.module.css';
 import { useState } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
+import WallpaperIcon from '@mui/icons-material/Wallpaper';
 
 function AddProperty({onClose}) {
     const [filters, setFilters] = useState({
@@ -39,7 +40,7 @@ function AddProperty({onClose}) {
         <div className={styles.mainDiv}>
             <div className={styles.filterDiv}>
                 <div className={styles.titleDiv}>
-                    <h2>Filter your search results</h2>
+                    <h2>Add a property</h2>
                     <button className={styles.closeButton} onClick={onClose}><div className={styles.closeButtonSmallerDiv}><CloseIcon fontSize="small"/></div></button>
                 </div>
 
@@ -68,12 +69,29 @@ function AddProperty({onClose}) {
 
                 <div className={styles.smallChooseDiv}>
                     <div className={styles.smallerChoosediv}>
-                        <h4>Min Price</h4>
-                        <input className={styles.smallSelect} type="number" placeholder='No Min' name='minPrice' onChange={selectChagne} value={filters.minPrice}/>
+                        <h4>Price</h4>
+                        <input className={styles.smallSelect} type="number" placeholder='Enter the price' name='price' onChange={selectChagne} value={filters.price}/>
                     </div>
                     <div className={styles.smallerChoosediv}>
-                        <h4>Max Price</h4>
-                        <input className={styles.smallSelect} type="number" placeholder='No Max' name='maxPrice' onChange={selectChagne} value={filters.maxPrice}/>
+                        <h4>Status</h4>
+                        <select className={styles.smallSelect} name="saleType" id="">
+                            <option value="ForSale">For sale</option>
+                            <option value="ForRent">For rent</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div className={styles.smallChooseDiv}>
+                    <div className={styles.smallerChoosediv}>
+                        <h4>Location</h4>
+                        <input className={styles.smallSelect} type="text" placeholder='Enter the location' name='location' onChange={selectChagne} value={filters.location}/>
+                    </div>
+                    <div className={styles.smallerChoosediv}>
+                        <h4>Location in map</h4>
+                        <label htmlFor="formId" className={styles.smallSelect}>
+                            <input className={styles.imageInput} type="file" id="formId" hidden />
+                            Choose an image
+                        </label>
                     </div>
                 </div>
 
@@ -94,6 +112,15 @@ function AddProperty({onClose}) {
                         <option value="Semi-furnished">Semi-furnished</option>
                         <option value="Not-furnished">Not-furnished</option>
                     </select>
+                </div>
+
+                <div className={styles.bigChooseDiv}>
+                    <h4>Floor Plan</h4>
+                    <label htmlFor="formId" className={styles.bigSelect}>
+                        <input className={styles.imageInput} type="file" id="formId" hidden />
+                        Choose an image
+                        <WallpaperIcon fontSize='small' />
+                    </label>
                 </div>
 
                 <div className={styles.sortMainDiv}>
