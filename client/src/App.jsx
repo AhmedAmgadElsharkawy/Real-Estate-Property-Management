@@ -1,7 +1,8 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import { Home, Account, Properties} from './pages'
-import { NavBar, Footer} from './components'
+import { Home , Properties,PropertyDetails} from './pages'
+import { NavBar,Footer} from './components'
+import data from "./pages/Properties/temporaryData.json"
 
 function App() {
 
@@ -11,7 +12,7 @@ function App() {
       <Routes>
         <Route path='/' element = {<Home/>}/>
         <Route path='/properties' element={<Properties/>}/>
-        <Route path='/account' element={<Account/>}/>
+        <Route path='/property-details' element={<PropertyDetails property={data[0]}/>}/>
       </Routes>
       <Footer/>
     </Router>

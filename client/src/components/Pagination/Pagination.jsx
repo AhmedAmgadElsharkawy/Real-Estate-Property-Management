@@ -6,32 +6,32 @@ import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import PropertyCard from "../PropertyCard/PropertyCard";
 import { useState } from "react";
 
-function Pagination({data, itemsCount}) {
+function Pagination({ data, itemsCount }) {
 
-    const [currentPage,setCurrentPage] = useState(1);
-    const [postsPerPage,setPostsPerPage] = useState(itemsCount);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postsPerPage, setPostsPerPage] = useState(itemsCount);
 
     const lastPostIndex = currentPage * postsPerPage;
-    const firstPostIndex = lastPostIndex -postsPerPage;
-    const currentPost = data.slice(firstPostIndex,lastPostIndex)
+    const firstPostIndex = lastPostIndex - postsPerPage;
+    const currentPost = data.slice(firstPostIndex, lastPostIndex)
 
-    const decreasePage = ()=>{
-        setCurrentPage(currentPage-1)
+    const decreasePage = () => {
+        setCurrentPage(currentPage - 1)
     }
 
-    const increasePage = ()=>{
-        setCurrentPage(currentPage+1)
+    const increasePage = () => {
+        setCurrentPage(currentPage + 1)
     }
 
     return (
         <>
-            <div className={styles.cardsContainer}>
+            {data.length ? (<div className={styles.cardsContainer}>
                 {currentPost.map((card, index) => {
                     return (
                         <PropertyCard
                             key={index}
                             id={index}
-                            src={card.src}
+                            images={card.images}
                             type={card.type}
                             furniture={card.furniture}
                             location={card.location}
@@ -41,10 +41,13 @@ function Pagination({data, itemsCount}) {
                             status={card.status}
                         />)
                 })}
-            </div>
+            </div>)
+                :
+                <div className={styles.messageText}>No matching properties</div>
+            }
             <div className={styles.paginationButtonsContainer}>
                 <button onClick={decreasePage} type="button" id="backButton" className={styles.paginationButtons} disabled={currentPage == 1 ? true : false}><NavigateBeforeIcon sx={{ fontSize: 40 }} className={styles.navigationButton} /></button>
-                <button onClick={increasePage} type="button" id="nextButton" className={styles.paginationButtons} disabled={currentPage == Math.ceil(data.length / postsPerPage) ? true : false}><NavigateNextIcon sx={{ fontSize: 40 }} className={styles.navigationButton} /></button>
+                <button onClick={increasePage} type="button" id="nextButton" className={styles.paginationButtons} disabled={currentPage == Math.ceil(data.length / postsPerPage) || data.length == 0 ? true : false}><NavigateNextIcon sx={{ fontSize: 40 }} className={styles.navigationButton} /></button>
             </div>
         </>
     )

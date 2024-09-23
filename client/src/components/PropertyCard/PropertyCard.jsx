@@ -5,11 +5,11 @@ import ShowerIcon from '@mui/icons-material/Shower';
 import WeekendIcon from '@mui/icons-material/Weekend';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
-function PropertyCard({src,price,beds,baths,location,type,furniture,status}) {
+function PropertyCard({images,price,beds,baths,location,type,furniture,status}) {
   return (
     <div className={styles.container}>
       <div className={styles.cardImgDiv}>
-        <img className={styles.cardImg} src={src} alt="real-state" />
+        <img className={styles.cardImg} src={images[0]} alt="real-state" />
         <button className={styles.favouriteButton}><FavoriteBorderIcon/></button>
       </div>
       <div className={styles.infoContainer}>

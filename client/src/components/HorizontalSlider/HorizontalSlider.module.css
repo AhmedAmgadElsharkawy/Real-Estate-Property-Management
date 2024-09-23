@@ -1,9 +1,17 @@
+.container{
+    width: 100%;
+    min-width: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px;
+}
+
 .cardsContainer{
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
+    gap: 20px;
+    overflow: hidden;
+    padding-bottom: 20px;
 }
 
 .paginationButtonsContainer{
@@ -11,7 +19,6 @@
     gap: 8px;
     justify-content: end;
     align-items: center;
-    margin-top: 20px;
     padding-right: 50px;
 }
 
@@ -47,8 +54,15 @@
 }
 
 
-@media(max-width:960px){
-    .cardsContainer{
-        gap: 15px;
-    }
+.invisible{
+    min-width: 1000px;
+}
+
+.messageText{
+    text-align: center;
+    color: #3c3e3f;
+    font-size: 25px;
+    line-height: 30px;
+    font-weight: 400;
+    color: tomato;
 }
