@@ -20,7 +20,8 @@ function AddProperty({onClose}) {
         location: "",
         locationOnMap: "",
         images: propertyImages,
-        interiorFeatures: interiorFeatures
+        interiorFeatures: interiorFeatures,
+        exteriorFeatures: exteriorFeatures
     })
 
     function addImages() {
@@ -63,7 +64,15 @@ function AddProperty({onClose}) {
         const value = event.target.value;
         interiorFeatures[id] = value;
         setInteriorFeatures([...interiorFeatures]);
-        setdetails({...details, interiorFeatures: interiorFeatures})
+        setdetails({...details, interiorFeatures: interiorFeatures});
+    }
+
+    function handleExteriorFeature(event) {
+        const id = event.target.id;
+        const value = event.target.value;
+        exteriorFeatures[id] = value;
+        setExteriorFeatures([...exteriorFeatures]);
+        setdetails({...details, exteriorFeatures: exteriorFeatures});
     }
 
     function handleChange(event) {
@@ -75,6 +84,9 @@ function AddProperty({onClose}) {
     }
 
     function resetdetails() {
+        setExteriorFeatures([""]);
+        setInteriorFeatures([""]);
+        setPropertyImages([""]);
         setdetails({
             bedrooms: "",
             bathrooms: "",
@@ -217,6 +229,23 @@ function AddProperty({onClose}) {
                     <div className={styles.controlImages}>
                         <button onClick={clearInterior} className={styles.clearButton}>Clear features</button>
                         <button onClick={addInterior} className={styles.addButton}>Add another feature</button>
+                    </div>
+                </div>
+
+                <div className={styles.controlDiv}>
+                    <h4>Property exterior features</h4>
+                    {
+                        exteriorFeatures.map((feature, index) => {
+                            return (
+                                <div key={index}>
+                                    <input onChange={handleExteriorFeature} id={index} className={styles.smallSelect} type="text" placeholder='Enter the feature' value={feature}/>
+                                </div>
+                            )
+                        })
+                    }
+                    <div className={styles.controlImages}>
+                        <button onClick={clearExterior} className={styles.clearButton}>Clear features</button>
+                        <button onClick={addExterior} className={styles.addButton}>Add another feature</button>
                     </div>
                 </div>
 
