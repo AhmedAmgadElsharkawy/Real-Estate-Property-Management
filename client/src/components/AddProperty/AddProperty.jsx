@@ -8,39 +8,6 @@ function AddProperty({onClose}) {
     const [propertyImages, setPropertyImages] = useState([""]);
     const [interiorFeatures, setInteriorFeatures] = useState([""]);
     const [exteriorFeatures, setExteriorFeatures] = useState([""]);
-
-    function addImages() {
-        setPropertyImages([...propertyImages, ""]);
-    }
-
-    function clearImages() {
-        setPropertyImages([""])
-    }
-
-    function addInterior() {
-        setInteriorFeatures([...interiorFeatures, ""]);
-    }
-
-    function clearInterior() {
-        setInteriorFeatures([""])
-    }    
-
-    function addExterior() {
-        setExteriorFeatures([...exteriorFeatures, ""]);
-    }
-
-    function clearExterior() {
-        setExteriorFeatures([""])
-    }   
-
-    function uploadPropertyImage(event) {
-        const id = event.target.id;
-        const value = event.target.files[0].name;
-        propertyImages[id] = value;
-        setPropertyImages([...propertyImages]);
-        setdetails({...details, images: propertyImages});
-    }
-
     const [details, setdetails] = useState({
         bedrooms: "",
         bathrooms: "",
@@ -53,7 +20,51 @@ function AddProperty({onClose}) {
         location: "",
         locationOnMap: "",
         images: propertyImages,
+        interiorFeatures: interiorFeatures
     })
+
+    function addImages() {
+        setPropertyImages([...propertyImages, ""]);
+    }
+
+    function clearImages() {
+        setPropertyImages([""])
+        setdetails({...details, interiorFeatures: interiorFeatures})
+    }
+
+    function addInterior() {
+        setInteriorFeatures([...interiorFeatures, ""]);
+    }
+
+    function clearInterior() {
+        setInteriorFeatures([""])
+        setdetails({...details, interiorFeatures: interiorFeatures})
+    }    
+
+    function addExterior() {
+        setExteriorFeatures([...exteriorFeatures, ""]);
+    }
+
+    function clearExterior() {
+        setExteriorFeatures([""])
+        setdetails({...details, interiorFeatures: interiorFeatures})
+    }   
+
+    function uploadPropertyImage(event) {
+        const id = event.target.id;
+        const value = event.target.files[0].name;
+        propertyImages[id] = value;
+        setPropertyImages([...propertyImages]);
+        setdetails({...details, images: propertyImages});
+    }
+
+    function handleInteriorFeature(event) {
+        const id = event.target.id;
+        const value = event.target.value;
+        interiorFeatures[id] = value;
+        setInteriorFeatures([...interiorFeatures]);
+        setdetails({...details, interiorFeatures: interiorFeatures})
+    }
 
     function handleChange(event) {
         const name = event.target.name;
@@ -117,7 +128,7 @@ function AddProperty({onClose}) {
                     </div>
                     <div className={styles.smallerChoosediv}>
                         <h4>Status</h4>
-                        <select className={styles.smallSelect} name="saleType" id="" value={details.status}>
+                        <select onChange={handleChange} className={styles.smallSelect} name="status" id="" value={details.status}>
                             <option value="ForSale">For sale</option>
                             <option value="ForRent">For rent</option>
                         </select>
@@ -198,7 +209,7 @@ function AddProperty({onClose}) {
                         interiorFeatures.map((feature, index) => {
                             return (
                                 <div key={index}>
-                                    <input className={styles.smallSelect} type="text" placeholder='Enter the feature'/>
+                                    <input onChange={handleInteriorFeature} id={index} className={styles.smallSelect} type="text" placeholder='Enter the feature' value={feature}/>
                                 </div>
                             )
                         })
