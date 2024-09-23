@@ -123,6 +123,11 @@ function AddProperty({onClose}) {
                     </label>
                 </div>
 
+                <div className={styles.descriptionDiv}>
+                    <h4>Property description</h4>
+                    <textarea name="description" className={styles.textArea} placeholder="Enter your description"></textarea>
+                </div>
+
                 <div className={styles.sortMainDiv}>
                     <h4>Sort order</h4>
                     <form action="" onChange={selectChagne} name='sortBy' value={filters.sortBy}>
