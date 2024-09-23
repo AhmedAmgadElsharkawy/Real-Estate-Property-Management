@@ -88,6 +88,7 @@
     flex-direction: column;
     height: 65px;
     width: 100%;
+    gap: 5px;
     justify-content: space-between;
 }
 
@@ -187,4 +188,42 @@ height: 40px;
     border: 1px solid #FFB300;
     resize: none;
     font-size: 15px;
+}
+
+.controlDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.controlImages {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    gap: 10px;
+}
+
+.clearButton {
+    background-color: gainsboro;
+    height: 40px;
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid white;
+    cursor: pointer;
+    &:hover {
+        background-color: grey;
+    }
+}
+
+.addButton {
+    background-color: #FFB300;
+    height: 40px;
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid white;
+    cursor: pointer;
+    &:hover {
+        background-color: #ff9500;
+    }
 }

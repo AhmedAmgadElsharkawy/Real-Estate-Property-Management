@@ -128,41 +128,17 @@ function AddProperty({onClose}) {
                     <textarea name="description" className={styles.textArea} placeholder="Enter your description"></textarea>
                 </div>
 
-                <div className={styles.sortMainDiv}>
-                    <h4>Sort order</h4>
-                    <form action="" onChange={selectChagne} name='sortBy' value={filters.sortBy}>
-                        <div className={styles.sortDiv}>
-                            <div className={styles.radioDiv}>
-                                <input type="radio" id="option1" name="sortBy" value="Anytime" checked={filters.sortBy === "Anytime"}/>
-                                <label htmlFor='option1'>Anytime</label>
-                            </div>
-
-                            <div className={styles.radioDiv}>
-                                <input type="radio" id="option2" name="sortBy" value="24hours" checked={filters.sortBy === "24hours"}/>
-                                <label htmlFor='option2'>Last 24 hours</label>
-                            </div>
-
-                            <div className={styles.radioDiv}>
-                                <input type="radio" id="option3" name="sortBy" value="3days" checked={filters.sortBy === "3days"}/>
-                                <label htmlFor='option3'>Last 3 days</label>
-                            </div>
-
-                            <div className={styles.radioDiv}>
-                                <input type="radio" id="option4" name="sortBy" value="7days" checked={filters.sortBy === "7days"}/>
-                                <label htmlFor='option1'>Last 7 days</label>
-                            </div>
-
-                            <div className={styles.radioDiv}>
-                                <input type="radio" id="option5" name="sortBy" value="14days" checked={filters.sortBy === "14days"}/>
-                                <label htmlFor='option2'>Last 14 days</label>
-                            </div>
-
-                            <div className={styles.radioDiv}>
-                                <input type="radio" id="option6" name="sortBy" value="30days" checked={filters.sortBy === "30days"}/>
-                                <label htmlFor='option3'>Last 30 days</label>
-                            </div>
-                        </div>
-                    </form>
+                <div className={styles.controlDiv}>
+                    <h4>Propert images</h4>
+                    <label htmlFor="formId" className={styles.bigSelect}>
+                        <input className={styles.imageInput} type="file" id="formId" hidden />
+                        Choose an image
+                        <WallpaperIcon fontSize='small' />
+                    </label>
+                    <div className={styles.controlImages}>
+                        <button className={styles.clearButton}>Clear images</button>
+                        <button className={styles.addButton}>Add another image</button>
+                    </div>
                 </div>
 
                 <div className={styles.buttonsDiv}>
