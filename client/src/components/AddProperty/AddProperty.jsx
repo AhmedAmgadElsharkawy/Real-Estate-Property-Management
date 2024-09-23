@@ -5,14 +5,30 @@ import CloseIcon from '@mui/icons-material/Close';
 import WallpaperIcon from '@mui/icons-material/Wallpaper';
 
 function AddProperty({onClose}) {
+    const [propertyImages, setPropertyImages] = useState([""]);
+
+    function addImages() {
+        setPropertyImages([...propertyImages, ""]);
+    }
+
+    function clearImages() {
+        setPropertyImages([""])
+    }
+
+    function uploadPropertyImage(event) {
+        const id = event.target.id;
+        const value = event.target.files[0].name;
+        propertyImages[id] = value;
+        setPropertyImages([...propertyImages])
+    }
+
     const [filters, setFilters] = useState({
         bedrooms: "",
         bathrooms: "",
-        minPrice: "",
-        maxPrice: "",
+        price: "",
         propertyType: "show all",
         furnishOptions: "show all",
-        sortBy: "Anytime"
+        
     })
 
     function selectChagne(event) {
@@ -130,14 +146,24 @@ function AddProperty({onClose}) {
 
                 <div className={styles.controlDiv}>
                     <h4>Propert images</h4>
-                    <label htmlFor="formId" className={styles.bigSelect}>
-                        <input className={styles.imageInput} type="file" id="formId" hidden />
-                        Choose an image
-                        <WallpaperIcon fontSize='small' />
-                    </label>
+                    {
+                        propertyImages.map((curr, index) => {
+                            console.log(index)
+                            return (
+                                <div key={index}>
+                                    <label htmlFor={index} className={styles.bigSelect}>
+                                        <input onChange={uploadPropertyImage} type="file" id={index} hidden/>
+                                        {curr != "" ? curr : "Choose an image"}
+                                        <WallpaperIcon fontSize='small' />
+                                    </label>
+                                </div>
+                            )
+                        })
+                    }
+
                     <div className={styles.controlImages}>
-                        <button className={styles.clearButton}>Clear images</button>
-                        <button className={styles.addButton}>Add another image</button>
+                        <button onClick={clearImages} className={styles.clearButton}>Clear images</button>
+                        <button onClick={addImages} className={styles.addButton}>Add another image</button>
                     </div>
                 </div>
 
