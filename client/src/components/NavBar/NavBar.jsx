@@ -3,7 +3,9 @@ import styles from "./NavBar.module.css";
 import logo from "./logo.jpeg";
 import MenuIcon from '@mui/icons-material/Menu';
 import AuthOverlay from "../AuthOverlay/AuthOverlay";
+import AddProperty from "../AddProperty/AddProperty";
 function NavBar() {
+  const [showAddProperty, setShowAddProperty] = useState(false);
 
   const [showSignIn,setShowSignIn] = useState(false);
   const [showSignUp,setShowSignUp] = useState(false);
@@ -24,6 +26,14 @@ function NavBar() {
     setShowSignUp(false)
   }
 
+  function openAddProperty() {
+    setShowAddProperty(true);
+  }
+
+  function closeAddProperty() {
+    setShowAddProperty(false);
+  }
+
 
 
   return (
@@ -38,7 +48,7 @@ function NavBar() {
         <label className={styles.label} htmlFor="">Properties</label>
         <label onClick = {openSignIn} className={styles.label} htmlFor="">Sign in</label>
       </div>
-      <button className={styles.button}>
+      <button onClick={openAddProperty} className={styles.button}>
         Add Property
       </button>
       <div className={styles.menuDev}>
@@ -47,6 +57,7 @@ function NavBar() {
     </div>
     {showSignIn && <AuthOverlay type = "Sign in" toggleOverflow = {openSignUp} closeOverlay={closeOverlay}/>}
     {showSignUp && <AuthOverlay type = "Sign up" toggleOverflow = {openSignIn} closeOverlay={closeOverlay}/>}
+    {showAddProperty && <AddProperty onClose={closeAddProperty} />}
     </>
   )
 }
