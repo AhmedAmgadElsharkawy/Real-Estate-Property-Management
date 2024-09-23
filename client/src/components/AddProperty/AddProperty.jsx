@@ -6,6 +6,8 @@ import WallpaperIcon from '@mui/icons-material/Wallpaper';
 
 function AddProperty({onClose}) {
     const [propertyImages, setPropertyImages] = useState([""]);
+    const [interiorFeatures, setInteriorFeatures] = useState([""]);
+    const [exteriorFeatures, setExteriorFeatures] = useState([""]);
 
     function addImages() {
         setPropertyImages([...propertyImages, ""]);
@@ -15,11 +17,28 @@ function AddProperty({onClose}) {
         setPropertyImages([""])
     }
 
+    function addInterior() {
+        setInteriorFeatures([...interiorFeatures, ""]);
+    }
+
+    function clearInterior() {
+        setInteriorFeatures([""])
+    }    
+
+    function addExterior() {
+        setExteriorFeatures([...exteriorFeatures, ""]);
+    }
+
+    function clearExterior() {
+        setExteriorFeatures([""])
+    }   
+
     function uploadPropertyImage(event) {
         const id = event.target.id;
         const value = event.target.files[0].name;
         propertyImages[id] = value;
-        setPropertyImages([...propertyImages])
+        setPropertyImages([...propertyImages]);
+        setdetails({...details, images: propertyImages});
     }
 
     const [details, setdetails] = useState({
@@ -153,10 +172,9 @@ function AddProperty({onClose}) {
                 </div>
 
                 <div className={styles.controlDiv}>
-                    <h4>Propert images</h4>
+                    <h4>Property images</h4>
                     {
                         propertyImages.map((curr, index) => {
-                            console.log(index)
                             return (
                                 <div key={index}>
                                     <label htmlFor={index} className={styles.bigSelect}>
@@ -168,10 +186,26 @@ function AddProperty({onClose}) {
                             )
                         })
                     }
-
                     <div className={styles.controlImages}>
                         <button onClick={clearImages} className={styles.clearButton}>Clear images</button>
                         <button onClick={addImages} className={styles.addButton}>Add another image</button>
+                    </div>
+                </div>
+
+                <div className={styles.controlDiv}>
+                    <h4>Property interior features</h4>
+                    {
+                        interiorFeatures.map((feature, index) => {
+                            return (
+                                <div key={index}>
+                                    <input className={styles.smallSelect} type="text" placeholder='Enter the feature'/>
+                                </div>
+                            )
+                        })
+                    }
+                    <div className={styles.controlImages}>
+                        <button onClick={clearInterior} className={styles.clearButton}>Clear features</button>
+                        <button onClick={addInterior} className={styles.addButton}>Add another feature</button>
                     </div>
                 </div>
 
