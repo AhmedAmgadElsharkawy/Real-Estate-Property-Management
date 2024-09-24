@@ -5,5 +5,7 @@ import Footer from "./Footer/Footer";
 import Pagination from "./Pagination/Pagination";
 import AuthOverlay from "./AuthOverlay/AuthOverlay";
 import HorizontalSlider from "./HorizontalSlider/HorizontalSlider";
+import ReviewCard from "./Review Card/ReviewCard";
+import Review from "./Review/Review";
 
-export {NavBar,PropertyCard,SignInAlert,Footer,Pagination,AuthOverlay,HorizontalSlider}
+export {NavBar,PropertyCard,SignInAlert,Footer,Pagination,AuthOverlay,HorizontalSlider,ReviewCard,Review}

@@ -1,0 +1,59 @@
+.banner{
+    width: 100%;
+    height: 378px;
+    position: relative;
+}
+
+.bannerImg{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+.bannerText{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 70%;
+    position: absolute;
+    top: 25%;
+    left: 5%;
+}
+
+.head{
+    font-size: 64px;
+    line-height: 72px;
+}
+
+.description{
+    font-size: 28px;
+    line-height: 36px;
+}
+
+.body{
+    display: flex;
+    justify-content: center;
+    margin: 56px 0px 160px 0px;
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    width: 1240px;
+    min-width: 0px;
+    gap: 20px;
+}
+
+.reviewsContainer{
+    display: flex;
+    justify-content:  center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+
+
+
+
+
