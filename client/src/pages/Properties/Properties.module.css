@@ -56,7 +56,7 @@
 .searchComponent{
     height: 50px;
     padding: 12px 8px;
-    border: solid 1px #FFEBB0;
+    border: solid 1.5px #FFEBB0;
     border-radius: 12px;
     font-weight: 400;
     font-size: 18px;
@@ -97,7 +97,7 @@
 .submitButton:hover{
     cursor: pointer;
     background-color: white;
-    border:1px solid #E8AE00;
+    border:1.5px solid #E8AE00;
 }
 
 .filterButton{

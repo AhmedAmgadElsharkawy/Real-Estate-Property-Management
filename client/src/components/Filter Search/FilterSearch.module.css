@@ -73,7 +73,7 @@
     height: 40px;
     width: 100%;
     border-radius: 12px;
-    border: 1px solid #FFB300;
+    border: 1.5px solid #FFEBB0;
     text-indent: 5px;
     cursor: pointer;
 }
@@ -90,7 +90,7 @@
     height: 40px;
     width: 100%;
     border-radius: 12px;
-    border: 1px solid #FFB300;
+    border: 1.5px solid #FFEBB0;
     text-indent: 5px;
     cursor: pointer;
 }
