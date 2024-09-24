@@ -2,7 +2,7 @@
 
 
 .container {
-    width: 393px;
+    max-width: 393px;
     height: 484px;
     border-radius: 12px;
     padding-bottom: 16px;
@@ -128,15 +128,13 @@
 
 @media (min-width:520px) and (max-width:960px) {
     .container {
-        min-width: 341px;
-        width: 341px;
+        max-width: 341px;
     }
 }
 
 @media (max-width:520px) {
     .container {
-        min-width: 0px;
-        width: 343px;
+        max-width: 343px;
         height: 380px;
     }
 

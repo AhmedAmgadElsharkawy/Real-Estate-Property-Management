@@ -1,12 +1,17 @@
 .cardsContainer{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 30px;
-    flex-wrap: wrap;
+}
+
+.cardWrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .paginationButtonsContainer{
+    width: 100%;
     display: flex;
     gap: 8px;
     justify-content: end;
@@ -49,6 +54,14 @@
 
 @media(max-width:960px){
     .cardsContainer{
-        gap: 15px;
+        grid-template-columns: 1fr 1fr;
+        max-width: 712px;
+    }
+}
+
+@media(max-width:520px){
+    .cardsContainer{
+        display: flex;
+        flex-direction: column;
     }
 }

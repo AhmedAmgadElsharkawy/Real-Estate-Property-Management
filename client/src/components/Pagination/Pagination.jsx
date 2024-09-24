@@ -28,18 +28,20 @@ function Pagination({ data, itemsCount }) {
             {data.length ? (<div className={styles.cardsContainer}>
                 {currentPost.map((card, index) => {
                     return (
-                        <PropertyCard
-                            key={index}
-                            id={index}
-                            images={card.images}
-                            type={card.type}
-                            furniture={card.furniture}
-                            location={card.location}
-                            price={card.price}
-                            beds={card.beds}
-                            baths={card.baths}
-                            status={card.status}
-                        />)
+                        <div key={index} className={styles.cardWrapper}>
+                            <PropertyCard
+                                id={index}
+                                images={card.images}
+                                type={card.type}
+                                furniture={card.furniture}
+                                location={card.location}
+                                price={card.price}
+                                beds={card.beds}
+                                baths={card.baths}
+                                status={card.status}
+                            />
+                        </div>
+                    )
                 })}
             </div>)
                 :
