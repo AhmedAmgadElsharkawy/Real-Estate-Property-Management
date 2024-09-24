@@ -13,7 +13,6 @@ function Review({ userImg, name, date, title, review, rating }) {
     const starsArr = Array(numberOfStars).fill(0)
     const halfStarsArr = Array(nummberOfHalfStars).fill(0)
     const emptyStarsArr = Array(numberOfEmptyStars).fill(0)
-    console.log(starsArr)
 
     const createStars = () => {
 

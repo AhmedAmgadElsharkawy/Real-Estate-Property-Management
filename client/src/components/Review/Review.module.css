@@ -1,5 +1,5 @@
 .wrapper {
-    height: 362px;
+    min-height: 362px;
     box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1);
     padding: 24px;
     border-radius: 20px;
@@ -63,16 +63,16 @@
     line-height: 24px;
     font-weight: 400;
     color: #0D0E0F;
-    display: -webkit-box;
     /* Required for -webkit-line-clamp */
-    -webkit-box-orient: vertical;
+    display: -webkit-box;
     /* WebKit-specific orientation property */
-    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
     /* Limits text to 6 lines in WebKit-based browsers */
-    overflow: hidden;
+    -webkit-line-clamp: 6;
     /* Ensures content beyond the third line is hidden */
-    line-clamp: 6;
+    overflow: hidden;
     /* Add the unofficial standard property for future compatibility */
+    line-clamp: 6;
 }
 
 .readMore {
@@ -86,4 +86,12 @@
     display: flex;
     align-items: center;
     gap: 2px;
+}
+
+
+@media (max-width:520px){
+    .title{
+        font-size: 16px;
+        line-height: 24px;
+    }
 }

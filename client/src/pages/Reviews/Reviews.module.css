@@ -47,10 +47,16 @@
 .reviewsContainer{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    justify-content:  center;
-    align-items: center;
     flex-wrap: wrap;
     gap: 30px;
+}
+
+@media (max-width:520px){
+    .reviewsContainer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 
