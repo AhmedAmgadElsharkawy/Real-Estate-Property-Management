@@ -27,14 +27,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 120px;
-    height: 40px;
-    text-align: center;
     cursor: pointer;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #0D0E0F;
+    padding: 5px 10px;
     &:hover {
         background-color: #E8AE00;
     }
-    border-radius: 12px;
 }
 
 .button {

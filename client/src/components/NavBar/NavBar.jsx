@@ -3,6 +3,8 @@ import styles from "./NavBar.module.css";
 import logo from "./logo.jpeg";
 import MenuIcon from '@mui/icons-material/Menu';
 import AuthOverlay from "../AuthOverlay/AuthOverlay";
+import {Link} from "react-router-dom"
+
 function NavBar() {
 
   const [showSignIn,setShowSignIn] = useState(false);
@@ -34,9 +36,9 @@ function NavBar() {
         <img className={styles.img} src={logo} alt="" />
       </div>
       <div className={styles.labelsContainer}>
-        <label className={styles.label} htmlFor="">Home</label>
-        <label className={styles.label} htmlFor="">Properties</label>
-        <label onClick = {openSignIn} className={styles.label} htmlFor="">Sign in</label>
+        <Link to = "/" className={styles.label}>Home</Link>
+        <Link to = "/properties" className={styles.label}>Properties</Link>
+        <label onClick = {openSignIn} className={styles.label}>Sign in</label>
       </div>
       <button className={styles.button}>
         Add Property
