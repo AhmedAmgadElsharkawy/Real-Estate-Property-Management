@@ -3,7 +3,8 @@
     box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1);
     padding: 24px;
     border-radius: 20px;
-    width: 605px;
+    max-width: 605px;
+    display: flex;
 }
 
 .container {

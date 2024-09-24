@@ -33,7 +33,7 @@
 .body{
     display: flex;
     justify-content: center;
-    margin: 56px 0px 160px 0px;
+    margin: 56px 10px 160px 10px;
 }
 
 .wrapper{
@@ -45,7 +45,8 @@
 }
 
 .reviewsContainer{
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     justify-content:  center;
     align-items: center;
     flex-wrap: wrap;
