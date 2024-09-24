@@ -5,7 +5,7 @@ import img from './Dashboard Banner.png';
 import Properties from '../../components/Dashborad components/Properties/Properties';
 import data from '../Properties/temporaryData.json';
 import EditProfile from '../../components/Dashborad components/Edit Profile/EditProfile';
-import ShowProfile from '../../components/Dashborad components/Show Profile/ShowProfile';
+import RateUs from '../../components/Dashborad components/Rate Us/RateUs';
 
 function Account() {
     return (
@@ -13,7 +13,7 @@ function Account() {
             <Dashboard mine={data.length} favorite={data.length}/>
             <div className={styles.rightDiv}>
                 <img className={styles.accountImg} src={img} alt=""/>
-                <Properties data={data} />
+                <Properties data={data}/>
             </div>
         </div>
     )
