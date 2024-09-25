@@ -46,7 +46,7 @@ function HorizontalSlider({ data }) {
         <div className={styles.cardsContainer} ref={sliderContainerRef}>
           {data.map((card, index) => {
             return (
-              <div ref={el => cardsRefs.current[index] = el} key={index}>
+              <div ref={el => cardsRefs.current[index] = el} key={index} className={styles.cardWrapper}>
                 <PropertyCard
                   id={index}
                   images={card.images}

@@ -1,4 +1,4 @@
-.container{
+.container {
     width: 100%;
     min-width: 0px;
     display: flex;
@@ -7,14 +7,19 @@
     padding: 20px;
 }
 
-.cardsContainer{
+
+.cardsContainer {
     display: flex;
     gap: 20px;
     overflow: hidden;
     padding-bottom: 20px;
 }
 
-.paginationButtonsContainer{
+.cardsContainer>* {
+    flex-shrink: 0;
+}
+
+.paginationButtonsContainer {
     display: flex;
     gap: 8px;
     justify-content: end;
@@ -22,7 +27,7 @@
     padding-right: 50px;
 }
 
-.paginationButtons{
+.paginationButtons {
     border: none;
     color: rgb(43, 42, 42);
     background-color: white;
@@ -32,19 +37,19 @@
     width: 56px;
 }
 
-.paginationButtons:disabled{
+.paginationButtons:disabled {
     color: #a5afb7;
     border-color: #a5afb7;
     cursor: not-allowed;
 }
 
-.paginationButtons:not(:disabled):hover{
+.paginationButtons:not(:disabled):hover {
     background-color: #E8AE00;
     color: white;
     cursor: pointer;
 }
 
-.messageText{
+.messageText {
     text-align: center;
     color: #3c3e3f;
     font-size: 25px;
@@ -54,11 +59,11 @@
 }
 
 
-.invisible{
+.invisible {
     min-width: 1000px;
 }
 
-.messageText{
+.messageText {
     text-align: center;
     color: #3c3e3f;
     font-size: 25px;
