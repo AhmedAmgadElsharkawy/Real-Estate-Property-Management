@@ -1,10 +1,11 @@
 import express from "express";
 import { signIn,signUp } from "../controllers/userController.js";
+import { authenticate } from "../middlewares/auth.js";
 
 const router = express.Router();
 
-router.get("/",(req,res)=>{
-    res.json("おはよう");
+router.get("/",authenticate,(req,res)=>{
+    res.json(req.user);
 })
 
 router.post("/sign-in",signIn)
