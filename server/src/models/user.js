@@ -24,10 +24,12 @@ const userSchema = new mongoose.Schema({
     gender: {
         type: String,         // String type for gender
         enum: ['Male', 'Female', 'Other'], // Validator: Must be one of these values
-        required: true        // Gender is required
     },
     city: {
         type: String
+    },
+    imgUrl:{
+        type:String
     }
 })
 

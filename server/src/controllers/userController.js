@@ -1,30 +1,33 @@
-import User from "../models/user";
+import User from "../models/user.js";
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
-import { excludePassword } from "../utils/userUtils";
+import { excludePassword } from "../utils/userUtils.js";
 
 //node populates automatically the req and res objects to the cb function
 const signUp = async (req, res) => {
-    const email = req.email;
-    const password = req.password;
-    const confirmPassword = req.confirmPassword;
+    const email = req.body.email;
+    const password = req.body.password;
+    const confirmPassword = req.body.confirmPassword;
+
+    if(password != confirmPassword)
+        return res.status(409).json({ message: "passwords don't match" })
 
     try {
-        const DBResponse = await User.findOne({ email });
-        if (DBResponse)
+        const user = await User.findOne({ email });
+        if (user)
             return res.status(409).json({ message: "email is already used" });
-        const hashedPassword = await bcrypt.hash(password, process.env.SALT_ROUNDS);
-        const newUser = new User({ email, passord: hashedPassword });
+        const hashedPassword = await bcrypt.hash(password,parseInt(process.env.SALT_ROUNDS,10));
+        const newUser = new User({ email, password: hashedPassword });
         await newUser.save();
-        res.status(201).json({ message: 'User registered successfully', user: newUser });
+        res.status(201).json({ message: 'User registered successfully', user: excludePassword(newUser) });
     } catch (error) {
         res.status(500).json({ message: 'Registration failed', error: error.message });
     }
 }
 
 const signIn = async (req, res) => {
-    const email = req.email;
-    const password = req.password
+    const email = req.body.email;
+    const password = req.body.password
     try {
         const user = await User.findOne({ email })
         if (!user)
