@@ -38,7 +38,7 @@ const signIn = async (req, res) => {
             return res.status(401).json({ message: 'Invalid password' });
         const token = jwt.sign({ id: user._id }, process.env.TOKEN_SECRET);
         const userWithoutPassword = excludePassword(user);
-        res.json({
+        res.status(201).json({
             user: userWithoutPassword,
             token
         });
