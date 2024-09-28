@@ -5,9 +5,7 @@ const excludePassword = (user) => {
     if (!user) {
         throw new Error('User not found');
     }
-    console.log(user)
     const { password, ...userWithoutPassword } = user;
-    console.log(userWithoutPassword)
     return userWithoutPassword;
 }
 
