@@ -58,8 +58,8 @@ function NavBar() {
         <MenuIcon fontSize="large"/>
       </div>
     </div>
-    {showSignIn && <AuthOverlay type = "Sign in" toggleOverflow = {openSignUp} closeOverlay={closeOverlay}/>}
-    {showSignUp && <AuthOverlay type = "Sign up" toggleOverflow = {openSignIn} closeOverlay={closeOverlay}/>}
+    {showSignIn && <AuthOverlay type = "sign-in" toggleOverflow = {openSignUp} closeOverlay={closeOverlay}/>}
+    {showSignUp && <AuthOverlay type = "sign-up" toggleOverflow = {openSignIn} closeOverlay={closeOverlay}/>}
     {showAddProperty && <AddProperty onClose={closeAddProperty} />}
     </>
   )

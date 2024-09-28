@@ -19,7 +19,7 @@ const signUp = async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, parseInt(process.env.SALT_ROUNDS, 10));
         const newUser = new User({ email, password: hashedPassword });
         await newUser.save();
-        res.status(201).json({ message: 'User registered successfully', user: excludePassword(newUser) });
+        res.status(201).json({ message: 'User registered successfully' });
     } catch (error) {
         res.status(500).json({ message: 'Registration failed', error: error.message });
     }
@@ -37,7 +37,6 @@ const signIn = async (req, res) => {
         if (!comparePasswords)
             return res.status(401).json({ message: 'Invalid password' });
         const token = jwt.sign({ id: user._id }, process.env.TOKEN_SECRET);
-        const userWithoutPassword = excludePassword(user);
         res.status(201).json({
             token
         });
@@ -49,7 +48,7 @@ const signIn = async (req, res) => {
 const deleteUser = async (req, res) => {
     try {
         await User.deleteOne({ email: req.user.email })
-        res.status(200).json({message:"successful user deletion"})
+        res.status(200).json({ message: "successful user deletion" })
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
@@ -58,7 +57,7 @@ const deleteUser = async (req, res) => {
 const updateUser = async (req, res) => {
     try {
         await User.updateOne({ email: req.user.email }, req.body)
-        res.status(200).json({message:"successful user update"})
+        res.status(200).json({ message: "successful user update" })
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
