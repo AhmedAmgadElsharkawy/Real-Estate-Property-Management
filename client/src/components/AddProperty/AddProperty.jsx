@@ -3,6 +3,7 @@ import styles from './AddProperty.module.css';
 import { useState } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
 import WallpaperIcon from '@mui/icons-material/Wallpaper';
+import { add } from "../../utils/APIRoutes";
 
 function AddProperty({onClose}) {
     const [propertyImages, setPropertyImages] = useState([""]);
@@ -251,7 +252,7 @@ function AddProperty({onClose}) {
 
                 <div className={styles.buttonsDiv}>
                     <button className={styles.resetButton} onClick={resetdetails}>Reset details</button>
-                    <button className={styles.updateButton}>Update results</button>
+                    <button className={styles.updateButton} onClick={}>Update results</button>
                 </div>
             </div>
         </div>

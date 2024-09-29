@@ -4,7 +4,7 @@ import styles from "./NavBar.module.css";
 import logo from "./logo.jpeg";
 import MenuIcon from '@mui/icons-material/Menu';
 import AuthOverlay from "../AuthOverlay/AuthOverlay";
-import {Link} from "react-router-dom"
+import {Link} from "react-router-dom";
 
 import AddProperty from "../AddProperty/AddProperty";
 function NavBar() {

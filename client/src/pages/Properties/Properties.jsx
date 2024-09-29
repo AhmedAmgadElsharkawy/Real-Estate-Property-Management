@@ -104,11 +104,8 @@ function Properties() {
                     <Pagination data={data} itemsCount={6} />
                 </div>
             </div>
-
             <SignInAlert />
-
             {filterVisibility && <FilterSearch onClose={closeFilter} />}
-
         </>
     )
 }
