@@ -3,7 +3,9 @@ import styles from './AddProperty.module.css';
 import { useState } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
 import WallpaperIcon from '@mui/icons-material/Wallpaper';
-import { add } from "../../utils/APIRoutes";
+import axios from "axios";
+import {toast} from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 function AddProperty({onClose}) {
     const [propertyImages, setPropertyImages] = useState([""]);
@@ -16,7 +18,7 @@ function AddProperty({onClose}) {
         propertyType: "show all",
         furnishOptions: "show all",
         description: "",
-        status: "",
+        status: "ForSale",
         floorPlan: "",
         location: "",
         locationOnMap: "",
@@ -101,6 +103,37 @@ function AddProperty({onClose}) {
             locationOnMap: "",
             images: propertyImages,
         })
+    }
+
+    const toastOptions = {
+        position: "bottom-right",
+        autoClose: 8000,
+        pauseOnHover: true,
+        draggable: true,
+    }
+
+    async function submitProperty(e) {
+        e.preventDefault();
+        if (details.bathrooms === "" || details.bedrooms === "")
+            toast.error("Number of rooms should be added", toastOptions)
+        else if (details.price === "")
+            toast.error("Price should be added", toastOptions);
+        else if (details.furnishOptions === "")
+            toast.error("Furniture details should be added", toastOptions)
+        else if (details.propertyType === "")
+            toast.error("Property type should be added", toastOptions);
+        else if (details.location === "")
+            toast.error("Location should be added", toastOptions);
+        else if (details.description === "")
+            toast.error("Description should be added", toastOptions);
+        else {
+            try {
+                await axios.post("http://localhost:3000/property/add", details)
+                onClose();
+            } catch (error) {
+                toast.error(error.message, toastOptions)
+            }
+        }
     }
 
     return (
@@ -252,7 +285,7 @@ function AddProperty({onClose}) {
 
                 <div className={styles.buttonsDiv}>
                     <button className={styles.resetButton} onClick={resetdetails}>Reset details</button>
-                    <button className={styles.updateButton} onClick={}>Update results</button>
+                    <button className={styles.updateButton} onClick={submitProperty}>Update results</button>
                 </div>
             </div>
         </div>
