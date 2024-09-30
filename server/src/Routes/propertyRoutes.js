@@ -1,11 +1,9 @@
 import express from "express";
 import Property from "../models/property.js";
-import errorcode from "qr-image/lib/errorcode.js";
 
 const router = express.Router();
 
 router.get("/", () => {
-
 })
 
 router.post("/add-property", async (req, res) => {
