@@ -130,7 +130,6 @@ function AddProperty({onClose}) {
             toast.error("Exterior features should be added", toastOptions);
         else if (details.interiorFeatures[0] === "")
             toast.error("Interior features should be added", toastOptions);
-            
         else {
             try {
                 await axios.post("http://localhost:3000/property/add", details)
@@ -153,7 +152,7 @@ function AddProperty({onClose}) {
                     <div className={styles.smallerChoosediv}>
                         <h4>Bedrooms</h4>
                         <select className={styles.smallSelect} name="bedrooms" id="bedrooms" onChange={handleChange} value={details.bedrooms}>
-                            <option value="">Any</option>
+                            <option value="">None</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -164,7 +163,7 @@ function AddProperty({onClose}) {
                     <div className={styles.smallerChoosediv}>
                         <h4>Bathrooms</h4>
                         <select className={styles.smallSelect} name="bathrooms" id="bathrooms" onChange={handleChange} value={details.bathrooms}>
-                            <option value="">Any</option>
+                            <option value="">None</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
