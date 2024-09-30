@@ -132,10 +132,11 @@ function AddProperty({onClose}) {
             toast.error("Interior features should be added", toastOptions);
         else {
             try {
-                await axios.post("http://localhost:3000/property/add", details)
+                await axios.post("http://localhost:3000/property/add-property", details)
                 onClose();
             } catch (error) {
-                toast.error(error.message, toastOptions)
+                console.log(error)
+                toast.error(error.response.data.message, toastOptions)
             }
         }
     }

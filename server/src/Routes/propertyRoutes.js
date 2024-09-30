@@ -7,7 +7,7 @@ router.get("/", () => {
 
 })
 
-router.post("/add", async (req, res) => {
+router.post("/add-property", async (req, res) => {
     const price = req.body.price;
     const beds = req.body.bedrooms;
     const baths = req.body.bathrooms;
@@ -38,10 +38,22 @@ router.post("/add", async (req, res) => {
             phone: "123456"
         })
         await property.save();
-        res.status(201).json({ message: 'Property added successfully'});
+        res.status(200).json({ message: "Property added successfully"});
     } catch (error) {
         console.log(error)
-        res.status(500).json({ message: "Property wasn't added", error: error.message });
+        res.status(500).json({ message: "Something wrong happened, Property wasn't added", error: error.message});
+    }
+})
+
+router.delete("/delete-property", async (req, res) => {
+    const id = req.body.id;
+
+    try {
+        await Property.deleteOne({id: req.body.id});
+        throw new Error("wroooong")
+        res.status(200).json({message: "Property was deleted successfully"})
+    } catch (error) {
+        res.status(500).json({message: "Something wrong happened while deleteing", error: error.message})
     }
 })
 
