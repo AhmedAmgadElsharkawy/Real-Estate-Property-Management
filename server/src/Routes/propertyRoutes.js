@@ -1,11 +1,16 @@
 import express from "express";
+import Property from "../models/property.js";
 
 const router = express.Router();
 
-router.post("/", async (req, res) => {
+router.get("/", () => {
+
+})
+
+router.post("/add", async (req, res) => {
     const price = req.body.price;
-    const beds = req.body.beds;
-    const baths = req.body.baths;
+    const beds = req.body.bedrooms;
+    const baths = req.body.bathrooms;
     const furniture = req.body.furniture;
     const type = req.body.type;
     const location = req.body.location;
@@ -16,8 +21,30 @@ router.post("/", async (req, res) => {
     const images = req.body.images;
     const exteriorFeatures = req.body.exteriorFeatures;
     const interiorFeatures = req.body.interiorFeatures;
+    console.log(beds, baths)
 
-    console.log(price)
+    try {
+        const property = new Property({
+            price: price,
+            beds: beds,
+            baths: baths,
+            furniture: furniture,
+            type: type,
+            location: location,
+            status: status,
+            description: description,
+            exteriorFeatures: exteriorFeatures,
+            interiorFeatures: interiorFeatures,
+            email: "abdullah@gmail.com",
+            phone: "123456"
+        })
+        await property.save()
+        console.log(images)
+        res.status(201).json({ message: 'Property added successfully'});
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({ message: "Property wasn't added", error: error.message });
+    }
 })
 
 export {router as PropertyRouter};
