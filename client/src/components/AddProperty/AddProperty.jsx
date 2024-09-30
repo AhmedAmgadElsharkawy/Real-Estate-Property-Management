@@ -5,7 +5,6 @@ import CloseIcon from '@mui/icons-material/Close';
 import WallpaperIcon from '@mui/icons-material/Wallpaper';
 import axios from "axios";
 import {toast} from 'react-toastify';
-import "react-toastify/dist/ReactToastify.css";
 
 function AddProperty({onClose}) {
     const [propertyImages, setPropertyImages] = useState([""]);

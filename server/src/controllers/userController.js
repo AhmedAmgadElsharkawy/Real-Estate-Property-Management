@@ -27,9 +27,9 @@ const signUp = async (req, res) => {
 
 const signIn = async (req, res) => {
     const email = req.body.email;
-    const password = req.body.password
+    const password = req.body.password;
     try {
-        const user = await User.findOne({ email })
+        const user = await User.findOne({ email });
         if (!user)
             return res.status(404).json({ message: 'User not found' });
         const storedPassword = user.password

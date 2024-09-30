@@ -24,7 +24,7 @@ client/*.sln
 client/*.sw?
 
 # environment variables
-client/.env
+client/src/.env
 server/.env
 
 # server side
