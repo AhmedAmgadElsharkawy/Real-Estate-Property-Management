@@ -21,7 +21,6 @@ router.post("/add", async (req, res) => {
     const images = req.body.images;
     const exteriorFeatures = req.body.exteriorFeatures;
     const interiorFeatures = req.body.interiorFeatures;
-    console.log(beds, baths)
 
     try {
         const property = new Property({
@@ -38,8 +37,7 @@ router.post("/add", async (req, res) => {
             email: "abdullah@gmail.com",
             phone: "123456"
         })
-        await property.save()
-        console.log(images)
+        await property.save();
         res.status(201).json({ message: 'Property added successfully'});
     } catch (error) {
         console.log(error)
