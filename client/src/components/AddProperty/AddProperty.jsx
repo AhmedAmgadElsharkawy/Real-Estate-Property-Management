@@ -15,8 +15,8 @@ function AddProperty({onClose}) {
         bedrooms: "",
         bathrooms: "",
         price: "",
-        propertyType: "show all",
-        furnishOptions: "show all",
+        propertyType: "Saona",
+        furnishOptions: "Fully-furnished",
         description: "",
         status: "ForSale",
         floorPlan: "",
@@ -94,8 +94,8 @@ function AddProperty({onClose}) {
             bedrooms: "",
             bathrooms: "",
             price: "",
-            propertyType: "show all",
-            furnishOptions: "show all",
+            propertyType: "Saona",
+            furnishOptions: "Fully-furnished",
             description: "",
             status: "",
             floorPlan: "",
@@ -119,13 +119,18 @@ function AddProperty({onClose}) {
         else if (details.price === "")
             toast.error("Price should be added", toastOptions);
         else if (details.furnishOptions === "")
-            toast.error("Furniture details should be added", toastOptions)
+            toast.error("Furniture details should be added", toastOptions);
         else if (details.propertyType === "")
             toast.error("Property type should be added", toastOptions);
         else if (details.location === "")
             toast.error("Location should be added", toastOptions);
         else if (details.description === "")
             toast.error("Description should be added", toastOptions);
+        else if (details.exteriorFeatures[0] === "")
+            toast.error("Exterior features should be added", toastOptions);
+        else if (details.interiorFeatures[0] === "")
+            toast.error("Interior features should be added", toastOptions);
+            
         else {
             try {
                 await axios.post("http://localhost:3000/property/add", details)
@@ -198,7 +203,6 @@ function AddProperty({onClose}) {
                 <div className={styles.bigChooseDiv}>
                     <h4>Property Type</h4>
                     <select className={styles.bigSelect} name="propertyType" id="propertyType"  onChange={handleChange} value={details.propertyType}>
-                        <option value="Show all">Show all</option>
                         <option value="Saona">Saona</option>
                         <option value="Jacozy">Jacozy</option>
                     </select>
@@ -207,7 +211,6 @@ function AddProperty({onClose}) {
                 <div className={styles.bigChooseDiv}>
                     <h4>Furnished options</h4>
                     <select className={styles.bigSelect} name="furnishOptions" id="furnishOptions" onChange={handleChange} value={details.furnishOptions}>
-                        <option value="Show all">Show all</option>
                         <option value="Fully-furnished">Fully-furnished</option>
                         <option value="Semi-furnished">Semi-furnished</option>
                         <option value="Not-furnished">Not-furnished</option>
