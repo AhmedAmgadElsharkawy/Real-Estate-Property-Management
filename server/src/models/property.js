@@ -14,18 +14,18 @@ const propertySchema = mongoose.Schema({
         type:Number,
         required: true,
     },
-    beds:{
+    bedrooms:{
         type:Number,
         required: true,
     },
-    baths: {
+    bathrooms: {
         type: Number,
         required: true,
     },
     furniture:{
         type:String,
     },
-    type:{
+    propertyType:{
         type:String,
     },
     location:{
