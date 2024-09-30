@@ -6,12 +6,14 @@ import { useState } from "react";
 import { createContext } from "react";
 import axios from "axios"
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../contexts/AuthContext";
 
 export const inputsContext = createContext()
 
 function AuthOverlay({ onSubmit, type, toggleOverflow, closeOverlay }) {
 
     const navigate = useNavigate();
+    const auth  = useAuth();
 
     const [values, setValues] = useState({
         email: "",
@@ -36,7 +38,7 @@ function AuthOverlay({ onSubmit, type, toggleOverflow, closeOverlay }) {
                     email: values.email,
                     password: values.password
                 })
-            localStorage.setItem("access-token", response.data.token);
+            auth.logIn(response.data.token);
             onClose();
         } catch (error) {
             console.error(error.message)
@@ -48,6 +50,7 @@ function AuthOverlay({ onSubmit, type, toggleOverflow, closeOverlay }) {
         try {
             const response = await axios.post("http://localhost:3000/api/user/sign-up",values)
             alert("successfully signed-up! please sing-in")
+            toggleOverflow()
         } catch (error) {
             console.error(error.message)
         }
