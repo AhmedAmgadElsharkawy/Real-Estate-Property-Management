@@ -5,12 +5,12 @@ import connectDB from "./config/db.js";
 import { userRouter } from "./routes/userRoutes.js";
 import { PropertyRouter } from "./Routes/propertyRoutes.js";
 
-
-const app = express();
-const port = 3000;
+env.config({ path: '../.env' });
 connectDB();
 
-env.config()
+const app = express();
+const port = process.env.PORT;
+
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended:true}));
