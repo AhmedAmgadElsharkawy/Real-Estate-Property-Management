@@ -118,12 +118,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
-.favouriteButton:hover {
+.inactiveFavouriteButton:hover {
     background-color: tomato;
     color: white;
-    cursor: pointer;
+}
+
+.activeFavouriteButton {
+    background-color: tomato;
+    color: white;
+}
+
+.activeFavouriteButton:hover {
+    background-color: white;
+    color: black;
 }
 
 @media (min-width:520px) and (max-width:960px) {

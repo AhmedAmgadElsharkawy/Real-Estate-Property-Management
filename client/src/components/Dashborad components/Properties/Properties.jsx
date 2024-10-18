@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import styles from './Properties.module.css';
-import PropertyCard from '../../PropertyCard/PropertyCard';
 import {HorizontalSlider} from "../../../components"
 
 function Properties({data}) {

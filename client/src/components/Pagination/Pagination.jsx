@@ -39,6 +39,7 @@ function Pagination({ data, itemsCount }) {
                                 beds={card.beds}
                                 baths={card.baths}
                                 status={card.status}
+                                favourite={false}
                             />
                         </div>
                     )

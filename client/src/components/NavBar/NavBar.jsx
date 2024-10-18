@@ -11,29 +11,15 @@ import AddProperty from "../AddProperty/AddProperty";
 function NavBar() {
   const [showAddProperty, setShowAddProperty] = useState(false);
 
-  const [showSignIn, setShowSignIn] = useState(false);
-  const [showSignUp, setShowSignUp] = useState(false);
+
 
   const auth = useAuth();
 
-
-  const openSignIn = (e) => {
-    setShowSignIn(true)
-    setShowSignUp(false)
-  }
-
-  const openSignUp = (e) => {
-    setShowSignUp(true)
-    setShowSignIn(false)
-  }
-
-  const closeOverlay = (e) => {
-    setShowSignIn(false)
-    setShowSignUp(false)
-  }
-
   function openAddProperty() {
-    setShowAddProperty(true);
+    if(auth.isAuthenticated)
+        setShowAddProperty(true);
+    else
+        auth.openSignIn()
   }
 
   function closeAddProperty() {
@@ -54,7 +40,7 @@ function NavBar() {
           <Link to="/properties" className={styles.label}>Properties</Link>
           {
             auth.isAuthenticated ? <Link to="/account" className={styles.label}>account</Link> :
-              <label onClick={openSignIn} className={styles.label}>Sign in</label>
+              <label onClick={auth.openSignIn} className={styles.label}>Sign in</label>
           }
         </div>
         <button onClick={openAddProperty} className={styles.button}>
@@ -64,8 +50,8 @@ function NavBar() {
           <MenuIcon fontSize="large" />
         </div>
       </div>
-      {showSignIn && <AuthOverlay type="sign-in" toggleOverflow={openSignUp} closeOverlay={closeOverlay} />}
-      {showSignUp && <AuthOverlay type="sign-up" toggleOverflow={openSignIn} closeOverlay={closeOverlay} />}
+      {auth.showSignIn && <AuthOverlay type="sign-in" toggleOverflow={auth.openSignUp} closeOverlay={auth.closeOverlay} />}
+      {auth.showSignUp && <AuthOverlay type="sign-up" toggleOverflow={auth.openSignIn} closeOverlay={auth.closeOverlay} />}
       {showAddProperty && <AddProperty onClose={closeAddProperty} />}
     </>
   )
