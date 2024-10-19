@@ -3,6 +3,8 @@ import styles from './AddProperty.module.css';
 import { useState } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
 import WallpaperIcon from '@mui/icons-material/Wallpaper';
+import axios from "axios";
+import {toast} from 'react-toastify';
 
 function AddProperty({onClose}) {
     const [propertyImages, setPropertyImages] = useState([""]);
@@ -12,10 +14,10 @@ function AddProperty({onClose}) {
         bedrooms: "",
         bathrooms: "",
         price: "",
-        propertyType: "show all",
-        furnishOptions: "show all",
+        propertyType: "Saona",
+        furnishOptions: "Fully-furnished",
         description: "",
-        status: "",
+        status: "ForSale",
         floorPlan: "",
         location: "",
         locationOnMap: "",
@@ -91,8 +93,8 @@ function AddProperty({onClose}) {
             bedrooms: "",
             bathrooms: "",
             price: "",
-            propertyType: "show all",
-            furnishOptions: "show all",
+            propertyType: "Saona",
+            furnishOptions: "Fully-furnished",
             description: "",
             status: "",
             floorPlan: "",
@@ -100,6 +102,42 @@ function AddProperty({onClose}) {
             locationOnMap: "",
             images: propertyImages,
         })
+    }
+
+    const toastOptions = {
+        position: "bottom-right",
+        autoClose: 8000,
+        pauseOnHover: true,
+        draggable: true,
+    }
+
+    async function submitProperty(e) {
+        e.preventDefault();
+        if (details.bathrooms === "" || details.bedrooms === "")
+            toast.error("Number of rooms should be added", toastOptions)
+        else if (details.price === "")
+            toast.error("Price should be added", toastOptions);
+        else if (details.furnishOptions === "")
+            toast.error("Furniture details should be added", toastOptions);
+        else if (details.propertyType === "")
+            toast.error("Property type should be added", toastOptions);
+        else if (details.location === "")
+            toast.error("Location should be added", toastOptions);
+        else if (details.description === "")
+            toast.error("Description should be added", toastOptions);
+        else if (details.exteriorFeatures[0] === "")
+            toast.error("Exterior features should be added", toastOptions);
+        else if (details.interiorFeatures[0] === "")
+            toast.error("Interior features should be added", toastOptions);
+        else {
+            try {
+                await axios.post("http://localhost:3000/property/add-property", details)
+                onClose();
+            } catch (error) {
+                console.log(error)
+                toast.error(error.response.data.message, toastOptions)
+            }
+        }
     }
 
     return (
@@ -114,7 +152,7 @@ function AddProperty({onClose}) {
                     <div className={styles.smallerChoosediv}>
                         <h4>Bedrooms</h4>
                         <select className={styles.smallSelect} name="bedrooms" id="bedrooms" onChange={handleChange} value={details.bedrooms}>
-                            <option value="">Any</option>
+                            <option value="">None</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -125,7 +163,7 @@ function AddProperty({onClose}) {
                     <div className={styles.smallerChoosediv}>
                         <h4>Bathrooms</h4>
                         <select className={styles.smallSelect} name="bathrooms" id="bathrooms" onChange={handleChange} value={details.bathrooms}>
-                            <option value="">Any</option>
+                            <option value="">None</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -164,7 +202,6 @@ function AddProperty({onClose}) {
                 <div className={styles.bigChooseDiv}>
                     <h4>Property Type</h4>
                     <select className={styles.bigSelect} name="propertyType" id="propertyType"  onChange={handleChange} value={details.propertyType}>
-                        <option value="Show all">Show all</option>
                         <option value="Saona">Saona</option>
                         <option value="Jacozy">Jacozy</option>
                     </select>
@@ -173,7 +210,6 @@ function AddProperty({onClose}) {
                 <div className={styles.bigChooseDiv}>
                     <h4>Furnished options</h4>
                     <select className={styles.bigSelect} name="furnishOptions" id="furnishOptions" onChange={handleChange} value={details.furnishOptions}>
-                        <option value="Show all">Show all</option>
                         <option value="Fully-furnished">Fully-furnished</option>
                         <option value="Semi-furnished">Semi-furnished</option>
                         <option value="Not-furnished">Not-furnished</option>
@@ -251,7 +287,7 @@ function AddProperty({onClose}) {
 
                 <div className={styles.buttonsDiv}>
                     <button className={styles.resetButton} onClick={resetdetails}>Reset details</button>
-                    <button className={styles.updateButton}>Update results</button>
+                    <button className={styles.updateButton} onClick={submitProperty}>Update results</button>
                 </div>
             </div>
         </div>

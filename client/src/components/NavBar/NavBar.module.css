@@ -71,6 +71,12 @@
     height: 50px;
 }
 
+.menuButton {
+    background-color: white;
+    cursor: pointer;
+    border: none;
+}
+
 @media only screen and (max-width: 900px) {
     .container {
         background-color: white;

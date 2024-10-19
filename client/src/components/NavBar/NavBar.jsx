@@ -4,13 +4,14 @@ import styles from "./NavBar.module.css";
 import logo from "./logo.jpeg";
 import MenuIcon from '@mui/icons-material/Menu';
 import AuthOverlay from "../AuthOverlay/AuthOverlay";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 
 import AddProperty from "../AddProperty/AddProperty";
+import SlidingMenu from "./SlidingMenu";
 function NavBar() {
   const [showAddProperty, setShowAddProperty] = useState(false);
-
+  const [showSlidingMenu, setShowSlidingMenu] = useState(false);
 
 
   const auth = useAuth();
@@ -26,6 +27,13 @@ function NavBar() {
     setShowAddProperty(false);
   }
 
+  function openSlidingMenu(){
+    setShowSlidingMenu(true);
+  }
+
+  function closeSlidingMenu() {
+    setShowSlidingMenu(false);
+  }
 
 
   return (
@@ -47,9 +55,10 @@ function NavBar() {
           Add Property
         </button>
         <div className={styles.menuDev}>
-          <MenuIcon fontSize="large" />
+          <button className={styles.menuButton} onClick={openSlidingMenu}><MenuIcon fontSize="large" /></button>
         </div>
       </div>
+      {showSlidingMenu && <SlidingMenu close={closeSlidingMenu}/>}
       {auth.showSignIn && <AuthOverlay type="sign-in" toggleOverflow={auth.openSignUp} closeOverlay={auth.closeOverlay} />}
       {auth.showSignUp && <AuthOverlay type="sign-up" toggleOverflow={auth.openSignIn} closeOverlay={auth.closeOverlay} />}
       {showAddProperty && <AddProperty onClose={closeAddProperty} />}
