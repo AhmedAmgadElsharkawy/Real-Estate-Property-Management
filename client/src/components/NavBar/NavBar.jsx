@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useState } from "react";
 import styles from "./NavBar.module.css";
 import logo from "./logo.jpeg";
