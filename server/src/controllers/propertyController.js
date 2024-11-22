@@ -24,7 +24,7 @@ const addProperty = async (req, res) => {
                 locationOnMapUrl = result.secure_url
             else imagesUrl.push(result.secure_url)
         }
-        const property = new Property({...req.body, images: imagesUrl, floorPlan: floorPlanUrl, locationOnMap: locationOnMapUrl, email: req.email, phone: "01148770014"})
+        const property = new Property({...req.body, images: imagesUrl, floorPlan: floorPlanUrl, locationOnMap: locationOnMapUrl, email: req.user.email, phone: "01148770014"})
         await property.save();
         res.status(200).json({ message: "Property added successfully"});
     } catch (error) {

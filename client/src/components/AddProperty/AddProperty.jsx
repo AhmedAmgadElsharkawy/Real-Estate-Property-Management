@@ -133,6 +133,7 @@ function AddProperty({onClose}) {
             toast.error("Interior features should be added", toastOptions);
         else {
             try {
+                const token = localStorage.getItem('access-token');
                 // Create FormData object
                 const formData = new FormData();
     
@@ -164,6 +165,7 @@ function AddProperty({onClose}) {
                 await axios.post("http://localhost:3000/property/add-property", formData, {
                     headers: {
                         "Content-Type": "multipart/form-data",
+                        "Authorization": `Bearer ${token}`
                     },
                 });
     
