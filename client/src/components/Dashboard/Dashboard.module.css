@@ -1,6 +1,6 @@
 .mainDiv {
-    width: 400px;
-    height: 900px;
+    width: 20%;
+    height: 1000px;
     background-color: aliceblue;
     display: flex;
     flex-direction: column;
@@ -100,20 +100,15 @@
     }
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 1200px) {
     .delete {
         display: none;
     }
     .pageComponent {
-        justify-content: center;
-    }
-    .mainDiv {
-        height: 1030px;
-        width: 100px;
+        justify-content: space-evenly;
     }
     .specialPageComponent {
         justify-content: center;
         padding: 0px;
-        margin-bottom: 400px;
     }
 }

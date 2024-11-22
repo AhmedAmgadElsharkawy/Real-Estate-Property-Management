@@ -4,6 +4,7 @@
     background-color: white;
     width: 100%;
     height: 100%;
+    
 }
 
 .rightDiv {
@@ -13,7 +14,7 @@
     justify-content: start;
     gap: 40px;
     padding: 35px;
-    width: 100%;
+    width: 80%;
 }
 
 .accountImg {
