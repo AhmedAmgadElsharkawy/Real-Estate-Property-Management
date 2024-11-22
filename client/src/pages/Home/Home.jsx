@@ -5,7 +5,7 @@ import SellIcon from '@mui/icons-material/Sell';
 import CloseIcon from '@mui/icons-material/Close';
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import {HorizontalSlider } from "../../components";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import FeatureCard from "../../components/Feature Card/FeatureCard.jsx";
 import FactCheckIcon from '@mui/icons-material/FactCheck';
@@ -15,12 +15,13 @@ import SignalCellularAltIcon from '@mui/icons-material/SignalCellularAlt';
 import UsbOffIcon from '@mui/icons-material/UsbOff';
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import ReviewCard from "../../components/Review Card/ReviewCard.jsx";
-import data from "../Properties/temporaryData.json";
 import {ToastContainer} from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
 
 function Home() {
   const [cityName, setCityName] = useState("");
+  const [data, setData] = useState([]);
 
   function changeCityName(event) {
     const newCityName = event.target.value;
@@ -30,6 +31,22 @@ function Home() {
   function deleteCityName() {
     setCityName("");
   }
+
+  useEffect(() => {
+    // Fetch data from backend when the component is mounted
+    async function getData() {
+      try {
+        const response = await axios.get("http://localhost:3000/property/get-all-properties");
+        // Set the fetched data to state
+        console.log(response)
+        setData(response.data);
+      } catch (error) {
+        console.log("Error fetching properties:", error);
+      }
+    }
+
+    getData(); // Call the function to fetch data
+  }, []); // Empty array means it runs only once when the component mounts
 
   return (
     <div className={styles.mainDev}>
@@ -49,7 +66,8 @@ function Home() {
       <div className={styles.propertiesWrapper}>
         <div className={styles.properties}>
           <h1>Featured Properties</h1>
-          <HorizontalSlider data={data}/>
+          {data.length > 0 ? <HorizontalSlider data={data} /> : <p>No properties available</p>}
+          
         </div>
       </div>
 

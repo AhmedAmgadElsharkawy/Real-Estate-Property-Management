@@ -6,7 +6,14 @@ import cloudinary from "../config/cloudinary.js";
 const router = express.Router();
 const upload = multer({ dest: "uploads/" });
 
-router.get("/", () => {
+router.get("/get-all-properties", async(req, res) => {
+    try {
+        const properties = await Property.find();
+        res.status(200).json(properties);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: "Error fetching properties", error: error.message });
+    }
 })
 
 router.post("/add-property", upload.any(), async (req, res) => {
