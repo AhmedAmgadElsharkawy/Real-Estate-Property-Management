@@ -1,13 +1,17 @@
 import express from "express";
 import Property from "../models/property.js";
+import multer from "multer";
 
 const router = express.Router();
+const upload = multer({ dest: "uploads/" });
 
 router.get("/", () => {
 })
 
-router.post("/add-property", async (req, res) => {
-    try {
+router.post("/add-property", upload.any(), async (req, res) => {
+    try{
+        console.log(req.files)
+        console.log(req.body)
         const property = new Property({...req.body, email: "abdullah@gmail.com", phone: "01148770014"})
         await property.save();
         res.status(200).json({ message: "Property added successfully"});

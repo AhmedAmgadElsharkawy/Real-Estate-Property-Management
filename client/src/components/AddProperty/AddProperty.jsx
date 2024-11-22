@@ -18,9 +18,9 @@ function AddProperty({onClose}) {
         furnishOptions: "Fully-furnished",
         description: "",
         status: "ForSale",
-        floorPlan: "",
+        floorPlan: undefined,
         location: "",
-        locationOnMap: "",
+        locationOnMap: undefined,
         images: propertyImages,
         interiorFeatures: interiorFeatures,
         exteriorFeatures: exteriorFeatures
@@ -55,7 +55,7 @@ function AddProperty({onClose}) {
 
     function uploadPropertyImage(event) {
         const id = event.target.id;
-        const value = event.target.files[0].name;
+        const value = event.target.files[0];
         propertyImages[id] = value;
         setPropertyImages([...propertyImages]);
         setdetails({...details, images: propertyImages});
@@ -81,7 +81,7 @@ function AddProperty({onClose}) {
         const name = event.target.name;
         let value = event.target.value;
         if (event.target.type == "file")
-            value = event.target.files[0].name;
+            value = event.target.files[0];
         setdetails({...details, [name]: value});
     }
 
@@ -97,9 +97,9 @@ function AddProperty({onClose}) {
             furnishOptions: "Fully-furnished",
             description: "",
             status: "",
-            floorPlan: "",
+            floorPlan: undefined,
             location: "",
-            locationOnMap: "",
+            locationOnMap: undefined,
             images: propertyImages,
         })
     }
@@ -113,8 +113,10 @@ function AddProperty({onClose}) {
 
     async function submitProperty(e) {
         e.preventDefault();
+    
+        // Validation logic (unchanged)
         if (details.bathrooms === "" || details.bedrooms === "")
-            toast.error("Number of rooms should be added", toastOptions)
+            toast.error("Number of rooms should be added", toastOptions);
         else if (details.price === "")
             toast.error("Price should be added", toastOptions);
         else if (details.furnishOptions === "")
@@ -131,14 +133,49 @@ function AddProperty({onClose}) {
             toast.error("Interior features should be added", toastOptions);
         else {
             try {
-                await axios.post("http://localhost:3000/property/add-property", details)
-                onClose();
+                // Create FormData object
+                const formData = new FormData();
+    
+                // Append file fields
+                propertyImages.forEach((file, index) => {
+                    if (file) formData.append(`images[${index}]`, file);
+                });
+    
+                if (details.floorPlan) {
+                    formData.append("floorPlan", details.floorPlan);
+                }
+                if (details.locationOnMap) {
+                    formData.append("locationOnMap", details.locationOnMap);
+                }
+    
+                // Append other fields
+                Object.keys(details).forEach((key) => {
+                    if (key !== "images" && key !== "floorPlan" && key !== "locationOnMap") {
+                        formData.append(key, details[key]);
+                    }
+                });
+    
+                // Debug: View FormData content in the console
+                for (let pair of formData.entries()) {
+                    console.log(`${pair[0]}: ${pair[1]}`);
+                }
+    
+                // Send the formData with axios
+                await axios.post("http://localhost:3000/property/add-property", formData, {
+                    headers: {
+                        "Content-Type": "multipart/form-data",
+                    },
+                });
+    
+                toast.success("Property added successfully", toastOptions);
+                onClose(); // Close the modal or perform other actions after success
             } catch (error) {
-                console.log(error)
-                toast.error(error.response.data.message, toastOptions)
+                console.error(error);
+                toast.error(error.response?.data?.message || "An error occurred", toastOptions);
             }
         }
     }
+    
 
     return (
         <div className={styles.mainDiv}>
@@ -194,7 +231,7 @@ function AddProperty({onClose}) {
                         <h4>Location in map</h4>
                         <label htmlFor="locationImage" className={styles.smallSelect}>
                             <input name='locationOnMap' onChange={handleChange} className={styles.imageInput} type="file" id="locationImage" hidden />
-                            {details.locationOnMap != "" ? details.locationOnMap : "Choose an image"}
+                            {details.locationOnMap != undefined ? details.locationOnMap.name : "Choose an image"}
                         </label>
                     </div>
                 </div>
@@ -220,7 +257,7 @@ function AddProperty({onClose}) {
                     <h4>Floor plan</h4>
                     <label htmlFor="floorImage" className={styles.bigSelect}>
                         <input name='floorPlan' onChange={handleChange} className={styles.imageInput} type="file" id="floorImage" hidden />
-                        {details.floorPlan != "" ? details.floorPlan : "Choose an image"}
+                        {details.floorPlan != undefined ? details.floorPlan.name : "Choose an image"}
                         <WallpaperIcon fontSize='small' />
                     </label>
                 </div>
@@ -238,7 +275,7 @@ function AddProperty({onClose}) {
                                 <div key={index}>
                                     <label htmlFor={index} className={styles.bigSelect}>
                                         <input onChange={uploadPropertyImage} type="file" id={index} hidden/>
-                                        {curr != "" ? curr : "Choose an image"}
+                                        {curr != "" ? curr.name : "Choose an image"}
                                         <WallpaperIcon fontSize='small' />
                                     </label>
                                 </div>
@@ -287,7 +324,7 @@ function AddProperty({onClose}) {
 
                 <div className={styles.buttonsDiv}>
                     <button className={styles.resetButton} onClick={resetdetails}>Reset details</button>
-                    <button className={styles.updateButton} onClick={submitProperty}>Update results</button>
+                    <button className={styles.updateButton} onClick={submitProperty}>Add Property</button>
                 </div>
             </div>
         </div>
