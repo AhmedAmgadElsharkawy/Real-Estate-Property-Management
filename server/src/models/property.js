@@ -43,6 +43,15 @@ const propertySchema = mongoose.Schema({
     description:{
         type:String,
     },
+    locationOnMap:{
+        type: String,
+    },
+    floorPlan:{
+        type: String
+    },
+    images:{
+        type: [String]
+    }
 })
 
 const Property = mongoose.model("Property",propertySchema)

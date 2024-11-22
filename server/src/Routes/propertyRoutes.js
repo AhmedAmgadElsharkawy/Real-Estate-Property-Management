@@ -1,6 +1,7 @@
 import express from "express";
 import Property from "../models/property.js";
 import multer from "multer";
+import cloudinary from "../config/cloudinary.js";
 
 const router = express.Router();
 const upload = multer({ dest: "uploads/" });
@@ -10,9 +11,18 @@ router.get("/", () => {
 
 router.post("/add-property", upload.any(), async (req, res) => {
     try{
-        console.log(req.files)
-        console.log(req.body)
-        const property = new Property({...req.body, email: "abdullah@gmail.com", phone: "01148770014"})
+        var imagesUrl = []
+        var locationOnMapUrl = ""
+        var floorPlanUrl = ""
+        for (const file of req.files) {
+            const result = await cloudinary.uploader.upload(file.path, { folder: 'properties' });
+            if (file.fieldname == "floorPlan")
+                floorPlanUrl = result.secure_url
+            else if (file.fieldname == "locationOnMap")
+                locationOnMapUrl = result.secure_url
+            else imagesUrl.push(result.secure_url)
+        }
+        const property = new Property({...req.body, images: imagesUrl, floorPlan: floorPlanUrl, locationOnMap: locationOnMapUrl, email: "abdullah@gmail.com", phone: "01148770014"})
         await property.save();
         res.status(200).json({ message: "Property added successfully"});
     } catch (error) {
