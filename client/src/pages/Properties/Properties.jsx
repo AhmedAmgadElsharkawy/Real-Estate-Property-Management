@@ -1,13 +1,14 @@
-import { SignInAlert, Pagination, AuthOverlay } from "../../components"
+import { SignInAlert, Pagination } from "../../components"
 import styles from "./Properties.module.css"
 import bannerImage from '../../assets/propertiesPageBanner.jpg';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SearchIcon from '@mui/icons-material/Search';
 import TuneIcon from '@mui/icons-material/Tune';
-import data from "./temporaryData.json";
 import FilterSearch from "../../components/Filter Search/FilterSearch";
+import axios from "axios";
 
 function Properties() {
+    const [data, setData] = useState([]);
     const [selectElementsValues, setSelectElementsValues] = useState({
         text: "",
         price: "",
@@ -48,6 +49,22 @@ function Properties() {
     function closeFilter() {
         setFilterVisibility(false);
     }
+
+    useEffect(() => {
+        // Fetch data from backend when the component is mounted
+        async function getData() {
+          try {
+            const response = await axios.get("http://localhost:3000/property/get-all-properties");
+            // Set the fetched data to state
+            console.log(response)
+            setData(response.data);
+          } catch (error) {
+            console.log("Error fetching properties:", error);
+          }
+        }
+    
+        getData(); // Call the function to fetch data
+    }, []); // Empty array means it runs only once when the component mounts
 
     return (
         <>
@@ -101,7 +118,7 @@ function Properties() {
                             <option value="last30d">Sort order: Last 30 days</option>
                         </select>
                     </div>
-                    <Pagination data={data} itemsCount={6} />
+                    {data.length > 0 ? <Pagination data={data} itemsCount={6} /> : <p>No properties available</p>}
                 </div>
             </div>
             <SignInAlert />
