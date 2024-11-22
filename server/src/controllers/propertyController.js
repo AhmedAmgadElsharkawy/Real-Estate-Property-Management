@@ -7,7 +7,17 @@ const getAllUsers = async (req, res) => {
         res.status(200).json(properties);
     } catch (error) {
         console.log(error);
-        res.status(500).json({ message: "Error fetching properties", error: error.message });
+        res.status(500).json({ message: "Error while getting the properties", error: error.message });
+    }
+}
+
+const getUserProperties = async (req, res) => {
+    try {
+        const properties = await Property.find({email: req.user.email})
+        res.status(200).json(properties)
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({ message: "Error while getting the properties", error: error.message });
     }
 }
 
@@ -51,4 +61,4 @@ const deleteProperty = async (req, res) => {
     }
 }
 
-export {getAllUsers, addProperty, updateProperty, deleteProperty}
+export {getAllUsers, addProperty, updateProperty, deleteProperty, getUserProperties}
