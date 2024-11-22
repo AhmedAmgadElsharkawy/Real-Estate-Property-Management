@@ -23,9 +23,8 @@ function Account() {
                 "Authorization": `Bearer ${token}`
             },});
             // Set the fetched data to state
-            console.log(response)
             setMineData(response.data);
-            setData(minedata)
+            setData(response.data)
           } catch (error) {
             console.log("Error fetching properties:", error);
           }

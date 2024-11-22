@@ -56,7 +56,6 @@ function Properties() {
           try {
             const response = await axios.get("http://localhost:3000/property/get-all-properties");
             // Set the fetched data to state
-            console.log(response)
             setData(response.data);
           } catch (error) {
             console.log("Error fetching properties:", error);
