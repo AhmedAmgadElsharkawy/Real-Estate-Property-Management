@@ -35,6 +35,12 @@
     border-radius: 12px;
     padding: 12px 16px;
     border: none;
+    cursor: pointer;
+}
+
+.signInButton:hover{
+    background-color: white;
+    border: solid 1px #01B8C6;
 }
 
 

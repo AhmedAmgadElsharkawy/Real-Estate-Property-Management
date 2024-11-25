@@ -6,6 +6,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import TuneIcon from '@mui/icons-material/Tune';
 import FilterSearch from "../../components/Filter Search/FilterSearch";
 import axios from "axios";
+import { useAuth } from "../../contexts/AuthContext";
 
 function Properties() {
     const [data, setData] = useState([]);
@@ -17,6 +18,8 @@ function Properties() {
         propertyType: "",
         sortOrder: ""
     });
+
+    const auth = useAuth()
 
     const [filterVisibility, setFilterVisibility] = useState(false);
 
@@ -120,7 +123,7 @@ function Properties() {
                     {data.length > 0 ? <Pagination data={data} itemsCount={6} /> : <p>No properties available</p>}
                 </div>
             </div>
-            <SignInAlert />
+            {auth.isAuthenticated ? null : <SignInAlert />}
             {filterVisibility && <FilterSearch onClose={closeFilter} />}
         </>
     )
