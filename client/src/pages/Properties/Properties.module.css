@@ -51,6 +51,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 5px;
 }
 
 .searchComponent{
@@ -69,19 +70,19 @@
 }
 
 .price{
-    width: 142px;
+    flex-grow: 1;
 }
 
 .beds{
-    width: 142px;
+    flex-grow: 1;
 }
 
 .baths{
-    width: 142px;
+    flex-grow: 1;
 }
 
 .propertyType{
-    width: 218px;
+    flex-grow: 1;
 }
 
 .submitButton{
