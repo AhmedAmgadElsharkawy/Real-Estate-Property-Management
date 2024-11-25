@@ -118,9 +118,17 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    background-color: white;
+    cursor: pointer;
     &:hover {
         background-color: #FFF9E6;
+        color: black;
     }
+}
+
+.activatedStatus{
+    background-color: #FFB300;
+    color: white;
 }
 
 .searchBarLabel {
