@@ -10,9 +10,11 @@ import { useAuth } from "../../contexts/AuthContext";
 
 function Properties() {
     const [data, setData] = useState([]);
+    const [displayedProperties, setDisplayedProperties] = useState([]);
+
     const [selectElementsValues, setSelectElementsValues] = useState({
-        text: "",
-        price: "",
+        location: "",
+        status: "",
         beds: "",
         baths: "",
         propertyType: "",
@@ -33,8 +35,8 @@ function Properties() {
 
     const preventSubmmision = (event) => {
         event.preventDefault();
-        if (selectElementsValues.text != "")
-            setHeaderText(` in ${selectElementsValues.text}`)
+        if (selectElementsValues.location != "")
+            setHeaderText(` in ${selectElementsValues.location}`)
         else
             setHeaderText("")
     }
@@ -53,18 +55,32 @@ function Properties() {
         setFilterVisibility(false);
     }
 
+    function searchOnProperties() {
+        var filterResult = data.filter((property) => {
+            return (
+                (property.bedrooms == selectElementsValues.beds || selectElementsValues.beds == "") &&
+                (property.bathrooms == selectElementsValues.baths || selectElementsValues.baths == "") &&
+                (property.propertyType == selectElementsValues.propertyType || selectElementsValues.propertyType == "") &&
+                (property.status == selectElementsValues.status || selectElementsValues.status == "")&&
+                property.location.toLowerCase().includes(selectElementsValues.location.toLowerCase())
+            )
+        })
+        setDisplayedProperties(filterResult)
+    }
+
     useEffect(() => {
         // Fetch data from backend when the component is mounted
         async function getData() {
-          try {
-            const response = await axios.get("http://localhost:3000/property/get-all-properties");
-            // Set the fetched data to state
-            setData(response.data);
-          } catch (error) {
-            console.log("Error fetching properties:", error);
-          }
+            try {
+                const response = await axios.get("http://localhost:3000/property/get-all-properties");
+                // Set the fetched data to state
+                setData(response.data);
+                setDisplayedProperties(response.data)
+            } catch (error) {
+                console.log("Error fetching properties:", error);
+            }
         }
-    
+
         getData(); // Call the function to fetch data
     }, []); // Empty array means it runs only once when the component mounts
 
@@ -78,11 +94,11 @@ function Properties() {
                 </div>
                 <div className={styles.searchBar}>
                     <form className={styles.searchBarForm} onSubmit={preventSubmmision}>
-                        <input type="text" placeholder="Enter City" value={selectElementsValues.text} name="text" onChange={onChangeSelect} className={`${styles.textInput} ${styles.searchComponent}`} />
-                        <select name="price" id="price" value={selectElementsValues.price} onChange={onChangeSelect} className={`${styles.price} ${styles.searchComponent} ${styles.hide}`}>
-                            <option value="">Price</option>
-                            <option value="low">Low</option>
-                            <option value="high">High</option>
+                        <input type="text" placeholder="Enter City" value={selectElementsValues.location} name="location" onChange={onChangeSelect} className={`${styles.textInput} ${styles.searchComponent}`} />
+                        <select name="status" id="status" value={selectElementsValues.status} onChange={onChangeSelect} className={`${styles.status} ${styles.searchComponent} ${styles.hide}`}>
+                            <option value="">satus</option>
+                            <option value="ForSale">For Sale</option>
+                            <option value="ForRent">For Rent</option>
                         </select>
                         <select name="beds" id="beds" value={selectElementsValues.beds} onChange={onChangeSelect} className={`${styles.beds} ${styles.searchComponent} ${styles.hide}`}>
                             <option value="">Beds</option>
@@ -100,9 +116,15 @@ function Properties() {
                         </select>
                         <select name="propertyType" id="propertyType" value={selectElementsValues.propertyType} onChange={onChangeSelect} className={`${styles.propertyType} ${styles.searchComponent} ${styles.hide}`}>
                             <option value="">Property Type</option>
+                            <option value="villa">Villa</option>
+                            <option value="apartment">Apartment</option>
+                            <option value="penthouse">Penthouse</option>
+                            <option value="duplex">Duplex</option>
+
+
                         </select>
                         <button type="button" onClick={openFilter} className={`${styles.filterButton} ${styles.searchComponent}`}><TuneIcon /><span className={styles.hideText}>Filter</span></button>
-                        <button type="submit" className={`${styles.searchComponent} ${styles.submitButton}`}><SearchIcon /><span className={styles.hideText}>Search</span></button>
+                        <button type="submit" className={`${styles.searchComponent} ${styles.submitButton}`} onClick={searchOnProperties}><SearchIcon /><span className={styles.hideText}>Search</span></button>
                     </form>
                 </div>
             </div>
@@ -120,7 +142,7 @@ function Properties() {
                             <option value="last30d">Sort order: Last 30 days</option>
                         </select>
                     </div>
-                    {data.length > 0 ? <Pagination data={data} itemsCount={6} /> : <p>No properties available</p>}
+                    {data.length > 0 ? <Pagination data={displayedProperties} itemsCount={6} /> : <p>No properties available</p>}
                 </div>
             </div>
             {auth.isAuthenticated ? null : <SignInAlert />}
