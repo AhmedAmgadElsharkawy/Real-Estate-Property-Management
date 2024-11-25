@@ -26,6 +26,7 @@ client/*.sw?
 # environment variables
 client/.env
 server/.env
+server/uploads
 
 # server side
 server/node_modules

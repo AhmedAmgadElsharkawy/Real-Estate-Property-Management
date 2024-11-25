@@ -51,7 +51,11 @@ const propertySchema = mongoose.Schema({
     },
     images:{
         type: [String]
-    }
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now
+    },
 })
 
 const Property = mongoose.model("Property",propertySchema)

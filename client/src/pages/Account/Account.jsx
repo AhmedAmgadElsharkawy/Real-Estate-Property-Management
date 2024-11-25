@@ -9,7 +9,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function Account() {
-    const [minedata, setMineData] = useState([])
+    const [myData, setMyData] = useState([])
     const [favoriteData, setFavoriteData] = useState([])
     const [data, setData] = useState([])
 
@@ -23,7 +23,7 @@ function Account() {
                 "Authorization": `Bearer ${token}`
             },});
             // Set the fetched data to state
-            setMineData(response.data);
+            setMyData(response.data);
             setData(response.data)
           } catch (error) {
             console.log("Error fetching properties:", error);
