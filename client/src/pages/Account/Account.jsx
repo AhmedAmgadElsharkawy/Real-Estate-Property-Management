@@ -5,14 +5,15 @@ import img from './Dashboard Banner.png';
 import Properties from '../../components/Dashborad components/Properties/Properties';
 import EditProfile from '../../components/Dashborad components/Edit Profile/EditProfile';
 import RateUs from '../../components/Dashborad components/Rate Us/RateUs';
+import ShowProfile from "../../components/Dashborad components/Show Profile/ShowProfile";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function Account() {
+    const [rightDivContent, setRightDivContent] = useState("myData")
     const [myData, setMyData] = useState([])
     const [favoriteData, setFavoriteData] = useState([])
     const [data, setData] = useState([])
-
 
     useEffect(() => {
         // Fetch data from backend when the component is mounted
@@ -29,15 +30,28 @@ function Account() {
             console.log("Error fetching properties:", error);
           }
         }
-    
         getData(); // Call the function to fetch data
     }, []); // Empty array means it runs only once when the component mounts
     return (
         <div className={styles.mainDiv}>
-            <Dashboard mine={data.length} favorite={data.length}/>
+            <Dashboard mine={data.length} favorite={data.length} controller={setRightDivContent}/>
             <div className={styles.rightDiv}>
                 <img className={styles.accountImg} src={img} alt=""/>
-                {data.length > 0 ? <Properties data={data}/> : <p>No properties available</p>}
+                {rightDivContent == "myData" ?
+                  ( data.length > 0 ? 
+                    <Properties data={data}/> 
+                    : <p>No properties available</p>
+                  ) : (rightDivContent == "editProfile" ? 
+                    <EditProfile/>
+                    : (rightDivContent == "rateUs" ? 
+                      <RateUs/>
+                      : (rightDivContent == "myProfile" ?
+                        <ShowProfile/>
+                        : <p>Hello</p>
+                      )
+                    )
+                  ) 
+                }
             </div>
         </div>
     )

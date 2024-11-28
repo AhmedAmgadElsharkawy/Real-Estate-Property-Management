@@ -4,6 +4,18 @@ import jwt from "jsonwebtoken"
 import { excludePassword } from "../utils/userUtils.js";
 
 //node populates automatically the req and res objects to the cb function
+
+const getUserData = async (req, res) => {
+    const email = req.body.email
+    try {
+        const user = await User.findOne(email)
+        res.status(200).json(user)
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({message: "Error happened"})
+    }
+}
+
 const signUp = async (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
@@ -63,4 +75,4 @@ const updateUser = async (req, res) => {
     }
 }
 
-export { signIn, signUp, deleteUser, updateUser }
+export { signIn, signUp, deleteUser, updateUser, getUserData }

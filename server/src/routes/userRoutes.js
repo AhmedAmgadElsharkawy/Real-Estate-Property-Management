@@ -1,12 +1,10 @@
 import express from "express";
-import { deleteUser, signIn, signUp, updateUser } from "../controllers/userController.js";
+import { deleteUser, signIn, signUp, updateUser, getUserData } from "../controllers/userController.js";
 import { authenticate } from "../middlewares/auth.js";
 
 const router = express.Router();
 
-router.get("/", authenticate, (req, res) => {
-    // res.json(req.user);
-})
+router.get("/get-user-data", authenticate, getUserData)
 
 router.post("/sign-in", signIn)
 
