@@ -3,22 +3,19 @@ import styles from './FilterSearch.module.css';
 import CloseIcon from '@mui/icons-material/Close';
 import { useState } from 'react';
 
-function FilterSearch({ closeFilter, filters, setFilters , searchOnProperties}) {
+function FilterSearch({ closeFilter, quickFilters, setQuickFilters, searchOnProperties }) {
 
-    const [timeFilter,setTimeFilter] = useState(filters.sortOrder)
+    const [filters, setFilters] = useState(
+        quickFilters
+    )
+
+    const [timeFilter, setTimeFilter] = useState(filters.sortOrder)
 
     function selectChange(event) {
         const name = event.target.name;
         const value = event.target.value;
         setFilters({ ...filters, [name]: value });
     }
-
-    function timeFilterChange(event){
-        let value = event.target.value
-        setTimeFilter(value)
-    }
-
-
 
 
     function resetFilters() {
@@ -35,7 +32,7 @@ function FilterSearch({ closeFilter, filters, setFilters , searchOnProperties}) 
         })
     }
 
-    function resetNotQuickAccessFilters(){
+    function resetNotQuickAccessFilters() {
         setFilters({
             ...filters,
             maxPrice: null,
@@ -45,10 +42,10 @@ function FilterSearch({ closeFilter, filters, setFilters , searchOnProperties}) 
         closeFilter()
     }
 
-    function updateResults(){
+    function updateResults() {
         closeFilter()
-        setFilters({...filters,sortOrder:timeFilter})
-        searchOnProperties(timeFilter)
+        setQuickFilters(filters)
+        searchOnProperties(filters.sortOrder, filters)
     }
 
     return (
@@ -85,11 +82,11 @@ function FilterSearch({ closeFilter, filters, setFilters , searchOnProperties}) 
                 <div className={styles.smallChooseDiv}>
                     <div className={styles.smallerChoosediv}>
                         <h4>Min Price</h4>
-                        <input className={styles.smallSelect} type="number" placeholder='No Min' name='minPrice' onChange={selectChange} value={filters.minPrice || 0} />
+                        <input className={styles.smallSelect} type="number" placeholder='No Min' name='minPrice' onChange={selectChange} value={filters.minPrice || false} />
                     </div>
                     <div className={styles.smallerChoosediv}>
                         <h4>Max Price</h4>
-                        <input className={styles.smallSelect} type="number" placeholder='No Max' name='maxPrice' onChange={selectChange} value={filters.maxPrice  || 1000} />
+                        <input className={styles.smallSelect} type="number" placeholder='No Max' name='maxPrice' onChange={selectChange} value={filters.maxPrice || false }/>
                     </div>
                 </div>
 
@@ -129,32 +126,32 @@ function FilterSearch({ closeFilter, filters, setFilters , searchOnProperties}) 
                     <form action="" name='sortOrder' value={filters.sortOrder}>
                         <div className={styles.sortDiv}>
                             <div className={styles.radioDiv}>
-                                <input type="radio" id="option1" name="sortOrder" value="Anytime" checked = {timeFilter === "Anytime"} onChange={timeFilterChange}/>
+                                <input type="radio" id="option1" name="sortOrder" value="Anytime" checked={filters.sortOrder === "Anytime"} onChange={selectChange} />
                                 <label htmlFor='option1'>Anytime</label>
                             </div>
 
                             <div className={styles.radioDiv}>
-                                <input type="radio" id="option2" name="sortOrder" value="last24h"  checked = {timeFilter === "last24h"} onChange={timeFilterChange}/>
+                                <input type="radio" id="option2" name="sortOrder" value="last24h" checked={filters.sortOrder === "last24h"} onChange={selectChange} />
                                 <label htmlFor='option2'>Last 24 hours</label>
                             </div>
 
                             <div className={styles.radioDiv}>
-                                <input type="radio" id="option3" name="sortOrder" value="last3d" checked = {timeFilter === "last3d"} onChange={timeFilterChange}/>
+                                <input type="radio" id="option3" name="sortOrder" value="last3d" checked={filters.sortOrder === "last3d"} onChange={selectChange} />
                                 <label htmlFor='option3'>Last 3 days</label>
                             </div>
 
                             <div className={styles.radioDiv}>
-                                <input type="radio" id="option4" name="sortOrder" value="last7d"  checked = {timeFilter === "last7d"} onChange={timeFilterChange}/>
+                                <input type="radio" id="option4" name="sortOrder" value="last7d" checked={filters.sortOrder === "last7d"} onChange={selectChange} />
                                 <label htmlFor='option1'>Last 7 days</label>
                             </div>
 
                             <div className={styles.radioDiv}>
-                                <input type="radio" id="option5" name="sortOrder" value="last14d"  checked = {timeFilter === "last14d"} onChange={timeFilterChange}/>
+                                <input type="radio" id="option5" name="sortOrder" value="last14d" checked={filters.sortOrder === "last14d"} onChange={selectChange} />
                                 <label htmlFor='option2'>Last 14 days</label>
                             </div>
 
                             <div className={styles.radioDiv}>
-                                <input type="radio" id="option6" name="sortOrder" value="last30d" checked = {timeFilter === "last30d"} onChange={timeFilterChange}/>
+                                <input type="radio" id="option6" name="sortOrder" value="last30d" checked={filters.sortOrder === "last30d"} onChange={selectChange} />
                                 <label htmlFor='option3'>Last 30 days</label>
                             </div>
                         </div>

@@ -12,7 +12,7 @@ function Properties() {
     const [data, setData] = useState([]);
     const [displayedProperties, setDisplayedProperties] = useState([]);
 
-    const [selectElementsValues, setSelectElementsValues] = useState({
+    const [quickFilters, setQuickFilters] = useState({
         location: "",
         status: "",
         beds: "",
@@ -33,18 +33,18 @@ function Properties() {
     const onChangeSelect = (event) => {
         const name = event.target.name
         const value = event.target.value
-        setSelectElementsValues({ ...selectElementsValues, [name]: value })
+        setQuickFilters({ ...quickFilters, [name]: value })
     }
 
     const preventSubmmision = (event) => {
         event.preventDefault();
-        if (selectElementsValues.location != "")
-            setHeaderText(` in ${selectElementsValues.location}`)
+        if (quickFilters.location != "")
+            setHeaderText(` in ${quickFilters.location}`)
         else
             setHeaderText("")
     }
 
-    const filterByTime = (sortValue,filterResult) => {
+    const filterByTime = (sortValue, filterResult) => {
         const now = new Date();
         let startDate;
         switch (sortValue) {
@@ -58,7 +58,7 @@ function Properties() {
                 startDate = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
                 break;
             case "last14d":
-                startDate = new Date(now.getTime() - 14 * 24 * 60 * 60 * 1000); 
+                startDate = new Date(now.getTime() - 14 * 24 * 60 * 60 * 1000);
                 break;
             case "last30d":
                 startDate = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
@@ -77,20 +77,20 @@ function Properties() {
         setFilterVisibility(false);
     }
 
-    function searchOnProperties(sortValue) {
+    function searchOnProperties(sortValue, filters) {
         let filterResult = data.filter((property) => {
             return (
-                (property.bedrooms == selectElementsValues.beds || selectElementsValues.beds == "") &&
-                (property.bathrooms == selectElementsValues.baths || selectElementsValues.baths == "") &&
-                (property.propertyType == selectElementsValues.propertyType || selectElementsValues.propertyType == "") &&
-                (property.status == selectElementsValues.status || selectElementsValues.status == "") &&
-                property.location.toLowerCase().includes(selectElementsValues.location.toLowerCase()) &&
-                (property.furniture == selectElementsValues.furnishOptions || selectElementsValues.furnishOptions == "") &&
-                (property.price >= selectElementsValues.minPrice || selectElementsValues.minPrice == null) &&
-                (property.price <= selectElementsValues.maxPrice || selectElementsValues.maxPrice == null)
+                (property.bedrooms == filters.beds || filters.beds == "") &&
+                (property.bathrooms == filters.baths || filters.baths == "") &&
+                (property.propertyType == filters.propertyType || filters.propertyType == "") &&
+                (property.status == filters.status || filters.status == "") &&
+                property.location.toLowerCase().includes(filters.location.toLowerCase()) &&
+                (property.furniture == filters.furnishOptions || filters.furnishOptions == "") &&
+                (property.price >= filters.minPrice || filters.minPrice == null) &&
+                (property.price <= filters.maxPrice || filters.maxPrice == null)
             )
         })
-        filterResult = filterByTime(sortValue,filterResult)
+        filterResult = filterByTime(sortValue, filterResult)
         setDisplayedProperties(filterResult)
     }
 
@@ -120,13 +120,13 @@ function Properties() {
                 </div>
                 <div className={styles.searchBar}>
                     <form className={styles.searchBarForm} onSubmit={preventSubmmision}>
-                        <input type="text" placeholder="Enter City" value={selectElementsValues.location} name="location" onChange={onChangeSelect} className={`${styles.textInput} ${styles.searchComponent}`} />
-                        <select name="status" id="status" value={selectElementsValues.status} onChange={onChangeSelect} className={`${styles.status} ${styles.searchComponent} ${styles.hide}`}>
+                        <input type="text" placeholder="Enter City" value={quickFilters.location} name="location" onChange={onChangeSelect} className={`${styles.textInput} ${styles.searchComponent}`} />
+                        <select name="status" id="status" value={quickFilters.status} onChange={onChangeSelect} className={`${styles.status} ${styles.searchComponent} ${styles.hide}`}>
                             <option value="">satus</option>
                             <option value="ForSale">For Sale</option>
                             <option value="ForRent">For Rent</option>
                         </select>
-                        <select name="beds" id="beds" value={selectElementsValues.beds} onChange={onChangeSelect} className={`${styles.beds} ${styles.searchComponent} ${styles.hide}`}>
+                        <select name="beds" id="beds" value={quickFilters.beds} onChange={onChangeSelect} className={`${styles.beds} ${styles.searchComponent} ${styles.hide}`}>
                             <option value="">Beds</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -134,13 +134,13 @@ function Properties() {
                             <option value="4">4</option>
                             <option value="5">5</option>
                         </select>
-                        <select name="baths" id="baths" value={selectElementsValues.baths} onChange={onChangeSelect} className={`${styles.baths} ${styles.searchComponent} ${styles.hide}`}>
+                        <select name="baths" id="baths" value={quickFilters.baths} onChange={onChangeSelect} className={`${styles.baths} ${styles.searchComponent} ${styles.hide}`}>
                             <option value="">Baths</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                         </select>
-                        <select name="propertyType" id="propertyType" value={selectElementsValues.propertyType} onChange={onChangeSelect} className={`${styles.propertyType} ${styles.searchComponent} ${styles.hide}`}>
+                        <select name="propertyType" id="propertyType" value={quickFilters.propertyType} onChange={onChangeSelect} className={`${styles.propertyType} ${styles.searchComponent} ${styles.hide}`}>
                             <option value="">Property Type</option>
                             <option value="villa">Villa</option>
                             <option value="apartment">Apartment</option>
@@ -148,7 +148,7 @@ function Properties() {
                             <option value="duplex">Duplex</option>
                         </select>
                         <button type="button" onClick={openFilter} className={`${styles.filterButton} ${styles.searchComponent}`}><TuneIcon /><span className={styles.hideText}>Filter</span></button>
-                        <button type="submit" className={`${styles.searchComponent} ${styles.submitButton}`} onClick={searchOnProperties}><SearchIcon /><span className={styles.hideText}>Search</span></button>
+                        <button type="submit" className={`${styles.searchComponent} ${styles.submitButton}`} onClick={(event) => { searchOnProperties(quickFilters.sortOrder, quickFilters) }}><SearchIcon /><span className={styles.hideText}>Search</span></button>
                     </form>
                 </div>
             </div>
@@ -157,7 +157,7 @@ function Properties() {
                 <div className={styles.body}>
                     <div className={styles.bodyHeader}>
                         <span className={styles.bodyHeaderText}>Properties{headerText}</span>
-                        <select name="sortOrder" id="sortOrder" className={`${styles.sortElement} ${styles.hide}`} value={selectElementsValues.sortOrder} onChange={(event) => { onChangeSelect(event); searchOnProperties(event.target.value); }}>
+                        <select name="sortOrder" id="sortOrder" className={`${styles.sortElement} ${styles.hide}`} value={quickFilters.sortOrder} onChange={(event) => { onChangeSelect(event); searchOnProperties(event.target.value, quickFilters); }}>
                             <option value="Anytime">Sort order: Anytime</option>
                             <option value="last24h">Sort order: Last 24 hours</option>
                             <option value="last3d">Sort order: Last 3 days</option>
@@ -170,7 +170,7 @@ function Properties() {
                 </div>
             </div>
             {auth.isAuthenticated ? null : <SignInAlert />}
-            {filterVisibility && <FilterSearch closeFilter={closeFilter} filters={selectElementsValues} setFilters={setSelectElementsValues} searchOnProperties={searchOnProperties} />}
+            {filterVisibility && <FilterSearch closeFilter={closeFilter} quickFilters={quickFilters} setQuickFilters={setQuickFilters} searchOnProperties={searchOnProperties} />}
         </>
     )
 }
