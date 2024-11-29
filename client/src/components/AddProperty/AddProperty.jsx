@@ -241,8 +241,11 @@ function AddProperty({onClose}) {
                 <div className={styles.bigChooseDiv}>
                     <h4>Property Type</h4>
                     <select className={styles.bigSelect} name="propertyType" id="propertyType"  onChange={handleChange} value={details.propertyType}>
-                        <option value="Saona">Saona</option>
-                        <option value="Jacozy">Jacozy</option>
+                        <option value="">Show All</option>
+                        <option value="villa">Villa</option>
+                        <option value="apartment">Apartment</option>
+                        <option value="penthouse">Penthouse</option>
+                        <option value="duplex">Duplex</option>
                     </select>
                 </div>
 
