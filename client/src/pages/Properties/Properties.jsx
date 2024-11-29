@@ -18,7 +18,10 @@ function Properties() {
         beds: "",
         baths: "",
         propertyType: "",
-        sortOrder: ""
+        sortOrder: "",
+        maxPrice:null,
+        minPrice:null,
+        furnishOptions:""
     });
 
     const auth = useAuth()
@@ -62,7 +65,10 @@ function Properties() {
                 (property.bathrooms == selectElementsValues.baths || selectElementsValues.baths == "") &&
                 (property.propertyType == selectElementsValues.propertyType || selectElementsValues.propertyType == "") &&
                 (property.status == selectElementsValues.status || selectElementsValues.status == "")&&
-                property.location.toLowerCase().includes(selectElementsValues.location.toLowerCase())
+                property.location.toLowerCase().includes(selectElementsValues.location.toLowerCase())&&
+                (property.furniture == selectElementsValues.furnishOptions || selectElementsValues.furnishOptions == "")&&
+                (property.price >= selectElementsValues.minPrice || selectElementsValues.minPrice == null) &&
+                (property.price <= selectElementsValues.maxPrice || selectElementsValues.maxPrice == null) 
             )
         })
         setDisplayedProperties(filterResult)
@@ -120,8 +126,6 @@ function Properties() {
                             <option value="apartment">Apartment</option>
                             <option value="penthouse">Penthouse</option>
                             <option value="duplex">Duplex</option>
-
-
                         </select>
                         <button type="button" onClick={openFilter} className={`${styles.filterButton} ${styles.searchComponent}`}><TuneIcon /><span className={styles.hideText}>Filter</span></button>
                         <button type="submit" className={`${styles.searchComponent} ${styles.submitButton}`} onClick={searchOnProperties}><SearchIcon /><span className={styles.hideText}>Search</span></button>
@@ -146,7 +150,7 @@ function Properties() {
                 </div>
             </div>
             {auth.isAuthenticated ? null : <SignInAlert />}
-            {filterVisibility && <FilterSearch onClose={closeFilter} />}
+            {filterVisibility && <FilterSearch closeFilter={closeFilter} filters = {selectElementsValues} setFilters={setSelectElementsValues} search={searchOnProperties}/>}
         </>
     )
 }
