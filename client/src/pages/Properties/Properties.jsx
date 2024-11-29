@@ -18,10 +18,10 @@ function Properties() {
         beds: "",
         baths: "",
         propertyType: "",
-        sortOrder: "",
-        maxPrice:null,
-        minPrice:null,
-        furnishOptions:""
+        sortOrder: "Anytime",
+        maxPrice: null,
+        minPrice: null,
+        furnishOptions: ""
     });
 
     const auth = useAuth()
@@ -44,10 +44,29 @@ function Properties() {
             setHeaderText("")
     }
 
-    const onChangeSort = (event) => {
-        const name = event.target.name
-        const value = event.target.value
-        setSelectElementsValues({ ...selectElementsValues, [name]: value })
+    const filterByTime = (sortValue,filterResult) => {
+        const now = new Date();
+        let startDate;
+        switch (sortValue) {
+            case "last24h":
+                startDate = new Date(now.getTime() - 24 * 60 * 60 * 1000);
+                break;
+            case "last3d":
+                startDate = new Date(now.getTime() - 3 * 24 * 60 * 60 * 1000);
+                break;
+            case "last7d":
+                startDate = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+                break;
+            case "last14d":
+                startDate = new Date(now.getTime() - 14 * 24 * 60 * 60 * 1000); 
+                break;
+            case "last30d":
+                startDate = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
+                break;
+            default:
+                return filterResult;
+        }
+        return filterResult.filter(property => new Date(property.createdAt) >= startDate);
     }
 
     function openFilter() {
@@ -58,19 +77,20 @@ function Properties() {
         setFilterVisibility(false);
     }
 
-    function searchOnProperties() {
-        var filterResult = data.filter((property) => {
+    function searchOnProperties(sortValue) {
+        let filterResult = data.filter((property) => {
             return (
                 (property.bedrooms == selectElementsValues.beds || selectElementsValues.beds == "") &&
                 (property.bathrooms == selectElementsValues.baths || selectElementsValues.baths == "") &&
                 (property.propertyType == selectElementsValues.propertyType || selectElementsValues.propertyType == "") &&
-                (property.status == selectElementsValues.status || selectElementsValues.status == "")&&
-                property.location.toLowerCase().includes(selectElementsValues.location.toLowerCase())&&
-                (property.furniture == selectElementsValues.furnishOptions || selectElementsValues.furnishOptions == "")&&
+                (property.status == selectElementsValues.status || selectElementsValues.status == "") &&
+                property.location.toLowerCase().includes(selectElementsValues.location.toLowerCase()) &&
+                (property.furniture == selectElementsValues.furnishOptions || selectElementsValues.furnishOptions == "") &&
                 (property.price >= selectElementsValues.minPrice || selectElementsValues.minPrice == null) &&
-                (property.price <= selectElementsValues.maxPrice || selectElementsValues.maxPrice == null) 
+                (property.price <= selectElementsValues.maxPrice || selectElementsValues.maxPrice == null)
             )
         })
+        filterResult = filterByTime(sortValue,filterResult)
         setDisplayedProperties(filterResult)
     }
 
@@ -137,8 +157,8 @@ function Properties() {
                 <div className={styles.body}>
                     <div className={styles.bodyHeader}>
                         <span className={styles.bodyHeaderText}>Properties{headerText}</span>
-                        <select name="sortOrder" id="sortOrder" className={`${styles.sortElement} ${styles.hide}`} value={selectElementsValues.sortOrder} onChange={onChangeSort}>
-                            <option value="">Sort order: Anytime</option>
+                        <select name="sortOrder" id="sortOrder" className={`${styles.sortElement} ${styles.hide}`} value={selectElementsValues.sortOrder} onChange={(event) => { onChangeSelect(event); searchOnProperties(event.target.value); }}>
+                            <option value="Anytime">Sort order: Anytime</option>
                             <option value="last24h">Sort order: Last 24 hours</option>
                             <option value="last3d">Sort order: Last 3 days</option>
                             <option value="last7d">Sort order: Last 7 days</option>
@@ -150,7 +170,7 @@ function Properties() {
                 </div>
             </div>
             {auth.isAuthenticated ? null : <SignInAlert />}
-            {filterVisibility && <FilterSearch closeFilter={closeFilter} filters = {selectElementsValues} setFilters={setSelectElementsValues} search={searchOnProperties}/>}
+            {filterVisibility && <FilterSearch closeFilter={closeFilter} filters={selectElementsValues} setFilters={setSelectElementsValues} searchOnProperties={searchOnProperties} />}
         </>
     )
 }
